@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Smart_Tailoring_Solution_App.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GroupBox" TargetType="Frame">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BorderColor" Value="LightGray" />
+                <Setter Property="HasShadow" Value="False" />
+
+            </Style>
+            <Style x:Key="TextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontFamily" Value="serif" />
+                <Setter Property="TextColor" Value="Black" />
+
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontFamily" Value="serif" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#58A797" />
+                <Setter Property="CornerRadius" Value="10" />
+
+            </Style>
+
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

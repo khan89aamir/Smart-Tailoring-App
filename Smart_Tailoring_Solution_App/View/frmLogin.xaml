@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Smart_Tailoring_Solution_App.View.frmLogin">
+    <ContentPage.Content>
+        <StackLayout Padding="20" x:Name="pnlLogin" IsVisible="true " VerticalOptions="Fill">
+            <Image Source="logoMain.png" WidthRequest="250"></Image>
+            <Frame Margin="4" HasShadow="True" >
+                <StackLayout>
+                    <Label Text="User Name : " FontSize="Medium" FontFamily="serif" TextColor="Black"></Label>
+                    <Entry  Placeholder="Enter User Name" FontFamily="serif" ></Entry>
+
+
+                    <Label Text="Password : "  FontSize="Medium" FontFamily="serif" TextColor="Black"></Label>
+                    <Entry  Placeholder="Enter Password" FontFamily="serif" IsPassword="True"></Entry>
+
+                    <Button Text="Login" CornerRadius="20"  TextColor="White" BackgroundColor="#007bff" Clicked="Button_Clicked" ></Button>
+
+                    <Label HorizontalOptions="End" Margin="0,20,0,0" x:Name="lblForgotPassword" Text="Forgot Password ?" TextDecorations="Underline" TextColor="Blue" >
+
+                    </Label>
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

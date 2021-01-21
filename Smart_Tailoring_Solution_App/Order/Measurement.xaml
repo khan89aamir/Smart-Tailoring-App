@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Product List"
+             x:Class="Smart_Tailoring_Solution_App.Measurement">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text ="Home"  
+                Priority="0" Order="Primary" Clicked="ToolbarItem_Clicked" />
+        <!--<ToolbarItem Text ="Next"  
+              Priority="1" Order="Primary" />-->
+        <!--<ToolbarItem Text ="Item 2"  
+              Priority="1" Order="Secondary" />
+        this will give you three doted lines at the right corner-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <StackLayout>
+                <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
+
+                <ListView x:Name="lstMonkey" ItemsSource="{Binding Monkeys}"
+          HasUnevenRows="true"
+           
+          ItemSelected="OnListViewItemSelected"
+          ItemTapped="OnListViewItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Tapped="ViewCell_Tapped">
+                                <Grid Padding="4" Margin="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Frame>
+                                        <StackLayout>
+                                            <Image HorizontalOptions="Center"
+                                           Source="{Binding ImageUrl}"
+                                           Aspect="Fill"
+                                           HeightRequest="60"
+                                           WidthRequest="60" />
+                                            <Label Text="{Binding Name}" HorizontalOptions="Center"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Frame Grid.Column="1">
+                                        <StackLayout>
+                                            <Image HorizontalOptions="Center"
+                                           Source="{Binding ImageUrl}"
+                                           Aspect="Fill"
+                                           HeightRequest="60"
+                                           WidthRequest="60" />
+                                            <Label Text="{Binding Name}" HorizontalOptions="Center"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+
+
+
+                            </ViewCell>
+                            
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+
+            <StackLayout Orientation="Vertical"  VerticalOptions="EndAndExpand"  >
+
+
+                <Button Text="Next" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

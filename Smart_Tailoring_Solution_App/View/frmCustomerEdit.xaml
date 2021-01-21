@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Smart_Tailoring_Solution_App.View.frmCustomerEdit" Title="Edit Customer">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <StackLayout x:Name="pnlCustomerInfo" Padding="20" >
+                <Label   Text="Name" Style="{StaticResource TextStyle}"></Label>
+
+                <Entry   x:Name="txtCustomerName" Placeholder="Enter Customer Name" HorizontalOptions="FillAndExpand" Style="{StaticResource TextStyle}" ></Entry>
+
+                <Label Text="Mobile No" Style="{StaticResource TextStyle}"></Label>
+                <Entry x:Name="txtMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextStyle}" Keyboard="Numeric" ></Entry>
+
+                <Label Text="Email" Style="{StaticResource TextStyle}"></Label>
+                <Entry  x:Name="txtMail" Placeholder="Enter Customer Email" Style="{StaticResource TextStyle}" Keyboard="Email"  ></Entry>
+
+                <Label Text="Address" Style="{StaticResource TextStyle}"></Label>
+                <Entry x:Name="txtAddress" Placeholder="Enter Customer Address" Style="{StaticResource TextStyle}"></Entry>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Button Text="Update" x:Name="btnUpdate"  Style="{StaticResource ButtonStyle}" TextColor="White"  Clicked="btnUpdate_Clicked"  ></Button>
+                    <Button Text="Delete" x:Name="btnDelet"  Style="{StaticResource ButtonStyle}" Clicked="btnDelet_Clicked"  ></Button>
+                </StackLayout>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

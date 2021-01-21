@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_Tailoring_Solution_App.Customer"
+             Title="Customer">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame HasShadow="True" CornerRadius="20">
+                
+            </Frame>
+            <Button Text="hi"></Button>
+                <Frame>
+                    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <RadioButton x:Name="btnNewCustomer" Text="New Customer"   Clicked="btnNewCustomer_Clicked" />
+
+                    <RadioButton x:Name="btnOldCustomer"  Text="Old Customer"  Clicked="btnOldCustomer_Clicked"/>
+                    </StackLayout>
+                
+                </Frame>
+
+            <StackLayout x:Name="pnlCustomerInfo" Padding="20" IsVisible="false">
+                <Label   Text="Name" Style="{StaticResource TextStyle}"></Label>
+
+                    <Entry   x:Name="txtCustomerName" Placeholder="Enter Customer Name" HorizontalOptions="FillAndExpand" Style="{StaticResource TextStyle}" ></Entry>
+              
+                <Label Text="Mobile No" Style="{StaticResource TextStyle}"></Label>
+                <Entry x:Name="txtMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextStyle}" Keyboard="Numeric" ></Entry>
+
+                <Label Text="Email" Style="{StaticResource TextStyle}"></Label>
+                <Entry  x:Name="txtMail" Placeholder="Enter Customer Email" Style="{StaticResource TextStyle}" Keyboard="Email"  ></Entry>
+
+                <Label Text="Address" Style="{StaticResource TextStyle}"></Label>
+                <Entry x:Name="txtAddress" Placeholder="Enter Customer Address" Style="{StaticResource TextStyle}"></Entry>
+
+                <Button Text="Next" x:Name="btnNext"  Style="{StaticResource ButtonStyle}" Clicked="btnNext_Clicked"  ></Button>
+            </StackLayout>
+
+            <StackLayout x:Name="pnlExistingCustomer" Padding="20" IsVisible="false">
+                <Label  Text="Mobile No" Style="{StaticResource TextStyle}"></Label>
+                <Entry x:Name="txtSearchMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextStyle}" Keyboard="Numeric" TextChanged="Entry_TextChanged" ></Entry>
+
+                <Label Text="OR" Style="{StaticResource TextStyle}" HorizontalOptions="Center"></Label>
+                
+                <Label Text="Customer Name" Style="{StaticResource TextStyle}"></Label>
+                <Entry x:Name="txtSearchCustomerName" Placeholder="Enter Customer Name" Style="{StaticResource TextStyle}" TextChanged="txtSearchCustomerName_TextChanged"  ></Entry>
+
+
+                <Button x:Name="btnNextOption" Text="Next" IsVisible="false"  Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked" ></Button>
+            </StackLayout>
+            <StackLayout>
+              
+                <ListView x:Name="dgvCustomer" >
+                    <ListView.ItemTemplate>
+                     
+                        <DataTemplate>
+                            <ViewCell Tapped="ViewCell_Tapped" >
+                                <StackLayout  Orientation="Horizontal"  Padding="10">
+                                   
+                                    <Label Style="{StaticResource TextStyle}" WidthRequest="100"  HorizontalOptions="Start" Text="{Binding Name }"></Label>
+                                    <Label  Style="{StaticResource TextStyle}" HorizontalOptions="CenterAndExpand" Text="{Binding MobileNo }"></Label>
+
+                                    <Button  x:Name="btnEdit2" Style="{StaticResource ButtonStyle}"  Padding="0" FontSize="Small"  HeightRequest="35"   Text="Edit"   Clicked="btnEdit_Clicked"></Button>
+
+
+                                </StackLayout>
+                            </ViewCell>
+                           
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </StackLayout>
+ 
+        
+        
+    </ContentPage.Content>
+</ContentPage>

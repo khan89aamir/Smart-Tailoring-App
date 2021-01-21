@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    Icon="hamburger.png"
+             xmlns:local="clr-namespace: Smart_Tailoring_Solution_App.View"
+         
+
+             x:Class=" Smart_Tailoring_Solution_App.View.MainPage">
+
+    <MasterDetailPage.Master >
+        <ContentPage Title="Menu" WidthRequest="100" MinimumWidthRequest="200">
+            <Grid BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Image Source="background.jpg" Aspect="AspectFill" />
+                    <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="measuring.png" Aspect="AspectFit" WidthRequest="80" HeightRequest="80" />
+                        <Label Text="Smart Tailoring App" TextColor="Black" FontSize="Large" FontFamily="serif" />
+                        <Label Text="Version : 1.0.0.0" TextColor="Black" FontSize="Default" FontFamily="serif" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout Grid.Row="1" Spacing="0">
+                    <ListView x:Name="navigationDrawerList"
+                  RowHeight="50"
+                  SeparatorVisibility="None"
+                SeparatorColor="Transparent"
+                  ItemSelected="OnMenuItemSelected">
+
+                        <ListView.ItemTemplate >
+                            <DataTemplate >
+                                <ViewCell  Tapped="ViewCell_Tapped">
+                                    <StackLayout >
+
+                                        <!-- Main design for our menu items -->
+                                        <StackLayout VerticalOptions="FillAndExpand"
+                             Orientation="Horizontal"
+                             Padding="20,5,5,10"
+                             Spacing="20">
+
+                                            <Image Source="{Binding Icon}"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                                        
+                         VerticalOptions="Center" />
+
+                                            <Label Text="{Binding Title}"
+                         FontSize="Medium"
+                         VerticalOptions="Center"
+                              FontFamily="serif"               
+                         TextColor="Black"/>
+                                        </StackLayout>
+                                        <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Logs"
+             x:Class="Smart_Tailoring_Solution_App.View.frmLogs">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Padding="5">
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="lblLogSize" Text="LogSize : " TextColor="Black"></Label>
+                    <Button x:Name="btnDelete" Text="Delete Logs" HorizontalOptions="EndAndExpand" Clicked="btnDelete_Clicked"></Button>
+                </StackLayout>
+                <Editor x:Name="txtLogs" IsReadOnly="True" FontSize="Medium" >
+
+                </Editor>
+            </StackLayout>
+        </ScrollView>
+   
+    </ContentPage.Content>
+</ContentPage>

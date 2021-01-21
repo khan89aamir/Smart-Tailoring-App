@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Smart_Tailoring_Solution_App.ActivationPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout  Padding="20" BackgroundColor="#007bff">
+                <Label HorizontalOptions="Center"  FontSize="Title" FontFamily="cursive" TextColor="White">Smart Tailoring Solution</Label>
+            </StackLayout>
+
+            <StackLayout Padding="10">
+                <Label Text="1. Enter IP Address and Press Connect to Server button." Style="{StaticResource TextStyle}"></Label>
+                <Label Text="2. Enter Activation code and Press Activation button." Style="{StaticResource TextStyle}"></Label>
+
+                <ActivityIndicator x:Name="ctrActivityIndicator" IsRunning="true" IsVisible="false" HorizontalOptions="Center" VerticalOptions="Center" />
+
+            </StackLayout>
+           
+            <Frame Style="{StaticResource GroupBox}">
+                <StackLayout Padding="10" Margin="0,0,0,20">
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="Serial No :" 
+              HorizontalTextAlignment="Start" TextColor="Black" FontSize="Medium"   FontFamily="serif"
+               VerticalOptions="Start" />
+                        <Label  x:Name="lblSerialNo" Text="NA "  TextColor="Black" FontSize="Medium"    FontFamily="serif"
+               HorizontalOptions="Start"
+               />
+                       
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="Server IP : "
+               VerticalTextAlignment="Center" TextColor="Black" FontSize="Medium"  FontFamily="serif" 
+              />
+                        <Entry Text="" x:Name="txtServerIP"  Keyboard="Telephone"  Placeholder="Enter Server IP"
+              TextColor="Black" FontSize="Medium"  FontFamily="serif"></Entry>
+
+                    </StackLayout>
+                    <StackLayout>
+                        <Button x:Name="btnConnectToServer" Clicked="btnConnectToServer_Clicked"  Margin="0,10,0,0"  Text="Connect To Server" 
+                   
+                     
+                    
+                     HorizontalOptions="Center"
+                     CornerRadius="10"
+                     BackgroundColor="#007bff"
+                     TextColor="White"
+                         HeightRequest="40"
+                     ></Button>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </Frame>
+
+
+            <Frame Style="{StaticResource GroupBox}">
+                <StackLayout>
+                    <Image Source="LockLogo.png" WidthRequest="100"></Image>
+                    <Label Text="Activate Application" HorizontalOptions="Center" TextColor="Black" FontFamily="serif"></Label>
+
+                    <StackLayout VerticalOptions="Center" Padding="10" >
+
+                        <Entry x:Name="txtActivationCode"  Placeholder="Enter Activation Code" Keyboard="Numeric" HorizontalTextAlignment="Center"  />
+
+                        <Button Text="Activate Application"
+                VerticalOptions="Center" 
+                BackgroundColor="#007bff" 
+                TextColor="White"
+                CornerRadius="20"
+                Clicked="Button_Clicked"
+                
+                />
+
+                    </StackLayout>
+
+
+                </StackLayout>
+              
+            </Frame>
+         
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class=" Smart_Tailoring_Solution_App.SettingPage"
+             Title="Setting">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame Style="{StaticResource GroupBox}">
+                    <StackLayout>
+
+                        <Frame Style="{StaticResource GroupBox}" BackgroundColor="#8181ff" Padding="10">
+                            <StackLayout>
+                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                    <Label   Text="Activation Details" Style="{StaticResource TextStyle}" TextColor="White"></Label>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Frame>
+                        <StackLayout Padding="10">
+                            <Label Text="Serial Number : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Entry x:Name="txtSerialNo" Text="" Placeholder="Serial Number" IsReadOnly="True" Keyboard="Numeric"></Entry>
+                            <Label Text="Activation Code : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Entry x:Name="txtActivationCode" Text="" Placeholder="Activation Code" Keyboard="Numeric"></Entry>
+                            <Label Text="Server IP : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Entry x:Name="txtServerIP" Text="" Placeholder="Enter Server IP" Keyboard="Numeric"></Entry>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Button Text="Update"></Button>
+                                <Button Text="Deactivate" Clicked="Button_Clicked"></Button>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Style="{StaticResource GroupBox}">
+                    <StackLayout>
+                        <Frame Style="{StaticResource GroupBox}"  BackgroundColor="#8181ff" Padding="10">
+                            <StackLayout>
+                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                    <Label   Text="Other Settings" Style="{StaticResource TextStyle}" TextColor="White"></Label>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+         
+          
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>

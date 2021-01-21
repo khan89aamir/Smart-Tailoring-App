@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Measurement"
+             x:Class="Smart_Tailoring_Solution_App.Test.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <StackLayout>
+
+                <StackLayout  VerticalOptions="Start" MinimumHeightRequest="130" >
+                    <!--Horizontal Scroll view for showing selected product-->
+                    <ScrollView  HorizontalOptions="Fill" HorizontalScrollBarVisibility="Always" Orientation="Horizontal">
+                        <StackLayout x:Name="pnlcartProducts"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Frame BorderColor="LightGray" HasShadow="True"  >
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                                <StackLayout>
+                                    <Label Text="Shirt" TextColor="black" HorizontalTextAlignment="Center"></Label>
+                                    <Image Source="shirt.png" WidthRequest="50"  BackgroundColor="Transparent"   ></Image>
+
+                                </StackLayout>
+
+
+                            </Frame>
+
+                            <Frame BorderColor="LightGray" HasShadow="True">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                                <StackLayout>
+                                    <Label Text="Kurta" TextColor="black" HorizontalTextAlignment="Center"></Label>
+                                    <Image Source="Kurat.png" WidthRequest="50"  ></Image>
+
+                                </StackLayout>
+
+                            </Frame>
+
+                            <Frame BorderColor="LightGray" HasShadow="True" >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Frame.GestureRecognizers>
+                                <StackLayout>
+                                    <Label Text="T Shirt" TextColor="black" HorizontalTextAlignment="Center"></Label>
+                                    <Image Source="Tshirt.png" WidthRequest="50"  ></Image>
+
+                                </StackLayout>
+                            </Frame>
+
+
+
+                        </StackLayout>
+
+                    </ScrollView>
+
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout>
+                <ScrollView Padding="5">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
+                             <StackLayout Margin="10">
+                                <ImageButton Source="measurement.png" Margin="10"
+                    Clicked="btnAddMeasurment_Clicked"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="Transparent"
+                    />
+                                <Label Text="Add Measurment" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                            </StackLayout>
+
+                            <StackLayout Margin="10">
+                                <ImageButton Source="style.png" Margin="10"
+                    Clicked="btnAddStyle_Clicked"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="Transparent"
+                    />
+                                <Label Text="Add Style" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout Padding="10"   x:Name="pnlMeasurment" IsVisible="false" >
+                            <Label Text="Length" TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+                            <Label Text="Shoulder" TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+                            <Label Text="Sleeve" TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+                            <Label Text="Chest " TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+                            <Label Text="waist " TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+
+                            <Label Text="Hip " TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+                            <Label Text="Cross front " TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+                            <Label Text="Cross Back " TextColor="Black"></Label>
+                            <Entry Keyboard="Numeric"></Entry>
+
+
+
+
+
+                        </StackLayout>
+                         <StackLayout x:Name="pnlStyle" IsVisible="false">
+
+
+                <Frame>
+
+                    <StackLayout  >
+                        <StackLayout Margin="10,0,0,0" Orientation="Horizontal" IsVisible="true">
+                            <Button Text="1" BackgroundColor="Black" TextColor="White" CornerRadius="100" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start"></Button>
+                            <Button Text="2" CornerRadius="100" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start"></Button>
+                            <Button Text="3" CornerRadius="100" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start"></Button>
+                        </StackLayout>
+                        <Label Text="Style  :" TextColor="Black"></Label>
+                        <Picker   Title="Select Type" TitleColor="Navy">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Collar</x:String>
+                                    <x:String>Pocket</x:String>
+                                    <x:String>Front Patti</x:String>
+                                    <x:String>Back Pleat</x:String>
+                                    <x:String>Bottom</x:String>
+
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <CarouselView PeekAreaInsets="0" HeightRequest="430"  x:Name="lstMonkey" ItemsSource="{Binding Monkeys}">
+                            <CarouselView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" />
+                            </CarouselView.ItemsLayout>
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout >
+                                        <Frame HasShadow="True"
+                       BorderColor="DarkGray"
+                       CornerRadius="5"
+                             HeightRequest="400"
+                               WidthRequest="300"                   
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start">
+                                            <StackLayout >
+                                                <Label Text="{Binding Name}"
+                               FontAttributes="Bold"
+                               FontSize="Small"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                                                <Image Source="{Binding ImageUrl}"
+                               Aspect="Fill"
+                            
+                               HorizontalOptions="Center" />
+
+
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+
+                    </StackLayout>
+                </Frame>
+
+
+            </StackLayout>
+                        <Button x:Name="btnDone" VerticalOptions="End" Clicked="btnDone_Clicked" Text="Done"></Button>
+                        <Button x:Name="btnNext" VerticalOptions="End" Clicked="btnNext_Clicked" Text="Next ->>"></Button>
+                    </StackLayout>
+
+                  
+
+                </ScrollView>
+              
+            </StackLayout>
+
+
+
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

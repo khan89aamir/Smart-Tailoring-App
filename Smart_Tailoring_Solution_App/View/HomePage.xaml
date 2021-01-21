@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_Tailoring_Solution_App.HomePage"
+             
+             Title="Home">
+    <ContentPage.Content>
+
+      
+        <StackLayout BackgroundColor="White">
+            <StackLayout Orientation="Horizontal">
+                <Label Padding="10" Text="Login By : Rajesh " TextColor="Black" FontSize="Medium"  FontFamily="serif"></Label>
+                <Label  Padding="0,10,0,0" Text="Con Status: " TextColor="Black" FontSize="Medium"  FontFamily="serif" HorizontalOptions="EndAndExpand"></Label>
+                <Label x:Name="lblConnectionStatus"   Padding="0,10,10,0" Text="NA" TextColor="Black" FontSize="Medium"  FontFamily="serif" HorizontalOptions="End"></Label>
+
+            </StackLayout>
+            <StackLayout x:Name="pnlHome" VerticalOptions="CenterAndExpand">
+           
+                
+                 <Grid Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Grid.Column="0" Padding="20"  BackgroundColor="#017E84"  FontSize="Default"  FontFamily="serif" TextColor="White">Total Orders:    20</Label>
+
+                    <Label Grid.Column="1"  Padding="20"  BackgroundColor="#E87121"   FontFamily="serif" TextColor="White">Todays Orders:20</Label>
+                    <Label Grid.Column="2"  Padding="20" BackgroundColor="#3370AC"  FontFamily="serif" TextColor="White">Cancel Orders:20</Label>
+
+                </Grid>
+                <Image Source="logoMain.png" WidthRequest="250" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ></Image>
+
+
+              
+               
+            </StackLayout>
+
+
+            <StackLayout VerticalOptions="EndAndExpand" >
+                <Frame HasShadow="True" Padding="1" BorderColor="LightGray" Margin="2" HeightRequest="100" VerticalOptions="End">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+
+
+                        <StackLayout Margin="15">
+                            <ImageButton x:Name="btnOrder" Source="order.png" Margin="0,0,0,0"
+                  Clicked="btnOrder_Clicked"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="Transparent"
+                    />
+                            <Label Text="Order" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Margin="15">
+                            <ImageButton x:Name="btnSetting" Source="setting.png" Margin="0,0,0,0"
+                 Clicked="btnSetting_Clicked"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="Transparent"
+                    />
+                            <Label Text="Setting" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Margin="15">
+                            <ImageButton x:Name="btnSync" Source="syncflat.png" Margin="0,0,0,0"
+                Clicked="btnSync_Clicked"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="Transparent"
+                    />
+                            <Label Text="Sync" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+
+
+
+
+                    </StackLayout>
+
+
+                </Frame>
+            </StackLayout>
+         
+       
+            <Button Text="API Test" Clicked="Button_Clicked_1" IsVisible="false" ></Button>
+            <Button x:Name="btnPostData" Text="PostData" Clicked="btnPostData_Clicked" IsVisible="false" ></Button>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

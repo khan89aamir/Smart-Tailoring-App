@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Smart_Tailoring_Solution_App.View.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="btnNormal" Text="Normal" Clicked="btnNormal_Clicked"></Button>
+            <Button x:Name="btnNormalIfo" Text="NormalInfo" Clicked="btnNormalIfo_Clicked"></Button>
+            <Button x:Name="btnQuestion" Text="Question" Clicked="btnQuestion_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
