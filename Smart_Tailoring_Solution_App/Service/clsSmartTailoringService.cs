@@ -1,5 +1,6 @@
 ﻿using System;using System.Collections.Generic;using System.Net.Http;using System.Text;using System.Threading.Tasks;using Smart_Tailoring_Solution_App.DAL;using Smart_Tailoring_Solution_App.Model;namespace Smart_Tailoring_Solution_App.Service{
     public class clsSmartTailoringService    {        public string URL { get; set; }        public static string ServerIPAddress { get; set; }
+        public static int UserID { get; set; }
 
         public async Task<bool> CheckServerConnection(string ServerIP)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
                     URL = "http://" + ServerIP + "/api/Masters/GetStatus";
@@ -94,4 +95,8 @@
 
                     // get the Response in Class-object format. ( DeSerialized it)
                     Response responseData = Newtonsoft.Json.JsonConvert.DeserializeObject<Response>(strResponse);                    if (responseData.Result)// check the values
-                    {                        conresult = true;                    }                    else                    {                        conresult = false;                    }                }                catch (Exception ex)                {                    Utility.WriteLog("ValidateLogin : " + ex.ToString());                    conresult = false;                }            }            return conresult;        }    }}
+                    {                        UserID = responseData.Value;                        conresult = true;                    }                    else                    {                        conresult = false;                    }                }                catch (Exception ex)                {                    Utility.WriteLog("ValidateLogin : " + ex.ToString());                    conresult = false;                }            }            return conresult;        }        public async Task<List<Employee>> GetEmployeeDetails(int EmpID)        {            List<Employee> lstEmployeedata = new List<Employee>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetEmployeeDetails?EmpID=" + EmpID;                    var EmployeeData = await client.GetStringAsync(URL);
+
+                    // get the Employees from server
+                    lstEmployeedata = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Employee>>(EmployeeData);
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetEmployeeDetails : " + ex.ToString());                }            }            return lstEmployeedata;        }    }}

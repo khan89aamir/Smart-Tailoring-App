@@ -36,32 +36,25 @@ namespace Smart_Tailoring_Solution_App.DAL
                 }
             }
         }
-    
-         public TAILORING_DB(string dbPath)
+
+        public TAILORING_DB(string dbPath)
         {
             _database = new SQLiteConnection(dbPath);
-         
         }
-
 
         #region Customer
         public List<tblCustomer> GetCustomerAsync()
         {
-
-
             return _database.Table<tblCustomer>().OrderByDescending(x => x.LastChange).ToList();
         }
 
         public List<tblCustomer> GetCustoemrByMobile(string mobile)
         {
-
-
-            return _database.Query<tblCustomer>("select * from  tblCustomer where MobileNo like '" + mobile + "%'");
+            return _database.Query<tblCustomer>("SELECT * FROM tblCustomer WHERE MobileNo like '" + mobile + "%'");
         }
+
         public List<tblCustomer> GetNonSyncCustomer()
         {
-          
-
             return _database.Query<tblCustomer>("select * from  tblCustomer where LastChange=0");
         }
 
@@ -71,18 +64,13 @@ namespace Smart_Tailoring_Solution_App.DAL
 
             LastID = _database.Table<tblCustomer>().Max(x => x.LastChange);
 
-
-
             return LastID;
-
         }
 
-        public bool  IsCustomerExists(string customerID)
+        public bool IsCustomerExists(string customerID)
         {
-            
-
-            var result= _database.Query<tblCustomer>("select CustomerID from  tblCustomer where CustomerID=" + customerID);
-            if (result.Count>0)
+            var result = _database.Query<tblCustomer>("select CustomerID from tblCustomer where CustomerID=" + customerID);
+            if (result.Count > 0)
             {
                 return true;
             }
@@ -93,9 +81,7 @@ namespace Smart_Tailoring_Solution_App.DAL
         }
         public List<tblCustomer> GetCustoemrByName(string name)
         {
-
-
-            return _database.Query<tblCustomer>("select * from  tblCustomer where Name like '%" + name + "%'");
+            return _database.Query<tblCustomer>("SELECT * FROM  tblCustomer WHERE Name like '%" + name + "%'");
         }
 
         public int SaveCustomer(tblCustomer customer)
@@ -105,7 +91,6 @@ namespace Smart_Tailoring_Solution_App.DAL
 
         public int DeleteCustomerAsync(tblCustomer customer)
         {
-
             return _database.Delete(customer);
         }
 
@@ -119,7 +104,7 @@ namespace Smart_Tailoring_Solution_App.DAL
         }
         #endregion
 
-        public  void CreateTables()
+        public void CreateTables()
         {
             try
             {
@@ -129,31 +114,28 @@ namespace Smart_Tailoring_Solution_App.DAL
             }
             catch (Exception ex)
             {
-                Utility.WriteLog("CreateTables : "+ex.ToString());
-
-
+                Utility.WriteLog("CreateTables : " + ex.ToString());
             }
-          
-
-
         }
+
         #region Create Tables
         private CreateTableResult CreateActivationDetails()
         {
             return _database.CreateTable<ActivationDetails>();
         }
+
         private CreateTableResult CreateCustomerDetails()
         {
-
             return _database.CreateTable<tblCustomer>();
         }
+
         private CreateTableResult CreateUserManagement()
         {
             return _database.CreateTable<UserManagement>();
-        } 
+        }
         #endregion
 
-        public  int SaveActivationDetails(ActivationDetails activationDetails)
+        public int SaveActivationDetails(ActivationDetails activationDetails)
         {
             // Delete all the records, as there should be only one row for activation
             _database.DeleteAll<ActivationDetails>();
@@ -161,24 +143,15 @@ namespace Smart_Tailoring_Solution_App.DAL
             return _database.Insert(activationDetails);
         }
 
-        public  List<ActivationDetails> GetActivationDetails()
+        public List<ActivationDetails> GetActivationDetails()
         {
             return _database.Table<ActivationDetails>().ToList();
-
-          
         }
+
         public int DeleteActivation()
         {
             // Delete all the records, as there should be only one row for activation
-          return  _database.DeleteAll<ActivationDetails>();
-
-
-
+            return _database.DeleteAll<ActivationDetails>();
         }
-
-       
-
-
-
     }
 }

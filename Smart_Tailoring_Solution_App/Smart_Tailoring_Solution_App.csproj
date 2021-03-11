@@ -44,6 +44,9 @@
     <EmbeddedResource Update="View\frmCustomerEdit.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="View\frmEmployee.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\frmForgetPassword.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

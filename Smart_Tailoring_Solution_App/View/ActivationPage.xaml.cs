@@ -23,7 +23,7 @@ namespace Smart_Tailoring_Solution_App
 
         clsSmartTailoringService ObjService = new clsSmartTailoringService();
 
-        static  string id = string.Empty;
+        static string id = string.Empty;
         public static string Id
         {
             get
@@ -41,7 +41,7 @@ namespace Smart_Tailoring_Solution_App
                     }
                     catch (Exception ex)
                     {
-                        
+
                         Android.Util.Log.Warn("DeviceInfo", "Unable to get id: " + ex.ToString());
                     }
                 }
@@ -81,18 +81,18 @@ namespace Smart_Tailoring_Solution_App
                 await DisplayAlert("Activation Error", "Unable to connect to the server. Check the server IP address.", "Ok");
             }
         }
-      
+
         private async void btnConnectToServer_Clicked(object sender, EventArgs e)
         {
-            if (txtServerIP.Text.Trim().Length==0)
+            if (txtServerIP.Text.Trim().Length == 0)
             {
-                await DisplayAlert("Server IP", "Please Enter Server IP Address","OK");
+                await DisplayAlert("Server IP", "Please Enter Server IP Address", "OK");
                 return;
             }
             ctrActivityIndicator.IsVisible = true;
 
             // check if th service is available. 
-            var result = await ObjService.SendActivationRequest(txtServerIP.Text,lblSerialNo.Text) ;
+            var result = await ObjService.SendActivationRequest(txtServerIP.Text, lblSerialNo.Text);
 
             if (result)
             {
@@ -105,8 +105,8 @@ namespace Smart_Tailoring_Solution_App
                 await DisplayAlert("Server Connection Failed", "Not able to connect to the server. Please check the server ip address.", "Ok");
             }
         }
-   
-        private  bool SaveActivationDetails()
+
+        private bool SaveActivationDetails()
         {
             // save the data into database
 
@@ -115,10 +115,10 @@ namespace Smart_Tailoring_Solution_App
             activation.DeviceSerialNumber = lblSerialNo.Text;
             activation.ServerIP = txtServerIP.Text;
 
-            int result =  TAILORING_DB.Instance.SaveActivationDetails(activation);
-            if (result>0)
+            int result = TAILORING_DB.Instance.SaveActivationDetails(activation);
+            if (result > 0)
             {
-                clsSmartTailoringService.ServerIPAddress= txtServerIP.Text;
+                clsSmartTailoringService.ServerIPAddress = txtServerIP.Text;
                 return true;
             }
             else

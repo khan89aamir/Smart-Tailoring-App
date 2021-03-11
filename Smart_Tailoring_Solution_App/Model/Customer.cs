@@ -6,7 +6,7 @@ using SQLite;
 
 namespace Smart_Tailoring_Solution_App.Model
 {
-  
+    [Table("CustomerMaster")]
     public class tblCustomer
     {
         [PrimaryKey,AutoIncrement]
@@ -19,8 +19,6 @@ namespace Smart_Tailoring_Solution_App.Model
 
         public string Address { get; set; }
 
-        public int LastChange { get; set; }
-
-       
+        public int LastChange { get; set; } 
     }
 }

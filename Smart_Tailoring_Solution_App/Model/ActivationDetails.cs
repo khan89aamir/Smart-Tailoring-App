@@ -14,7 +14,5 @@ namespace Smart_Tailoring_Solution_App.Model
         public string ActivationCode { get; set; }
 
         public string DeviceSerialNumber { get; set; }
-
-      
     }
 }

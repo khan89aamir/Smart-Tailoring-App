@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-
 using Smart_Tailoring_Solution_App.MenuItems;
 
 namespace Smart_Tailoring_Solution_App.View
@@ -17,6 +16,7 @@ namespace Smart_Tailoring_Solution_App.View
 
             // Adding menu items to menuList and you can define title ,page and icon
             menuList.Add(new MasterPageItem() { Title = "Home", Icon = "home.png", TargetType = typeof(HomePage) });
+            menuList.Add(new MasterPageItem() { Title = "Employee", Icon = "home.png", TargetType = typeof(View.frmEmployee) });
             menuList.Add(new MasterPageItem() { Title = "Order", Icon = "order.png", TargetType = typeof(Customer) });
             menuList.Add(new MasterPageItem() { Title = "Setting", Icon = "setting.png", TargetType = typeof(SettingPage) });
             menuList.Add(new MasterPageItem() { Title = "Contact US", Icon = "contactus.png", TargetType = typeof(HomePage) });

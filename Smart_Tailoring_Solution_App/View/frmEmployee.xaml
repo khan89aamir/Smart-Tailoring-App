@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Smart_Tailoring_Solution_App.View.frmEmployee">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Employee Details !"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout>
+
+                <ListView x:Name="dgvEmployee" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="4">
+                                <!--<StackLayout  Orientation="Horizontal"  Padding="10">-->
+
+                                    <Label Style="{StaticResource TextStyle}" Text="{Binding Name,StringFormat='Name: {0:F0)}' }"></Label>
+
+                                    <Label  Style="{StaticResource TextStyle}"  Text="{Binding MobileNo,StringFormat='MobileNo: {0:F0)}' }"></Label>
+
+                                    <Label Style="{StaticResource TextStyle}" Text="{Binding EmployeeCode,StringFormat='EmployeeCode: {0:F0)}' }"></Label>
+
+                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding Gender,StringFormat='Gender: {0:F0)}' }"></Label>
+
+                                    <Label Style="{StaticResource TextStyle}" Text="{Binding EmployeeType,StringFormat='EmployeeType: {0:F0)}' }"></Label>
+
+                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding Address,StringFormat='Address:  {0:F0)}' }"></Label>
+                                    
+                                </StackLayout>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+            
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

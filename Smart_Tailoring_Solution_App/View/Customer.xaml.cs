@@ -26,34 +26,27 @@ namespace Smart_Tailoring_Solution_App
             pnlCustomerInfo.IsVisible = false;
             pnlExistingCustomer.IsVisible = true;
             btnNextOption.IsVisible = false;
-
         }
-        protected override  void OnAppearing()
+
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
             LoadCustomer();
-
-
         }
-        private  void LoadCustomer()
+
+        private void LoadCustomer()
         {
-            dgvCustomer.ItemsSource =  TAILORING_DB.Instance.GetCustomerAsync();
+            dgvCustomer.ItemsSource = TAILORING_DB.Instance.GetCustomerAsync();
         }
-         void Button_Clicked(object sender, System.EventArgs e)
+
+        void Button_Clicked(object sender, System.EventArgs e)
         {
-
-         
-
             App.Current.MainPage = new NavigationPage(new Measurement());
-
-
-
         }
 
-        private  void btnNext_Clicked(object sender, System.EventArgs e)
+        private void btnNext_Clicked(object sender, System.EventArgs e)
         {
-
             tblCustomer ObjCustomer = new tblCustomer();
             ObjCustomer.CustomerID = 1;
             ObjCustomer.Address = txtAddress.Text;
@@ -61,14 +54,14 @@ namespace Smart_Tailoring_Solution_App
             ObjCustomer.Name = txtCustomerName.Text;
             ObjCustomer.MobileNo = txtMobileNo.Text;
 
-           int result=  TAILORING_DB.Instance.SaveCustomer(ObjCustomer);
-            if (result>0)
+            int result = TAILORING_DB.Instance.SaveCustomer(ObjCustomer);
+            if (result > 0)
             {
-                DisplayAlert("Customer", "Customer have been added.","Ok");
+                DisplayAlert("Customer", "Customer have been added.", "Ok");
             }
         }
 
-        private  void btnDelete_Clicked(object sender, System.EventArgs e)
+        private void btnDelete_Clicked(object sender, System.EventArgs e)
         {
             dgvCustomer.IsRefreshing = true;
 
@@ -77,20 +70,17 @@ namespace Smart_Tailoring_Solution_App
             // this will give you all info 
             tblCustomer _cust = (tblCustomer)button.BindingContext;
 
-
-             TAILORING_DB.Instance.DeleteCustomerAsync(_cust);
+            TAILORING_DB.Instance.DeleteCustomerAsync(_cust);
 
             dgvCustomer.ItemsSource = null;
             LoadCustomer();
             dgvCustomer.IsRefreshing = false;
             return;
-
-          
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtSearchMobileNo.Text.Trim().Length==0)
+            if (txtSearchMobileNo.Text.Trim().Length == 0)
             {
                 LoadCustomer();
             }
@@ -98,7 +88,6 @@ namespace Smart_Tailoring_Solution_App
             {
                 dgvCustomer.ItemsSource = TAILORING_DB.Instance.GetCustoemrByMobile(txtSearchMobileNo.Text);
             }
-          
         }
 
         private void txtSearchCustomerName_TextChanged(object sender, TextChangedEventArgs e)
@@ -115,7 +104,6 @@ namespace Smart_Tailoring_Solution_App
         ViewCell lastCell;
         private void ViewCell_Tapped(object sender, System.EventArgs e)
         {
-
             if (lastCell != null)
                 lastCell.View.BackgroundColor = Color.Transparent;
             var viewCell = (ViewCell)sender;
@@ -125,20 +113,17 @@ namespace Smart_Tailoring_Solution_App
                 lastCell = viewCell;
             }
             Navigation.PushAsync(new Measurement());
-          
+
         }
 
         private void btnEdit_Clicked(object sender, System.EventArgs e)
         {
-
             Button button = (Button)sender;
-            var binding= button.BindingContext;
+            var binding = button.BindingContext;
 
             tblCustomer tc = (tblCustomer)(binding);
-            
 
             Navigation.PushAsync(new View.frmCustomerEdit(tc));
         }
     }
-
 }
