@@ -18,8 +18,5 @@ namespace Smart_Tailoring_Solution_App.Model
         public string EmailID { get; set; }
 
         public int EmployeeID { get; set; }
-
-
-
     }
 }

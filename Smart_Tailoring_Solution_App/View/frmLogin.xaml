@@ -11,11 +11,10 @@
             <Frame Margin="4" HasShadow="True" >
                 <StackLayout>
                     <Label Text="User Name : " FontSize="Medium" FontFamily="serif" TextColor="Black"></Label>
-                    <Entry  Placeholder="Enter User Name" FontFamily="serif" ></Entry>
-
+                    <Entry  x:Name="txtUserName"  Placeholder="Enter User Name" FontFamily="serif" ></Entry>
 
                     <Label Text="Password : "  FontSize="Medium" FontFamily="serif" TextColor="Black"></Label>
-                    <Entry  Placeholder="Enter Password" FontFamily="serif" IsPassword="True"></Entry>
+                    <Entry  x:Name="txtPassword" Placeholder="Enter Password" FontFamily="serif" IsPassword="True"></Entry>
 
                     <Button Text="Login" CornerRadius="20"  TextColor="White" BackgroundColor="#007bff" Clicked="Button_Clicked" ></Button>
 

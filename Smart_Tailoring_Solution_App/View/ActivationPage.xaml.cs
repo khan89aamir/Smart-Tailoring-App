@@ -20,7 +20,10 @@ namespace Smart_Tailoring_Solution_App
             var strText = Id;
             lblSerialNo.Text = strText.ToUpper();
         }
-      static  string id = string.Empty;
+
+        clsSmartTailoringService ObjService = new clsSmartTailoringService();
+
+        static  string id = string.Empty;
         public static string Id
         {
             get
@@ -48,8 +51,6 @@ namespace Smart_Tailoring_Solution_App
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-           
-
             if (txtServerIP.Text.Trim().Length == 0)
             {
                 await DisplayAlert("Server IP", "Please Enter Server IP Address", "OK");
@@ -62,32 +63,25 @@ namespace Smart_Tailoring_Solution_App
                 var result = await ObjService.ValidateActivation(lblSerialNo.Text, txtActivationCode.Text, txtServerIP.Text);
                 if (result)
                 {
-
                     SaveActivationDetails();
                     ctrActivityIndicator.IsVisible = false;
                     await DisplayAlert("Activation", "Application has been activated !", "Ok");
 
-                    App.Current.MainPage = new MainPage();
+                    App.Current.MainPage = new View.frmLogin();
                 }
                 else
                 {
                     ctrActivityIndicator.IsVisible = false;
                     await DisplayAlert("Activation Error", "Failed to activate the application.Pleae check the activation code.", "Ok");
-
                 }
-
             }
             else
             {
                 ctrActivityIndicator.IsVisible = false;
                 await DisplayAlert("Activation Error", "Unable to connect to the server. Check the server IP address.", "Ok");
             }
-
-
-
         }
       
-        clsSmartTailoringService ObjService = new clsSmartTailoringService();
         private async void btnConnectToServer_Clicked(object sender, EventArgs e)
         {
             if (txtServerIP.Text.Trim().Length==0)
@@ -110,10 +104,8 @@ namespace Smart_Tailoring_Solution_App
                 ctrActivityIndicator.IsVisible = false;
                 await DisplayAlert("Server Connection Failed", "Not able to connect to the server. Please check the server ip address.", "Ok");
             }
-           
         }
    
-    
         private  bool SaveActivationDetails()
         {
             // save the data into database
@@ -122,7 +114,6 @@ namespace Smart_Tailoring_Solution_App
             activation.ActivationCode = txtActivationCode.Text;
             activation.DeviceSerialNumber = lblSerialNo.Text;
             activation.ServerIP = txtServerIP.Text;
-
 
             int result =  TAILORING_DB.Instance.SaveActivationDetails(activation);
             if (result>0)
@@ -134,7 +125,6 @@ namespace Smart_Tailoring_Solution_App
             {
                 return false;
             }
-
         }
     }
 }
