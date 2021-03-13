@@ -49,6 +49,7 @@ namespace Smart_Tailoring_Solution_App
                 return id;
             }
         }
+        // activea button
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if (txtServerIP.Text.Trim().Length == 0)
@@ -91,6 +92,7 @@ namespace Smart_Tailoring_Solution_App
             }
             ctrActivityIndicator.IsVisible = true;
 
+         
             // check if th service is available. 
             var result = await ObjService.SendActivationRequest(txtServerIP.Text, lblSerialNo.Text);
 
@@ -101,6 +103,7 @@ namespace Smart_Tailoring_Solution_App
             }
             else
             {
+                
                 ctrActivityIndicator.IsVisible = false;
                 await DisplayAlert("Server Connection Failed", "Not able to connect to the server. Please check the server ip address.", "Ok");
             }
