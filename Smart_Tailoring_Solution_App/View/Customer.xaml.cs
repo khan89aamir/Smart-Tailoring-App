@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Smart_Tailoring_Solution_App.DAL;
 using Smart_Tailoring_Solution_App.Model;
+using System.Collections.Generic;
 
 namespace Smart_Tailoring_Solution_App
 {
@@ -33,10 +34,12 @@ namespace Smart_Tailoring_Solution_App
             base.OnAppearing();
 
             LoadCustomer();
+            txtCustomerName.Focus();
         }
 
         private void LoadCustomer()
         {
+            List<tblCustomer> tblCustomers = DAL.TAILORING_DB.Instance.GetNonSyncCustomer();
             dgvCustomer.ItemsSource = TAILORING_DB.Instance.GetCustomerAsync();
         }
 
@@ -47,17 +50,52 @@ namespace Smart_Tailoring_Solution_App
 
         private void btnNext_Clicked(object sender, System.EventArgs e)
         {
-            tblCustomer ObjCustomer = new tblCustomer();
-            ObjCustomer.CustomerID = 1;
-            ObjCustomer.Address = txtAddress.Text;
-            ObjCustomer.EmailID = txtMail.Text;
-            ObjCustomer.Name = txtCustomerName.Text;
-            ObjCustomer.MobileNo = txtMobileNo.Text;
-
-            int result = TAILORING_DB.Instance.SaveCustomer(ObjCustomer);
-            if (result > 0)
+            string strMobileNo = txtMobileNo.Text == null ? "" : txtMobileNo.Text.Trim();
+            //if (txtCustomerName.Text.Trim().Length == 0)
+            //{
+            //    DisplayAlert("Customer", "Please Enter Name.", "Ok");
+            //    txtCustomerName.Focus();
+            //    return;
+            //}
+            if (strMobileNo.Trim().Length == 0)
             {
-                DisplayAlert("Customer", "Customer have been added.", "Ok");
+                DisplayAlert("Customer", "Please Enter Mobile No.", "Ok");
+                txtMobileNo.Focus();
+                return;
+            }
+            //if (txtMail.Text.Trim().Length == 0)
+            //{
+            //    DisplayAlert("Customer", "Please Enter Email ID.", "Ok");
+            //    txtMail.Focus();
+            //    return;
+            //}
+            //if (txtAddress.Text.Trim().Length == 0)
+            //{
+            //    DisplayAlert("Customer", "Please Enter Address.", "Ok");
+            //    txtAddress.Focus();
+            //    return;
+            //}
+            int cnt = DAL.TAILORING_DB.Instance.DuplicateMobileNo(strMobileNo.Trim());
+            if (cnt == 0)
+            {
+                tblCustomer ObjCustomer = new tblCustomer();
+                ObjCustomer.CustomerID = 0;
+                ObjCustomer.Address = txtAddress.Text;
+                ObjCustomer.EmailID = txtMail.Text;
+                ObjCustomer.Name = txtCustomerName.Text;
+                ObjCustomer.MobileNo = txtMobileNo.Text;
+                ObjCustomer.LastChange = 0;
+
+                int result = TAILORING_DB.Instance.SaveCustomer(ObjCustomer);
+                if (result > 0)
+                {
+                    DisplayAlert("Customer", "Customer have been added.", "Ok");
+                    ClearAll();
+                }
+            }
+            else
+            {
+                DisplayAlert("Customer", "Duplicate Customer Mobile No ['" + txtMobileNo.Text + "]'.", "Ok");
             }
         }
 
@@ -113,7 +151,6 @@ namespace Smart_Tailoring_Solution_App
                 lastCell = viewCell;
             }
             Navigation.PushAsync(new Measurement());
-
         }
 
         private void btnEdit_Clicked(object sender, System.EventArgs e)
@@ -124,6 +161,16 @@ namespace Smart_Tailoring_Solution_App
             tblCustomer tc = (tblCustomer)(binding);
 
             Navigation.PushAsync(new View.frmCustomerEdit(tc));
+        }
+
+        private void ClearAll()
+        {
+            txtCustomerName.Text = "";
+            txtAddress.Text = "";
+            txtMail.Text = "";
+            txtMobileNo.Text = "";
+
+            txtCustomerName.Focus();
         }
     }
 }

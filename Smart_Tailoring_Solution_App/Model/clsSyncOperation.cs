@@ -23,7 +23,6 @@ namespace Smart_Tailoring_Solution_App.Model
                         // update the customer
                         TAILORING_DB.Instance.UpdateCustomer(customer);
                         Utility.WriteLog("Customer Update : Customer ID : " + customer.CustomerID);
-
                     }
                     else
                     {
@@ -31,13 +30,10 @@ namespace Smart_Tailoring_Solution_App.Model
                         TAILORING_DB.Instance.SaveCustomer(customer);
                         Utility.WriteLog("New Customer Added");
                     }
-
-
                 }
                 Utility.WriteLog("Customer pull operation completed !");
                 // after Pulling the new/update data, Push the current Data
             }
-
 
             List<tblCustomer> tblCustomers= DAL.TAILORING_DB.Instance.GetNonSyncCustomer();
             bool resultcon=  await ObjService.CheckServerConnection();
@@ -45,7 +41,6 @@ namespace Smart_Tailoring_Solution_App.Model
             {
                 // Push the update or newly added data to the server
                 var lstCutomerDataUpdate = await ObjService.PostNew_UpdatefCustomerToServer(tblCustomers);
-
 
                 // get the LastChange ID and Customer ID
                 List<tblCustomer> tblUpdateCustRecord = lstCutomerDataUpdate;
@@ -60,12 +55,6 @@ namespace Smart_Tailoring_Solution_App.Model
             {
                 Utility.WriteLog("Not able to connect to the server.");
             }
-         
-            
-
-
-
         }
-
     }
 }

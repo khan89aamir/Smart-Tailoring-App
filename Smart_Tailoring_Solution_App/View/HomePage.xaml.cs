@@ -110,7 +110,7 @@ namespace Smart_Tailoring_Solution_App
             // await keyword is important.. if you remove await you wont get response here.
             var lstCustomerData = await ObjService.GetCustomerDataByLastChangeID(LastChangeID);
 
-            if (lstCustomerData.Count > 0)
+            //if (lstCustomerData.Count > 0)
             {   // Start Sync operation
                 Model.clsSyncOperation ObjSyncOperation = new clsSyncOperation();
 

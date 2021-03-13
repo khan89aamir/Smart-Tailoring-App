@@ -6,7 +6,7 @@ using SQLite;
 
 namespace Smart_Tailoring_Solution_App.Model
 {
-    [Table("CustomerMaster")]
+    [Table("tblCustomer")]
     public class tblCustomer
     {
         [PrimaryKey,AutoIncrement]

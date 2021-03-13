@@ -30,8 +30,8 @@ namespace Smart_Tailoring_Solution_App
                 ID = 1,
                 Name = "Jaket",
                 Location = "SKU-1001",
-                //   ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
-                ImageUrl = "jacket.png",
+                   ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg",
+                //ImageUrl = "jacket.png",
                 QTY = "0"
 
                 
@@ -44,8 +44,8 @@ namespace Smart_Tailoring_Solution_App
                 ID = 2,
                 Name = "Kurta",
                 Location = "SKU-1002",
-                //  ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Capuchin_Costa_Rica.jpg/200px-Capuchin_Costa_Rica.jpg"
-                ImageUrl = "Kurat.png",
+                 ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Capuchin_Costa_Rica.jpg/200px-Capuchin_Costa_Rica.jpg",
+               // ImageUrl = "Kurat.png",
                   QTY = "0"
             });
 
@@ -54,8 +54,8 @@ namespace Smart_Tailoring_Solution_App
                 ID = 3,
                 Name = "T-Shirt",
                 Location = "SKU-1003",
-                //ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/BlueMonkey.jpg/220px-BlueMonkey.jpg"
-                ImageUrl = "Tshirt.png",
+                ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83///BlueMonkey.jpg/220px-BlueMonkey.jpg",
+               // ImageUrl = "Tshirt.png",
                   QTY = "0"
             });
 
@@ -64,8 +64,8 @@ namespace Smart_Tailoring_Solution_App
                 ID = 4,
                 Name = "shirt ",
                 Location = "SKU-1004",
-                // ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Saimiri_sciureus-1_Luc_Viatour.jpg/220px-Saimiri_sciureus-1_Luc_Viatour.jpg"
-                ImageUrl = "shirt.png",
+                 ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Saimiri_sciureus-1_Luc_Viatour.jpg/220px-Saimiri_sciureus-1_Luc_Viatour.jpg",
+                //ImageUrl = "shirt.png",
                 QTY = "0"
             });
             _ObjMonkey.Add(new Monkey

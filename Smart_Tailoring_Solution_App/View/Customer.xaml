@@ -8,7 +8,7 @@
             <Frame HasShadow="True" CornerRadius="20">
                 
             </Frame>
-            <Button Text="hi"></Button>
+            
                 <Frame>
                     <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <RadioButton x:Name="btnNewCustomer" Text="New Customer"   Clicked="btnNewCustomer_Clicked" />

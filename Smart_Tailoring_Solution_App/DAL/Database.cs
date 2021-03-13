@@ -53,23 +53,33 @@ namespace Smart_Tailoring_Solution_App.DAL
             return _database.Query<tblCustomer>("SELECT * FROM tblCustomer WHERE MobileNo like '" + mobile + "%'");
         }
 
+        public int DuplicateMobileNo(string mobile)
+        {
+            int count = 0;
+            count = _database.Query<tblCustomer>("SELECT * FROM tblCustomer WHERE MobileNo ='" + mobile + "'").ToList().Count;
+            return count;
+        }
+
         public List<tblCustomer> GetNonSyncCustomer()
         {
-            return _database.Query<tblCustomer>("select * from  tblCustomer where LastChange=0");
+            string str = "select * from  tblCustomer where LastChange = 0";
+            return _database.Query<tblCustomer>(str);
         }
 
         public int CustomerLastChangeID()
         {
             int LastID = 0;
-
-            LastID = _database.Table<tblCustomer>().Max(x => x.LastChange);
-
+            int count = _database.Table<tblCustomer>().OrderByDescending(x => x.LastChange).ToList().Count;
+            if (count != 0)
+            {
+                LastID = _database.Table<tblCustomer>().Max(x => x.LastChange);
+            }
             return LastID;
         }
 
         public bool IsCustomerExists(string customerID)
         {
-            var result = _database.Query<tblCustomer>("select CustomerID from tblCustomer where CustomerID=" + customerID);
+            var result = _database.Query<tblCustomer>("SELECT CustomerID FROM tblCustomer WHERE CustomerID=" + customerID);
             if (result.Count > 0)
             {
                 return true;

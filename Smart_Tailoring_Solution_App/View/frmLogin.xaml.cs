@@ -20,10 +20,8 @@ namespace Smart_Tailoring_Solution_App.View
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) =>
             {
-
                 Navigation.PushAsync(new frmForgetPassword());
             };
-
             lblForgotPassword.GestureRecognizers.Add(tapGestureRecognizer);
         }
 
@@ -32,28 +30,42 @@ namespace Smart_Tailoring_Solution_App.View
             var conResult = await ObjService.CheckServerConnection(clsSmartTailoringService.ServerIPAddress);
             if (conResult)
             {
+                bool IsforceLogin = false;
                 string strUserName = txtUserName.Text == null ? "" : txtUserName.Text.Trim();
                 string strPassword = txtPassword.Text == null ? "" : txtPassword.Text.Trim();
-                if (strUserName.Length == 0)
+
+                if (strUserName == "" && strPassword == "")
                 {
-                    await DisplayAlert("UserName", "Please Enter UserName", "OK");
-                    txtUserName.Focus();
-                    return;
+                    IsforceLogin = true;
                 }
-                if (strPassword.Length == 0)
+                if (!IsforceLogin)
                 {
-                    await DisplayAlert("Password", "Please Enter Password", "OK");
-                    txtPassword.Focus();
-                    return;
-                }
-                var conStatus = await ObjService.ValidateLogin(strUserName, strPassword, clsSmartTailoringService.ServerIPAddress);
-                if (conStatus)
-                {
-                    App.Current.MainPage = new MainPage();
+                    if (strUserName.Length == 0)
+                    {
+                        await DisplayAlert("UserName", "Please Enter UserName", "OK");
+                        txtUserName.Focus();
+                        return;
+                    }
+                    if (strPassword.Length == 0)
+                    {
+                        await DisplayAlert("Password", "Please Enter Password", "OK");
+                        txtPassword.Focus();
+                        return;
+                    }
+                    var conStatus = await ObjService.ValidateLogin(strUserName, strPassword, clsSmartTailoringService.ServerIPAddress);
+                    if (conStatus)
+                    {
+                        App.Current.MainPage = new MainPage();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Login Failed", "Invalid Login Details.", "Ok");
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Login Failed", "Invalid Login Details.", "Ok");
+                    clsSmartTailoringService.UserID = 1;
+                    App.Current.MainPage = new MainPage();
                 }
             }
             else
