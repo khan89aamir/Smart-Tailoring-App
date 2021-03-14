@@ -50,13 +50,15 @@ namespace Smart_Tailoring_Solution_App
 
         private void btnNext_Clicked(object sender, System.EventArgs e)
         {
+            string strCustomerName = txtCustomerName.Text == null ? "" : txtCustomerName.Text.Trim();
             string strMobileNo = txtMobileNo.Text == null ? "" : txtMobileNo.Text.Trim();
-            //if (txtCustomerName.Text.Trim().Length == 0)
-            //{
-            //    DisplayAlert("Customer", "Please Enter Name.", "Ok");
-            //    txtCustomerName.Focus();
-            //    return;
-            //}
+            string strAddress = txtAddress.Text == null ? "" : txtAddress.Text.Trim();
+            if (strCustomerName.Trim().Length == 0)
+            {
+                DisplayAlert("Customer", "Please Enter Name.", "Ok");
+                txtCustomerName.Focus();
+                return;
+            }
             if (strMobileNo.Trim().Length == 0)
             {
                 DisplayAlert("Customer", "Please Enter Mobile No.", "Ok");
@@ -69,21 +71,21 @@ namespace Smart_Tailoring_Solution_App
             //    txtMail.Focus();
             //    return;
             //}
-            //if (txtAddress.Text.Trim().Length == 0)
-            //{
-            //    DisplayAlert("Customer", "Please Enter Address.", "Ok");
-            //    txtAddress.Focus();
-            //    return;
-            //}
+            if (strAddress.Trim().Length == 0)
+            {
+                DisplayAlert("Customer", "Please Enter Address.", "Ok");
+                txtAddress.Focus();
+                return;
+            }
             int cnt = DAL.TAILORING_DB.Instance.DuplicateMobileNo(strMobileNo.Trim());
             if (cnt == 0)
             {
                 tblCustomer ObjCustomer = new tblCustomer();
                 ObjCustomer.CustomerID = 0;
-                ObjCustomer.Address = txtAddress.Text;
+                ObjCustomer.Address = strAddress;
                 ObjCustomer.EmailID = txtMail.Text;
-                ObjCustomer.Name = txtCustomerName.Text;
-                ObjCustomer.MobileNo = txtMobileNo.Text;
+                ObjCustomer.Name = strCustomerName;
+                ObjCustomer.MobileNo = strMobileNo;
                 ObjCustomer.LastChange = 0;
 
                 int result = TAILORING_DB.Instance.SaveCustomer(ObjCustomer);
@@ -95,7 +97,7 @@ namespace Smart_Tailoring_Solution_App
             }
             else
             {
-                DisplayAlert("Customer", "Duplicate Customer Mobile No ['" + txtMobileNo.Text + "]'.", "Ok");
+                DisplayAlert("Customer", "Duplicate Customer Mobile No ['" + txtMobileNo.Text + "]'", "Ok");
             }
         }
 
