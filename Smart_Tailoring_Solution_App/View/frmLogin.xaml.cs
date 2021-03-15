@@ -27,12 +27,13 @@ namespace Smart_Tailoring_Solution_App.View
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            string strUserName = txtUserName.Text == null ? "" : txtUserName.Text.Trim();
+            string strPassword = txtPassword.Text == null ? "" : txtPassword.Text.Trim();
+
             var conResult = await ObjService.CheckServerConnection(clsSmartTailoringService.ServerIPAddress);
             if (conResult)
             {
                 bool IsforceLogin = false;
-                string strUserName = txtUserName.Text == null ? "" : txtUserName.Text.Trim();
-                string strPassword = txtPassword.Text == null ? "" : txtPassword.Text.Trim();
 
                 if (strUserName == "" && strPassword == "")
                 {
@@ -70,7 +71,15 @@ namespace Smart_Tailoring_Solution_App.View
             }
             else
             {
-                await DisplayAlert("Server Connection Failed", "Not able to connect to the server. Please check the server ip address.", "Ok");
+                var conStatus = DAL.TAILORING_DB.Instance.ValidateLocalLogin(strUserName.Trim(), strPassword.Trim());
+                if (conStatus > 0)
+                {
+                    App.Current.MainPage = new MainPage();
+                }
+                else
+                {
+                    await DisplayAlert("Server Connection Failed", "Not able to connect to the server. Please check the server ip address.", "Ok");
+                }
             }
         }
     }

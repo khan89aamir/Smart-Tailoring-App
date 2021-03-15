@@ -110,11 +110,21 @@ namespace Smart_Tailoring_Solution_App
             // await keyword is important.. if you remove await you wont get response here.
             var lstCustomerData = await ObjService.GetCustomerDataByLastChangeID(LastChangeID);
 
+            // Get Last SyncID of the UserManagement.
+            // last ID says that : this is my updated version.. do you have higher than this..
+            LastChangeID = DAL.TAILORING_DB.Instance.UserLastChangeID();
+
+            // Get all new/updated data from Server
+            // await keyword is important.. if you remove await you wont get response here.
+            var lstUserData = await ObjService.GetUserDataByLastChangeID(LastChangeID);
+
             //if (lstCustomerData.Count > 0)
             {   // Start Sync operation
                 Model.clsSyncOperation ObjSyncOperation = new clsSyncOperation();
 
                 ObjSyncOperation.SyncCustomerData(lstCustomerData, false);
+
+                ObjSyncOperation.SyncUserManagementData(lstUserData);
             }
         }
 

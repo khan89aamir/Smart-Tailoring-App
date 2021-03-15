@@ -16,6 +16,8 @@ namespace Smart_Tailoring_Solution_App.DAL
         private static readonly object padlock = new object();
 
         readonly SQLiteConnection _database;
+
+        clsCommon cls = new clsCommon();
         TAILORING_DB()
         {
         }
@@ -111,6 +113,62 @@ namespace Smart_Tailoring_Solution_App.DAL
         public int UpdateCustomerList(List<tblCustomer> lstcustomer)
         {
             return _database.UpdateAll(lstcustomer);
+        }
+
+        public int SaveUserManagement(UserManagement user)
+        {
+            return _database.Insert(user);
+        }
+        public int UpdateUserManagement(UserManagement user)
+        {
+            return _database.Update(user);
+        }
+        public int UpdateUserManagementList(List<UserManagement> lstuser)
+        {
+            return _database.UpdateAll(lstuser);
+        }
+        public bool IsUserExists(int UserID)
+        {
+            var result = _database.Query<tblCustomer>("SELECT UserID FROM tblUserManagement WHERE UserID=" + UserID);
+            if (result.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public List<UserManagement> GetNonSyncUser()
+        {
+            string str = "SELECT * FROM tblUserManagement WHERE LastChange = 0";
+            return _database.Query<UserManagement>(str);
+        }
+        public List<UserManagement> GetAllUsers()
+        {
+            string str = "SELECT * FROM tblUserManagement";
+            return _database.Query<UserManagement>(str);
+        }
+        public int UserLastChangeID()
+        {
+            int LastID = 0;
+            int count = _database.Table<UserManagement>().OrderByDescending(x => x.LastChange).ToList().Count;
+            if (count != 0)
+            {
+                LastID = _database.Table<UserManagement>().Max(x => x.LastChange);
+            }
+            return LastID;
+        }
+        public int ValidateLocalLogin(string strUserName, string strPassword)
+        {
+            //string str = "SELECT UserID FROM tblUserManagement WHERE UserName = '" + strUserName + "' AND Password = '" + cls.Encrypt(strPassword, true) + "' AND ActiveStatus=1";
+            string str = "SELECT UserID FROM tblUserManagement WHERE UserName = '" + strUserName + "' AND Password = '" + cls.Encrypt(strPassword, true) + "'";
+            List<UserManagement> lstUser = _database.Query<UserManagement>(str);
+            if (lstUser.Count > 0)
+            {
+                Service.clsSmartTailoringService.UserID = lstUser[0].UserID;
+            }
+            return lstUser.Count;
         }
         #endregion
 

@@ -1,5 +1,4 @@
-﻿
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Smart_Tailoring_Solution_App.DAL;
 using Smart_Tailoring_Solution_App.Model;

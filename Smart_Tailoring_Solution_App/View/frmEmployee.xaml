@@ -41,6 +41,38 @@
                 </ListView>
 
             </StackLayout>
+
+            <StackLayout>
+                <ListView x:Name="dgvUsers" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="4">
+                                    <!--<StackLayout  Orientation="Horizontal"  Padding="10">-->
+
+                                    <Label Style="{StaticResource TextStyle}" Text="{Binding UserID,StringFormat='UserID: {0:0}' }"></Label>
+
+                                    <Label  Style="{StaticResource TextStyle}"  Text="{Binding UserName,StringFormat='UserName: {0:F0)}' }"></Label>
+
+                                    <Label Style="{StaticResource TextStyle}" Text="{Binding Password,StringFormat='Password: {0:F0)}' }"></Label>
+
+                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding EmailID,StringFormat='EmailID: {0:F0)}' }"></Label>
+
+                                    <Label Style="{StaticResource TextStyle}" Text="{Binding ActiveStatus,StringFormat='ActiveStatus: {0:0}' }"></Label>
+
+                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding EmployeeID,StringFormat='EmployeeID:  {0:0}' }"></Label>
+
+                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding MB_UserID,StringFormat='MB_UserID:  {0:0}' }"></Label>
+
+                                </StackLayout>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
             
         </StackLayout>
 

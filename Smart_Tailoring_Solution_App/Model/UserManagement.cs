@@ -9,6 +9,7 @@ namespace Smart_Tailoring_Solution_App.Model
     public class UserManagement
     {
         [PrimaryKey, AutoIncrement]
+        public int MB_UserID { get; set; }
         public int UserID { get; set; }
 
         public string UserName { get; set; }
@@ -16,6 +17,8 @@ namespace Smart_Tailoring_Solution_App.Model
         public string Password { get; set; }
 
         public string EmailID { get; set; }
+        public int LastChange { get; set; }
+        public int ActiveStatus { get; set; }
 
         public int EmployeeID { get; set; }
     }

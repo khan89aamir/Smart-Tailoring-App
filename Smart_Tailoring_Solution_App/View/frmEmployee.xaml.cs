@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Smart_Tailoring_Solution_App.DAL;
+using Smart_Tailoring_Solution_App.Model;
 
 namespace Smart_Tailoring_Solution_App.View
 {
@@ -18,6 +20,7 @@ namespace Smart_Tailoring_Solution_App.View
             InitializeComponent();
 
             LoadEmployee();
+            LoadUsers();
         }
         clsSmartTailoringService ObjService = new clsSmartTailoringService();
 
@@ -25,6 +28,13 @@ namespace Smart_Tailoring_Solution_App.View
         {
             var lstEmployeeDetails = await ObjService.GetEmployeeDetails(clsSmartTailoringService.UserID);
             dgvEmployee.ItemsSource = lstEmployeeDetails;
+        }
+        private void LoadUsers()
+        {
+            clsCommon cls = new clsCommon();
+
+            var lstUserDetails = TAILORING_DB.Instance.GetAllUsers();
+            dgvUsers.ItemsSource = lstUserDetails;
         }
     }
 }
