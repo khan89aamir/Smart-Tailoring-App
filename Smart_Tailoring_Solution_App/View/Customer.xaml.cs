@@ -18,6 +18,7 @@ namespace Smart_Tailoring_Solution_App
         {
             pnlCustomerInfo.IsVisible = true;
             pnlExistingCustomer.IsVisible = false;
+            dgvCustomer.IsVisible = false;
             btnNextOption.IsVisible = true;
         }
 
@@ -26,6 +27,7 @@ namespace Smart_Tailoring_Solution_App
             pnlCustomerInfo.IsVisible = false;
             pnlExistingCustomer.IsVisible = true;
             btnNextOption.IsVisible = false;
+            dgvCustomer.IsVisible = true;
         }
 
         protected override void OnAppearing()
@@ -151,7 +153,9 @@ namespace Smart_Tailoring_Solution_App
                 viewCell.View.BackgroundColor = Color.FromHex("#E8E8E8");
                 lastCell = viewCell;
             }
-            Navigation.PushAsync(new Measurement());
+            
+            Navigation.PushAsync(new View.OrderManagement.frmOrderPage1());
+            
         }
 
         private void btnEdit_Clicked(object sender, System.EventArgs e)

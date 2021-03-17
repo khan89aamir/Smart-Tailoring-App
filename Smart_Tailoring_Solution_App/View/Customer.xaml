@@ -5,9 +5,7 @@
              Title="Customer">
     <ContentPage.Content>
         <StackLayout>
-            <Frame HasShadow="True" CornerRadius="20">
-                
-            </Frame>
+          
             
                 <Frame>
                     <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

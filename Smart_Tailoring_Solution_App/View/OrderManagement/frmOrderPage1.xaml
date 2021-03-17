@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Garment Selection"
+             x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderPage1">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <StackLayout>
+                <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
+               
+               
+
+
+
+                <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding GarmentList}"
+          HasUnevenRows="true"
+           ItemSelected="dgvGarmnetList_ItemSelected"
+          ItemTapped="dgvGarmnetList_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Tapped="ViewCell_Tapped">
+                                <Grid >
+                                    <Grid.RowDefinitions >
+                                        <RowDefinition  Height="70"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding ImageURL}" VerticalOptions="Center"  Grid.Column="0" Grid.Row="0"></Image>
+
+                                    <Label Text="{Binding Name}" VerticalOptions="Center"  Style="{StaticResource TextStyle}" Grid.Column="1" Grid.Row="0"></Label>
+
+
+
+                                </Grid>
+
+
+
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout x:Name="pnlGarmentDetails" IsVisible="true">
+                <Label Text="Garment :"  Style="{StaticResource TextStyle}"></Label>
+                <Entry  x:Name="txtGarmentName" Placeholder="Selected Garment"  Style="{StaticResource TextStyle}"></Entry>
+
+                <Label x:Name="txtQTY"  Text="QTY"  Style="{StaticResource TextStyle}"></Label>
+                <Picker x:Name="picQTY"
+        Title="Select QTY">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+
+                <Label Text="Trail Date :"  Style="{StaticResource TextStyle}"></Label>
+                <DatePicker  x:Name="dtpTrailDate"></DatePicker>
+
+
+                <Label Text="Delivery Date :"  Style="{StaticResource TextStyle}"></Label>
+                <DatePicker></DatePicker>
+
+                <Button x:Name="btnAdd" Text="Add" Style="{StaticResource ButtonStyle}" Clicked="btnAdd_Clicked" ></Button>
+
+            </StackLayout>
+           
+
+
+            <StackLayout>
+
+                <ListView x:Name="dgvAddedGarmnet" >
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <ViewCell  >
+                                <StackLayout  Orientation="Horizontal"  Padding="10">
+
+                                    <Label Style="{StaticResource TextStyle}" WidthRequest="100"  HorizontalOptions="Start" Text="{Binding Name }"></Label>
+                                    <Label  Style="{StaticResource TextStyle}" HorizontalOptions="CenterAndExpand" Text="{Binding QTY}"></Label>
+
+                                    <Button  x:Name="btnDelete" Style="{StaticResource ButtonStyle}"  Padding="0" FontSize="Small"  HeightRequest="35"   Text="Delete"  ></Button>
+
+
+                                </StackLayout>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
