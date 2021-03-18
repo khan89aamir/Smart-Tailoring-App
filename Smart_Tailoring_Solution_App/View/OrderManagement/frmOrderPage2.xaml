@@ -4,12 +4,57 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="Measurement"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderPage2">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="5">
+
+            <Frame Padding="2" Margin="0"  Style="{StaticResource GroupBox}">
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="adsf" HorizontalOptions="StartAndExpand"></Label>
+                    <Label Text="adsdddf"  HorizontalOptions="StartAndExpand"></Label>
+                </StackLayout>
+               
+            </Frame>
+            <StackLayout>
+                    <Label Margin="10" Style="{StaticResource TextStyle}" Text="Added Garment List :"></Label>
+                <ListView x:Name="dgvAddedGarmnet"  HeightRequest="700"  >
+                        <ListView.ItemTemplate>
+
+                           <DataTemplate>
+                                <ViewCell >
+                                <Frame Padding="5" Margin="0"  Style="{StaticResource GroupBox}">
+                                    <StackLayout Orientation="Vertical">
+                                       
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Name :" Style="{StaticResource TextStyle}" ></Label>
+                                            <Label Text="{Binding Name}" Style="{StaticResource TextStyle}"     HorizontalOptions="StartAndExpand"></Label>
+
+
+                                            <Label Text="QTY :" Style="{StaticResource TextStyle}"  ></Label>
+                                            <Label Text="{Binding QTY}" Style="{StaticResource TextStyle}"  HorizontalOptions="StartAndExpand"></Label>
+                                           
+
+
+                                        </StackLayout>
+                                        <StackLayout BackgroundColor="Yellow">
+                                            <Label Text="Test"></Label>
+                                        </StackLayout>
+                                      
+
+                                    </StackLayout>
+                                   
+                                </Frame>
+                               
+                            </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+         
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

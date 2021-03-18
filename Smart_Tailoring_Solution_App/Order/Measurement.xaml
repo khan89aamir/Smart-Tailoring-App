@@ -39,7 +39,7 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
 
                                     </Grid.ColumnDefinitions>
-                                    <Frame>
+                                    <Frame >
                                         <StackLayout>
                                             <Image HorizontalOptions="Center"
                                            Source="{Binding ImageUrl}"

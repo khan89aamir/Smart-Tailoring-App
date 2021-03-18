@@ -20,13 +20,20 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         {
             InitializeComponent();
 
-            
-            
+
+
             lstGarmnetList = new ObservableCollection<Model.GarmentList>();
-          
-            lstGarmnetList.Add(new Model.GarmentList { GarmentID = 1, Name = "Shirt", DeliveryDate = DateTime.Now, QTY = 1, TrailDate = DateTime.Now, ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress+ "/Images/Bandgalan1.png"
-            });;
-            lstGarmnetList.Add(new Model.GarmentList { GarmentID = 2, Name = "Trouser", DeliveryDate = DateTime.Now, QTY = 1, TrailDate = DateTime.Now, ImageURL ="http://"+ clsSmartTailoringService.ServerIPAddress + "/Images/Trouser%20Generic%201.png" });
+
+            lstGarmnetList.Add(new Model.GarmentList
+            {
+                GarmentID = 1,
+                Name = "Shirt",
+                DeliveryDate = DateTime.Now,
+                QTY = 1,
+                TrailDate = DateTime.Now,
+                ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Bandgalan1.png"
+            }); ;
+            lstGarmnetList.Add(new Model.GarmentList { GarmentID = 2, Name = "Trouser", DeliveryDate = DateTime.Now, QTY = 1, TrailDate = DateTime.Now, ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Trouser%20Generic%201.png" });
             lstGarmnetList.Add(new Model.GarmentList { GarmentID = 3, Name = "2-PC Suit", DeliveryDate = DateTime.Now, QTY = 1, TrailDate = DateTime.Now, ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
             lstGarmnetList.Add(new Model.GarmentList { GarmentID = 4, Name = "Jacket", DeliveryDate = DateTime.Now, QTY = 1, TrailDate = DateTime.Now, ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
             lstGarmnetList.Add(new Model.GarmentList { GarmentID = 5, Name = "3-PC Suit", DeliveryDate = DateTime.Now, QTY = 1, TrailDate = DateTime.Now, ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
@@ -72,11 +79,11 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private void dgvGarmnetList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var SelecteGarment=   e.Item as Model.GarmentList;
+            var SelecteGarment = e.Item as Model.GarmentList;
             dgvGarmnetList.IsVisible = false;
             pnlGarmentDetails.IsVisible = true;
             txtGarmentName.Text = SelecteGarment.Name;
-            picQTY.SelectedIndex=0;
+            picQTY.SelectedIndex = 0;
         }
         ViewCell lastCell;
 
@@ -101,7 +108,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         ObservableCollection<Model.GarmentList> lstSelectedGarment = new ObservableCollection<Model.GarmentList>();
         private void btnAdd_Clicked(object sender, EventArgs e)
         {
-           
+
             for (int i = 1; i <= Convert.ToInt32(picQTY.SelectedItem); i++)
             {
                 Model.GarmentList garment = new Model.GarmentList();
@@ -112,6 +119,33 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             }
 
             dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
+        }
+
+        private async void btnDelete_Clicked(object sender, EventArgs e)
+        {
+            bool result = await Model.Utility.ShowQuestionMessageBox("Are you sure, you want to delete this Garment?", this);
+            if (result)
+            {
+
+                Button button = (Button)sender;
+                var binding = button.BindingContext;
+
+                Model.GarmentList tc = (Model.GarmentList)(binding);
+
+                lstSelectedGarment.Remove(tc);
+
+                dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
+
+                Model.Utility.ShowMessageBox("Garment has been deleted successfully.", Model.Utility.MessageType.Success, this);
+            }
+        }
+
+        private void btnMeasurment_Clicked(object sender, EventArgs e)
+        {
+            View.OrderManagement.frmOrderPage2 frmOrderPage2 = new frmOrderPage2();
+            frmOrderPage2.lstSelectedGarment = lstSelectedGarment;
+
+            Navigation.PushAsync(frmOrderPage2);
         }
     }
 }
