@@ -4,10 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BackgroundColor="#525B72"
              x:Class="Smart_Tailoring_Solution_App.View.frmEmployee">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Employee Details !"
+            <Label Style="{StaticResource TextStyle}" Text="Employee Details !" FontAttributes="Bold"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
@@ -43,6 +44,10 @@
             </StackLayout>
 
             <StackLayout>
+                <Label Style="{StaticResource TextStyle}" Text="User Details !" FontAttributes="Bold"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                
                 <ListView x:Name="dgvUsers" HasUnevenRows="True">
                     <ListView.ItemTemplate>
 
@@ -55,7 +60,7 @@
 
                                     <Label  Style="{StaticResource TextStyle}"  Text="{Binding UserName,StringFormat='UserName: {0:F0)}' }"></Label>
 
-                                    <Label Style="{StaticResource TextStyle}" Text="{Binding Password,StringFormat='Password: {0:F0)}' }"></Label>
+                                    <!--<Label Style="{StaticResource TextStyle}" Text="{Binding Password,StringFormat='Password: {0:F0)}' }"></Label>-->
 
                                     <Label  Style="{StaticResource TextStyle}" Text="{Binding EmailID,StringFormat='EmailID: {0:F0)}' }"></Label>
 
