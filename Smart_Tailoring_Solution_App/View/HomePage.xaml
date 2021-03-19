@@ -6,7 +6,6 @@
              Title="Home">
     <ContentPage.Content>
 
-      
         <StackLayout >
             <StackLayout Orientation="Horizontal">
                 <Label Padding="10" Text="Login By : Rajesh " Style="{StaticResource TextStyle}"></Label>
@@ -16,7 +15,6 @@
             </StackLayout>
             <StackLayout x:Name="pnlHome" VerticalOptions="CenterAndExpand">
            
-                
                  <Grid Padding="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -37,16 +35,10 @@
 
                     </Frame>
 
-                
-
                 </Grid>
                 <Image Source="splash_logo.png" WidthRequest="230"  Margin="20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" ></Image>
 
-
-              
-               
             </StackLayout>
-
 
             <StackLayout VerticalOptions="EndAndExpand" >
                 <Frame HasShadow="True" Padding="1" Margin="2" HeightRequest="100" BackgroundColor="#525B72" VerticalOptions="End">
@@ -69,7 +61,7 @@
                              HeightRequest="50"
                              BackgroundColor="Transparent"
                     />
-                            <Label Text="Setting" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
+                            <Label Text="Settings" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
                         </StackLayout>
                         <StackLayout Margin="15">
                             <ImageButton x:Name="btnSync" Source="syncflat.png" Margin="0,0,0,0"
@@ -81,16 +73,10 @@
                             <Label Text="Sync" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
                         </StackLayout>
 
-
-
-
                     </StackLayout>
-
-
                 </Frame>
             </StackLayout>
          
-       
             <Button Text="API Test" Clicked="Button_Clicked_1" IsVisible="false" ></Button>
             <Button x:Name="btnPostData" Text="PostData" Clicked="btnPostData_Clicked" IsVisible="false" ></Button>
         </StackLayout>

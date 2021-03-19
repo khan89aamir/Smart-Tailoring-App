@@ -2,31 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class=" Smart_Tailoring_Solution_App.SettingPage"
-             Title="Setting">
+             BackgroundColor="#525B72"
+             xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
+             Title="Settings">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <Frame Style="{StaticResource GroupBox}">
+            <StackLayout >
+                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                     <StackLayout>
 
-                        <Frame Style="{StaticResource GroupBox}" BackgroundColor="#8181ff" Padding="10">
+                        <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
                                 <StackLayout  VerticalOptions="Start" Margin="0">
-                                    <Label   Text="Activation Details" Style="{StaticResource TextStyle}" TextColor="White"></Label>
+                                    <Label Text="Activation Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
                                 </StackLayout>
                             </StackLayout>
 
                         </Frame>
                         <StackLayout Padding="10">
                             <Label Text="Serial Number : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Entry x:Name="txtSerialNo" Text="" Placeholder="Serial Number" IsReadOnly="True" Keyboard="Numeric"></Entry>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtSerialNo" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Serial Number" IsReadOnly="True" Keyboard="Numeric"></custom:StandardEntry>
+                            </Frame>
+                            
                             <Label Text="Activation Code : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Entry x:Name="txtActivationCode" Text="" Placeholder="Activation Code" Keyboard="Numeric"></Entry>
-                            <Label Text="Server IP : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Entry x:Name="txtServerIP" Text="" Placeholder="Enter Server IP" Keyboard="Text"></Entry>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Button Text="Update"></Button>
-                                <Button Text="Deactivate" Clicked="Button_Clicked"></Button>
+                                <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtActivationCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Activation Code" Keyboard="Numeric"></custom:StandardEntry>
+                                </Frame>
+                                
+                                <Label Text="Server IP : " Style="{StaticResource TextStyle}"   ></Label>
+                                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtServerIP" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Server IP" Keyboard="Text"></custom:StandardEntry>
+                                </Frame>
+                                
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                <Button CornerRadius="20"  Style="{StaticResource ButtonStyle}" x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked" ></Button>
+                                <Button CornerRadius="20"  Style="{StaticResource ButtonStyle}" Text="Deactivate" Clicked="Button_Clicked"></Button>
                             </StackLayout>
 
                         </StackLayout>
@@ -35,12 +46,12 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame Style="{StaticResource GroupBox}">
+                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                     <StackLayout>
-                        <Frame Style="{StaticResource GroupBox}"  BackgroundColor="#8181ff" Padding="10">
+                        <Frame Style="{StaticResource GroupBox}"  BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
                                 <StackLayout  VerticalOptions="Start" Margin="0">
-                                    <Label   Text="Other Settings" Style="{StaticResource TextStyle}" TextColor="White"></Label>
+                                    <Label   Text="Other Settings" Style="{StaticResource TextStyle}" FontAttributes="Bold" TextColor="White"></Label>
                                 </StackLayout>
                             </StackLayout>
 
@@ -49,7 +60,6 @@
                 </Frame>
             </StackLayout>
          
-          
         </ScrollView>
        
     </ContentPage.Content>

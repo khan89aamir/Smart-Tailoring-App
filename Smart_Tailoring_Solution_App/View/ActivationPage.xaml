@@ -40,21 +40,16 @@
                     </StackLayout>
                     <StackLayout>
                         <Button x:Name="btnConnectToServer" Clicked="btnConnectToServer_Clicked"  Margin="0,10,0,0"  Text="Connect To Server" 
-                   
-                     
-                    
                      HorizontalOptions="Center"
                      CornerRadius="10"
                      BackgroundColor="#007bff"
                      TextColor="White"
-                         HeightRequest="40"
-                     ></Button>
+                         HeightRequest="40"></Button>
                     </StackLayout>
 
                 </StackLayout>
 
             </Frame>
-
 
             <Frame Style="{StaticResource GroupBox}">
                 <StackLayout>
@@ -70,12 +65,8 @@
                 BackgroundColor="#007bff" 
                 TextColor="White"
                 CornerRadius="20"
-                Clicked="Button_Clicked"
-                
-                />
-
+                Clicked="Button_Clicked"/>
                     </StackLayout>
-
 
                 </StackLayout>
               

@@ -103,6 +103,8 @@ namespace Smart_Tailoring_Solution_App.View
                 {
                     Model.Utility.ShowMessageBox("Customer has been deleted successfully.", Model.Utility.MessageType.Success, this);
                     Model.Utility.WriteLog("Custoemr has been deleted from device");
+
+                    await Navigation.PushAsync(new Customer());
                 }
             }
         }
