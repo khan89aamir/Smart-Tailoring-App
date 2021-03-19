@@ -26,10 +26,12 @@
 
                                 <Frame Padding="5" Margin="2"  Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                                     <StackLayout>
-                                        <Label Margin="6,0,0,0" FontAttributes="Bold" Text="Garment Code : GC01" Style="{StaticResource TextStyle}"  ></Label>
+                                     
                                         <Grid Padding="4" Margin="4">
                                             <Grid.RowDefinitions>
 
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
                                                 <RowDefinition Height="auto"></RowDefinition>
                                                 <RowDefinition Height="auto"></RowDefinition>
                                                 <RowDefinition Height="auto"></RowDefinition>
@@ -42,52 +44,76 @@
                                             </Grid.ColumnDefinitions>
                                             <!--Row : 0, -Col : 0 -->
                                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" >
-                                                <Label  FontAttributes="Bold"  Text="Name :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <Label Text="{Binding Name}" Style="{StaticResource TextStyle}"     Grid.Column="0" Grid.Row="0"></Label>
+
+                                                <Label  FontAttributes="Bold" Text="Code : GC01" Style="{StaticResource TextStyle}"  ></Label>
+                                              
 
                                             </StackLayout>
                                             <!--Row : 0, -Col : 1 -->
+                                            
                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0"  >
-                                                <Label  FontAttributes="Bold"  Text="QTY :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <Label Text="{Binding QTY}" Style="{StaticResource TextStyle}"    ></Label>
+
+
+                                                <Label   Text="Name :" Style="{StaticResource TextStyle}"  ></Label>
+                                                <Label Text="{Binding Name}" Style="{StaticResource TextStyle}"     Grid.Column="0" Grid.Row="0"></Label>
+                                                
+                                                
+                                                
 
                                             </StackLayout>
 
 
                                             <!--Row : 1, -Col : 0 -->
-                                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1"  >
-                                                <Label  FontAttributes="Bold"  Text="Service :" Style="{StaticResource TextStyle}" VerticalOptions="Center"  ></Label>
-                                                <Picker x:Name="picker" Title="Service Type" WidthRequest="100" >
-                                                    <Picker.ItemsSource>
-                                                        <x:Array Type="{x:Type x:String}">
-                                                            <x:String>Urgent</x:String>
-                                                            <x:String>Normal</x:String>
+                                            <StackLayout  Orientation="Horizontal" Grid.Column="0" Grid.Row="1"  >
+                                                <Label  VerticalOptions="Center"   Text="QTY :" Style="{StaticResource TextStyle}"  ></Label>
+                                                <Label  VerticalOptions="Center"   Text="{Binding QTY}" Style="{StaticResource TextStyle}"    ></Label>
 
-                                                        </x:Array>
-                                                    </Picker.ItemsSource>
-                                                </Picker>
 
                                             </StackLayout>
 
                                             <!--Row : 1, -Col : 1 -->
                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1"  >
-                                                <Label  FontAttributes="Bold"  VerticalOptions="Center" Text="Rate :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <Label  VerticalOptions="Center" Text="500" Style="{StaticResource TextStyle}"    ></Label>
+                                                <Label VerticalOptions="Center"   Text="Trim amt: " Style="{StaticResource TextStyle}"  ></Label>
+                                                <Entry  Text="500" Keyboard="Numeric" Style="{StaticResource TextStyle}"    ></Entry>
 
                                             </StackLayout>
 
                                             <!--Row : 2, -Col : 0 -->
-                                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2"  >
-                                                <CheckBox IsChecked="{Binding IsTrail}"  Color="White"></CheckBox>
-                                                <Label  FontAttributes="Bold"  VerticalOptions="Center" Text="Trail  :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <DatePicker x:Name="dtpTrailDate"  IsEnabled="{Binding IsTrail}" TextColor="Black"></DatePicker>
+                                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2"   >
+
+                                                <Label    Text="Service :" Style="{StaticResource TextStyle}" VerticalOptions="Center"  ></Label>
+                                                <Picker x:Name="picker" SelectedItem="Normal" Title="Normal" TextColor="White" TitleColor="White" WidthRequest="100" >
+                                                    <Picker.ItemsSource>
+                                                        <x:Array Type="{x:Type x:String}">
+                                                            <x:String>Normal</x:String>
+                                                            <x:String>Urgent</x:String>
+
+                                                        </x:Array>
+                                                    </Picker.ItemsSource>
+                                                </Picker>
+
 
                                             </StackLayout>
-                                            <!--Row : 2, -Col : 1 -->
-                                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2"  >
+                                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2"   >
+                                              
+                                                <Label  VerticalOptions="Center" Text="Rate :" Style="{StaticResource TextStyle}"  ></Label>
+                                                <Label  VerticalOptions="Center" Text="500" Style="{StaticResource TextStyle}"  ></Label>
 
-                                                <Label  FontAttributes="Bold"  VerticalOptions="Center" Text="Delivery  :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <DatePicker TextColor="Black"></DatePicker>
+                                            </StackLayout>
+
+
+                                            <!--Row : 2, -Col : 0 -->
+                                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"  >
+                                                <CheckBox IsChecked="{Binding IsTrail}"  Color="White"></CheckBox>
+                                                <Label  VerticalOptions="Center" Text="Trail :" Style="{StaticResource TextStyle}"  ></Label>
+                                                <DatePicker x:Name="dtpTrailDate"  IsEnabled="{Binding IsTrail}" TextColor="White"></DatePicker>
+
+                                            </StackLayout>
+                                            <!--Row : 3, -Col : 0 -->
+                                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="4"  >
+
+                                                <Label   VerticalOptions="Center" Text="Delivery :" Style="{StaticResource TextStyle}"  ></Label>
+                                                <DatePicker TextColor="White"></DatePicker>
 
                                             </StackLayout>
 
@@ -104,6 +130,18 @@
                         </ListView.ItemTemplate>
                     </ListView>
 
+                <StackLayout Orientation="Vertical" HeightRequest="100" BackgroundColor="AliceBlue">
+
+                    <StackLayout   Padding="5" Orientation="Horizontal">
+                        <Label Text="Tailroing amt : 300" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label Text="Trim Amount : 80" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                    </StackLayout>
+                    <StackLayout   Padding="5" Orientation="Horizontal">
+                        <Label Text="Tax : 20" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label Text="Grand Total : 400" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                    </StackLayout>
+
+                </StackLayout>
                 <Button Text="Measurement" Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked"></Button>
                 </StackLayout>
 

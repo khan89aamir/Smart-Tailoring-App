@@ -34,7 +34,7 @@
                         <Label Text="Server IP : "
                VerticalTextAlignment="Center" TextColor="Black" FontSize="Medium"  FontFamily="serif" 
               />
-                        <Entry Text="" x:Name="txtServerIP"  Keyboard="Telephone"  Placeholder="Enter Server IP"
+                        <Entry Text="" x:Name="txtServerIP"  Keyboard="Text"  Placeholder="Enter Server IP"
               TextColor="Black" FontSize="Medium"  FontFamily="serif"></Entry>
 
                     </StackLayout>

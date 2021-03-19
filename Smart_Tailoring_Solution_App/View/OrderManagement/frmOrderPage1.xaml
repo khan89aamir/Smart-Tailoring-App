@@ -25,7 +25,8 @@
                         
                     
 
-                    <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding GarmentList}"
+                    <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding 
+                        List}"
           HasUnevenRows="true"
            ItemSelected="dgvGarmnetList_ItemSelected"
           ItemTapped="dgvGarmnetList_ItemTapped">
@@ -70,7 +71,7 @@
 
                     <Label x:Name="txtQTY"  Text="QTY"  Style="{StaticResource TextStyle}"></Label>
                     <Frame Margin="0" Padding="0" BackgroundColor="WhiteSmoke"  CornerRadius="8">
-                        <custom:StandardPicker    x:Name="picQTY"
+                        <custom:StandardPicker Margin="0,0,10,0"    x:Name="picQTY"
                 TitleColor="Black"   BackgroundColor="WhiteSmoke"  TextColor="Black" Title="Select QTY"  Image="caretdown"
                       
                     >

@@ -18,6 +18,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         public frmOrderPage1()
         {
+            
             InitializeComponent();
 
           
