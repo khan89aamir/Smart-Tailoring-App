@@ -5,12 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="Garment Selection"
+          BackgroundColor="#525B72"
+             xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
+          
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderPage1">
+   
     <ContentPage.Content>
+
+       
+        
         <ScrollView>
             <StackLayout Padding="5">
+              
+               
                 <StackLayout>
-                    <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
+                    <Frame Padding="0" Margin="0" CornerRadius="10">
+                        <SearchBar TextColor="Black"  TextChanged="SearchBar_TextChanged" Placeholder="Enter Garment Name" Style="{StaticResource TextStyle}"></SearchBar>
+                    </Frame>
+                        
+                    
 
                     <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding GarmentList}"
           HasUnevenRows="true"
@@ -48,31 +61,48 @@
 
                 <StackLayout x:Name="pnlGarmentDetails" IsVisible="true">
                     <Label Text="Garment :"  Style="{StaticResource TextStyle}"></Label>
-                    <Entry  x:Name="txtGarmentName" Placeholder="Selected Garment"  Style="{StaticResource TextStyle}"></Entry>
+
+                    <Frame Margin="0" Padding="0" BackgroundColor="WhiteSmoke"  CornerRadius="8" >
+                        <custom:StandardEntry 
+                        x:Name="txtGarmentName" Style="{StaticResource TextBoxStyle}" BackgroundColor="WhiteSmoke" Placeholder="Enter Garment Name">
+                        </custom:StandardEntry>
+                    </Frame>
 
                     <Label x:Name="txtQTY"  Text="QTY"  Style="{StaticResource TextStyle}"></Label>
-                    <Picker x:Name="picQTY"
-        Title="Select QTY">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
+                    <Frame Margin="0" Padding="0" BackgroundColor="WhiteSmoke"  CornerRadius="8">
+                        <custom:StandardPicker    x:Name="picQTY"
+                TitleColor="Black"   BackgroundColor="WhiteSmoke"  TextColor="Black" Title="Select QTY"  Image="caretdown"
+                      
+                    >
+                            <custom:StandardPicker.Items>
                                 <x:String>1</x:String>
                                 <x:String>2</x:String>
                                 <x:String>3</x:String>
                                 <x:String>4</x:String>
+                                <x:String>5</x:String>
+                            </custom:StandardPicker.Items>
+                        </custom:StandardPicker>
+                    </Frame>
 
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
 
-
-                    <Label Text="Trail Date :"  Style="{StaticResource TextStyle}"></Label>
-                    <DatePicker  x:Name="dtpTrailDate"></DatePicker>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="chkTrailDate" Color="White" CheckedChanged="chkTrailDate_CheckedChanged"></CheckBox>
+                        <Label VerticalOptions="Center" Text="Trail Date :"  Style="{StaticResource TextStyle}"></Label>
+                      
+                    </StackLayout>
+                    <Frame Margin="0" Padding="8" BackgroundColor="WhiteSmoke"  CornerRadius="8" >
+                        <custom:StandardDateTimePicker IsEnabled="False"  TextColor="Black"  x:Name="dtpTrailDate"></custom:StandardDateTimePicker>
+                    </Frame>
 
 
                     <Label Text="Delivery Date :"  Style="{StaticResource TextStyle}"></Label>
-                    <DatePicker></DatePicker>
+                    <Frame Margin="0" Padding="8" BackgroundColor="WhiteSmoke"  CornerRadius="8" >
+                        <custom:StandardDateTimePicker  TextColor="Black"  x:Name="dtpDeliveryDate"></custom:StandardDateTimePicker>
+                    </Frame>
 
-                    <Button x:Name="btnAdd" Text="Add" Style="{StaticResource ButtonStyle}" Clicked="btnAdd_Clicked" ></Button>
+
+
+                    <Button Margin="10" BackgroundColor="#5D6E99" TextColor="White" x:Name="btnAdd"  Text="Add Garment" Style="{StaticResource ButtonStyle}" Clicked="btnAdd_Clicked" ></Button>
 
                 </StackLayout>
 
@@ -80,7 +110,7 @@
 
               <StackLayout>
 
-                    <Frame Padding="0" Margin="0" HasShadow="True" BorderColor="Gray" CornerRadius="10">
+                    <Frame Padding="0" Margin="0" HasShadow="True" BackgroundColor="#79849F"  BorderColor="Gray" CornerRadius="10">
                         <StackLayout>
                             <Label Margin="10" Style="{StaticResource TextStyle}" Text="Added Garment List :"></Label>
                             <ListView x:Name="dgvAddedGarmnet" HeightRequest="300" MinimumHeightRequest="100"  >
@@ -110,7 +140,7 @@
              
 
             </StackLayout>
-                <Button x:Name="btnMeasurment" Text="Measurment" Style="{StaticResource ButtonStyle}" Clicked="btnMeasurment_Clicked"  ></Button>
+                <Button x:Name="btnMeasurment" Text="OK" Style="{StaticResource ButtonStyle}" Clicked="btnMeasurment_Clicked"  ></Button>
 
             </StackLayout>
 

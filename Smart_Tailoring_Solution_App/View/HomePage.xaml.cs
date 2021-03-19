@@ -47,12 +47,12 @@ namespace Smart_Tailoring_Solution_App
                 if (result)
                 {
                     lblConnectionStatus.Text = "Online";
-                    lblConnectionStatus.TextColor = Color.Green;
+                    lblConnectionStatus.TextColor = Color.White;
                 }
                 else
                 {
                     lblConnectionStatus.Text = "Offline";
-                    lblConnectionStatus.TextColor = Color.Maroon;
+                    lblConnectionStatus.TextColor = Color.Red;
                 }
             }
         }

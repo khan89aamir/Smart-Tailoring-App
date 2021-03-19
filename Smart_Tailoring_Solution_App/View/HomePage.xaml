@@ -2,16 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_Tailoring_Solution_App.HomePage"
-             
+             BackgroundColor="#525B72"
              Title="Home">
     <ContentPage.Content>
 
       
-        <StackLayout BackgroundColor="White">
+        <StackLayout >
             <StackLayout Orientation="Horizontal">
-                <Label Padding="10" Text="Login By : Rajesh " TextColor="Black" FontSize="Medium"  FontFamily="serif"></Label>
-                <Label  Padding="0,10,0,0" Text="Con Status: " TextColor="Black" FontSize="Medium"  FontFamily="serif" HorizontalOptions="EndAndExpand"></Label>
-                <Label x:Name="lblConnectionStatus"   Padding="0,10,10,0" Text="NA" TextColor="Black" FontSize="Medium"  FontFamily="serif" HorizontalOptions="End"></Label>
+                <Label Padding="10" Text="Login By : Rajesh " Style="{StaticResource TextStyle}"></Label>
+                <Label  Padding="0,10,0,0" Text="Con Status:  " Style="{StaticResource TextStyle}" HorizontalOptions="EndAndExpand"></Label>
+                <Label x:Name="lblConnectionStatus"   Padding="0,10,10,0" Text="NA" Style="{StaticResource TextStyle}"  HorizontalOptions="End"></Label>
 
             </StackLayout>
             <StackLayout x:Name="pnlHome" VerticalOptions="CenterAndExpand">
@@ -24,14 +24,23 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <Frame  Grid.Column="0" Padding="20"  BackgroundColor="#017E84" HasShadow="True" CornerRadius="10"  >
+                        <Label FontSize="Default"  FontFamily="serif" TextColor="White">Total Orders:    20</Label>
 
-                    <Label Grid.Column="0" Padding="20"  BackgroundColor="#017E84"  FontSize="Default"  FontFamily="serif" TextColor="White">Total Orders:    20</Label>
+                    </Frame>
+                    <Frame  Grid.Column="1" Padding="20"  BackgroundColor="#E87121" HasShadow="True" CornerRadius="10"  >
+                        <Label FontSize="Default"  FontFamily="serif" TextColor="White">Todays Orders:    20</Label>
 
-                    <Label Grid.Column="1"  Padding="20"  BackgroundColor="#E87121"   FontFamily="serif" TextColor="White">Todays Orders:20</Label>
-                    <Label Grid.Column="2"  Padding="20" BackgroundColor="#3370AC"  FontFamily="serif" TextColor="White">Cancel Orders:20</Label>
+                    </Frame>
+                    <Frame  Grid.Column="2" Padding="20"  BackgroundColor="#3370AC" HasShadow="True" CornerRadius="10"  >
+                        <Label FontSize="Default"  FontFamily="serif" TextColor="White">Cancel Orders:    20</Label>
+
+                    </Frame>
+
+                
 
                 </Grid>
-                <Image Source="logoMain.png" WidthRequest="250" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ></Image>
+                <Image Source="splash_logo.png" WidthRequest="230"  Margin="20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" ></Image>
 
 
               
@@ -40,7 +49,7 @@
 
 
             <StackLayout VerticalOptions="EndAndExpand" >
-                <Frame HasShadow="True" Padding="1" BorderColor="LightGray" Margin="2" HeightRequest="100" VerticalOptions="End">
+                <Frame HasShadow="True" Padding="1" Margin="2" HeightRequest="100" BackgroundColor="#525B72" VerticalOptions="End">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
 
 
@@ -51,7 +60,7 @@
                              HeightRequest="50"
                              BackgroundColor="Transparent"
                     />
-                            <Label Text="Order" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                            <Label Text="Order" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
                         </StackLayout>
                         <StackLayout Margin="15">
                             <ImageButton x:Name="btnSetting" Source="setting.png" Margin="0,0,0,0"
@@ -60,7 +69,7 @@
                              HeightRequest="50"
                              BackgroundColor="Transparent"
                     />
-                            <Label Text="Setting" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                            <Label Text="Setting" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
                         </StackLayout>
                         <StackLayout Margin="15">
                             <ImageButton x:Name="btnSync" Source="syncflat.png" Margin="0,0,0,0"
@@ -69,7 +78,7 @@
                              HeightRequest="50"
                              BackgroundColor="Transparent"
                     />
-                            <Label Text="Sync" FontFamily="serif" TextColor="Black" HorizontalOptions="Center"></Label>
+                            <Label Text="Sync" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
                         </StackLayout>
 
 

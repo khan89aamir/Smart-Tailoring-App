@@ -13,7 +13,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class frmOrderPage2 : ContentPage
     {
-        public ObservableCollection<Model.GarmentList> lstSelectedGarment;
+        public ObservableCollection<Model.SelectedGarments> lstSelectedGarment;
         public frmOrderPage2()
         {
             InitializeComponent();
@@ -27,5 +27,17 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         }
 
+        private void chkTrailDate_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (e.Value)
+            {
+               
+            }
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new View.OrderManagement.frmMeasurment());
+        }
     }
 }
