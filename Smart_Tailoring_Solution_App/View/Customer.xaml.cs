@@ -150,7 +150,7 @@ namespace Smart_Tailoring_Solution_App
             var viewCell = (ViewCell)sender;
             if (viewCell.View != null)
             {
-                viewCell.View.BackgroundColor = Color.FromHex("#E8E8E8");
+                viewCell.View.BackgroundColor = Color.FromHex("#576075");
                 lastCell = viewCell;
             }
             
