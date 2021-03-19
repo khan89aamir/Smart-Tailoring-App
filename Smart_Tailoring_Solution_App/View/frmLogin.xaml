@@ -4,21 +4,32 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+                xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
+             BackgroundColor="#525B72"
              x:Class="Smart_Tailoring_Solution_App.View.frmLogin">
     <ContentPage.Content>
         <StackLayout Padding="20" x:Name="pnlLogin" IsVisible="true " VerticalOptions="Fill">
-            <Image Source="logoMain.png" WidthRequest="250"></Image>
-            <Frame Margin="4" HasShadow="True" >
+            <Image Margin="20" Source="splash_logo.png" WidthRequest="250"></Image>
+            <Frame Margin="4" HasShadow="True" Style="{StaticResource GroupBox}" BackgroundColor="#525B72" >
                 <StackLayout>
-                    <Label Text="User Name : " FontSize="Medium" FontFamily="serif" TextColor="Black"></Label>
-                    <Entry  x:Name="txtUserName"  Placeholder="Enter User Name" FontFamily="serif" ></Entry>
+                    <Label Text="User Name : " FontSize="Medium" FontFamily="serif" TextColor="White"></Label>
+                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                        <custom:StandardEntry   x:Name="txtUserName"  Placeholder="Enter User Name" FontFamily="serif"  >
+                        </custom:StandardEntry>
+                    </Frame>
+                    <Label Margin="0,10,0,0" Text="Password : " FontSize="Medium" FontFamily="serif" TextColor="White"></Label>
+                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                        <custom:StandardEntry   x:Name="txtPassword"  Placeholder="Enter  Password" IsPassword="True" FontFamily="serif"  >
+                        </custom:StandardEntry>
+                    </Frame>
 
-                    <Label Text="Password : "  FontSize="Medium" FontFamily="serif" TextColor="Black"></Label>
-                    <Entry  x:Name="txtPassword" Placeholder="Enter Password" FontFamily="serif" IsPassword="True"></Entry>
 
-                    <Button Text="Login" CornerRadius="20"  TextColor="White" BackgroundColor="#007bff" Clicked="Button_Clicked" ></Button>
 
-                    <Label HorizontalOptions="End" Margin="0,20,0,0" x:Name="lblForgotPassword" Text="Forgot Password ?" TextDecorations="Underline" TextColor="Blue" >
+                  
+
+                    <Button Margin="10" Text="Login" CornerRadius="20"  Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked" ></Button>
+
+                    <Label TextColor="White" HorizontalOptions="End" Margin="0,20,0,0" x:Name="lblForgotPassword" Text="Forgot Password ?" TextDecorations="Underline"  >
 
                     </Label>
                 </StackLayout>

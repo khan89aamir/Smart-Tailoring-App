@@ -2,16 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_Tailoring_Solution_App.Customer"
+             BackgroundColor="#525B72"
              Title="Customer">
     <ContentPage.Content>
         <StackLayout>
-          
-            
-                <Frame>
-                    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <RadioButton x:Name="btnNewCustomer" Text="New Customer"   Clicked="btnNewCustomer_Clicked" />
 
-                    <RadioButton x:Name="btnOldCustomer"  Text="Old Customer"  Clicked="btnOldCustomer_Clicked"/>
+
+            <Frame BackgroundColor="#525B72">
+                    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <RadioButton x:Name="btnNewCustomer" Text="New Customer"  Style="{StaticResource TextStyle}" Clicked="btnNewCustomer_Clicked" />
+
+                    <RadioButton x:Name="btnOldCustomer"  Text="Old Customer" Style="{StaticResource TextStyle}"  Clicked="btnOldCustomer_Clicked"/>
                     </StackLayout>
                 
                 </Frame>

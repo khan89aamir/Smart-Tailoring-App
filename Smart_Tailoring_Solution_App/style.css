@@ -1,0 +1,25 @@
+﻿
+^Entry {
+    font-size: 20;
+    background-color: white;
+    margin: 10 0;
+    color: #0A100D;
+    border-radius: 25px;
+    text-decoration:none;
+}
+
+.Test {
+    background-image: url(http://192.168.43.63/Images/Toolbarimg.jpg);
+    padding: 15px 45px;
+   
+    text-align: center;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 100px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+
+         

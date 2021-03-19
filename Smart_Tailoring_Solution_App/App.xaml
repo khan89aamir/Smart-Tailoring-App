@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
              x:Class="Smart_Tailoring_Solution_App.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -17,15 +18,25 @@
             <Style x:Key="TextStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="Medium" />
                 <Setter Property="FontFamily" Value="serif" />
+                <Setter Property="TextColor" Value="White" />
+
+
+            </Style>
+            <Style x:Key="TextBoxStyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontFamily" Value="serif" />
+             
                 <Setter Property="TextColor" Value="Black" />
 
             </Style>
+
+
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="FontSize" Value="Medium" />
                 <Setter Property="FontFamily" Value="serif" />
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="BackgroundColor" Value="#58A797" />
-                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="BackgroundColor" Value="#5D6E99" />
+                <Setter Property="CornerRadius" Value="12" />
 
             </Style>
 

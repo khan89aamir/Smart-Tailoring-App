@@ -13,10 +13,5 @@ namespace Smart_Tailoring_Solution_App.Model
 
         public string Name { get; set; }
 
-        public int QTY { get; set; }
-
-        public DateTime TrailDate { get; set; }
-
-        public DateTime DeliveryDate { get; set; }
     }
 }
