@@ -23,7 +23,7 @@
                             <Label Text="Activation Code : " Style="{StaticResource TextStyle}"   ></Label>
                             <Entry x:Name="txtActivationCode" Text="" Placeholder="Activation Code" Keyboard="Numeric"></Entry>
                             <Label Text="Server IP : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Entry x:Name="txtServerIP" Text="" Placeholder="Enter Server IP" Keyboard="Numeric"></Entry>
+                            <Entry x:Name="txtServerIP" Text="" Placeholder="Enter Server IP" Keyboard="Text"></Entry>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Button Text="Update"></Button>
                                 <Button Text="Deactivate" Clicked="Button_Clicked"></Button>
