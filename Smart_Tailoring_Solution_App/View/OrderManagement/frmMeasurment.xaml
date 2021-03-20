@@ -1,12 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+                 BackgroundColor="#525B72"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmMeasurment">
-  <!--Pages can be added as references or inline-->
-  <ContentPage Title="Tab 1" />
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
-</TabbedPage>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout  >
+                <Frame CornerRadius="12" Padding="0" Margin="0">
+                    <SearchBar  Placeholder="Select SKU"></SearchBar>
+                </Frame>
+
+            </StackLayout>
+            
+            
+            <StackLayout >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+
+                    </Grid.ColumnDefinitions>
+                    <Frame x:Name="tabBodyPsoture" Padding="0" Margin="0" Grid.Row="0" Grid.Column="0"  BackgroundColor="#525B72" CornerRadius="12" BorderColor="LightGray">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Image Source="iconBody" Margin="0,10,0,0"></Image>
+                            <Label Text="Body Posture" HorizontalOptions="Center" Style="{StaticResource TextStyle}"></Label>
+                        </StackLayout>
+
+
+                    </Frame>
+                    <Frame  x:Name="tabMeasure" Padding="0" Margin="0"  Grid.Row="0" Grid.Column="1" BackgroundColor="#525B72"  CornerRadius="12" BorderColor="LightGray">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Image Source="iconMeasure" Margin="0,10,0,0"></Image>
+                            <Label Text="Measurement" HorizontalOptions="Center" Style="{StaticResource TextStyle}"></Label>
+                        </StackLayout>
+
+
+                    </Frame>
+                    <Frame  x:Name="tabStyle" Padding="0" Margin="0"  Grid.Row="0" Grid.Column="2" BackgroundColor="#525B72"  CornerRadius="12" BorderColor="LightGray">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Image Source="iconStyle" Margin="0,10,0,0"></Image>
+                            <Label Text="Style" HorizontalOptions="Center" Style="{StaticResource TextStyle}"></Label>
+                        </StackLayout>
+
+
+                    </Frame>
+
+
+                </Grid>
+            </StackLayout>
+
+            <StackLayout x:Name="pnlBodyPosture" IsVisible="false">
+                <StackLayout BackgroundColor="#0091D5">
+                    <Label Padding="10" HorizontalOptions="Center" Text="Body Posture" Style="{StaticResource TextStyle}"></Label>
+                </StackLayout>
+                
+                
+            </StackLayout>
+            <StackLayout x:Name="pnlMeasur"  IsVisible="false" >
+                <StackLayout BackgroundColor="#0091D5">
+                    <Label Padding="10" HorizontalOptions="Center" Text="Measurement" Style="{StaticResource TextStyle}"></Label>
+                </StackLayout>
+
+                <ListView x:Name="dgvMeasurment" BackgroundColor="#525B72">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Entry Style="{StaticResource TextStyle}" Text="{Binding MeasurmentName}"></Entry>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                
+            </StackLayout>
+            <StackLayout x:Name="pnlStyle"  IsVisible="false" >
+                <StackLayout BackgroundColor="#0091D5">
+                    <Label Padding="10" HorizontalOptions="Center" Text="Style" Style="{StaticResource TextStyle}"></Label>
+                </StackLayout>
+
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

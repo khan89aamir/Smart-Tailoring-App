@@ -16,5 +16,10 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         {
             InitializeComponent();
         }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
+        }
     }
 }
