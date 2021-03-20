@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_Tailoring_Solution_App.Customer"
              BackgroundColor="#525B72"
+             xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
              Title="Customer">
     <ContentPage.Content>
         <StackLayout>
@@ -20,29 +21,44 @@
             <StackLayout x:Name="pnlCustomerInfo" Padding="20" IsVisible="false">
                 <Label   Text="Name" Style="{StaticResource TextStyle}"></Label>
 
-                    <Entry   x:Name="txtCustomerName" Placeholder="Enter Customer Name" HorizontalOptions="FillAndExpand" Style="{StaticResource TextStyle}" ></Entry>
-              
+                <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry  x:Name="txtCustomerName" Placeholder="Enter Customer Name" HorizontalOptions="FillAndExpand" Style="{StaticResource TextBoxStyle}" ></custom:StandardEntry>
+                    </Frame>
+                
                 <Label Text="Mobile No" Style="{StaticResource TextStyle}"></Label>
-                <Entry x:Name="txtMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextStyle}" Keyboard="Numeric" ></Entry>
-
+                
+                <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextBoxStyle}" Keyboard="Numeric" ></custom:StandardEntry>
+                </Frame>
+                
                 <Label Text="Email" Style="{StaticResource TextStyle}"></Label>
-                <Entry  x:Name="txtMail" Placeholder="Enter Customer Email" Style="{StaticResource TextStyle}" Keyboard="Email"  ></Entry>
+                    
+                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry  x:Name="txtMail" Placeholder="Enter Customer Email" Style="{StaticResource TextBoxStyle}" Keyboard="Email"  ></custom:StandardEntry>
+                    </Frame>
+                    
+                    <Label Text="Address" Style="{StaticResource TextStyle}"></Label>
 
-                <Label Text="Address" Style="{StaticResource TextStyle}"></Label>
-                <Entry x:Name="txtAddress" Placeholder="Enter Customer Address" Style="{StaticResource TextStyle}"></Entry>
-
-                <Button Text="Next" x:Name="btnNext"  Style="{StaticResource ButtonStyle}" Clicked="btnNext_Clicked"  ></Button>
+                        <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtAddress" Placeholder="Enter Customer Address" Style="{StaticResource TextBoxStyle}"></custom:StandardEntry>
+                    </Frame>
+                    
+                    <Button Text="Next" x:Name="btnNext"  Style="{StaticResource ButtonStyle}" Clicked="btnNext_Clicked"  ></Button>
             </StackLayout>
 
             <StackLayout x:Name="pnlExistingCustomer" Padding="20" IsVisible="false">
                 <Label  Text="Mobile No" Style="{StaticResource TextStyle}"></Label>
-                <Entry x:Name="txtSearchMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextStyle}" Keyboard="Numeric" TextChanged="Entry_TextChanged" ></Entry>
-
+                
+                <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtSearchMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextBoxStyle}" Keyboard="Numeric" TextChanged="Entry_TextChanged" ></custom:StandardEntry>
+                </Frame>
+                
                 <Label Text="OR" Style="{StaticResource TextStyle}" HorizontalOptions="Center"></Label>
                 
                 <Label Text="Customer Name" Style="{StaticResource TextStyle}"></Label>
-                <Entry x:Name="txtSearchCustomerName" Placeholder="Enter Customer Name" Style="{StaticResource TextStyle}" TextChanged="txtSearchCustomerName_TextChanged"  ></Entry>
-
+                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtSearchCustomerName" Placeholder="Enter Customer Name" Style="{StaticResource TextBoxStyle}" TextChanged="txtSearchCustomerName_TextChanged"  ></custom:StandardEntry>
+                </Frame>
 
                 <Button x:Name="btnNextOption" Text="Next" IsVisible="false"  Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked" ></Button>
             </StackLayout>

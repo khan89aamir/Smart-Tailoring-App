@@ -4,11 +4,9 @@
 
         public async Task<bool> CheckServerConnection(string ServerIP)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
                     URL = "http://" + ServerIP + "/api/Masters/GetStatus";
-
                     var result = await client.GetStringAsync(URL);                    var status = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.Status>(result);                    if (status.Result)                    {                        conresult = true;                    }                }                catch (Exception ex)                {                    conresult = false;                }            }            return conresult;        }
         public async Task<bool> CheckServerConnection()        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
                     URL = "http://" + ServerIPAddress + "/api/Masters/GetStatus";
-
                     var result = await client.GetStringAsync(URL);                    var status = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.Status>(result);                    if (status.Result)                    {                        conresult = true;                    }                }                catch (Exception ex)                {                    conresult = false;                }
             }            return conresult;        }        public async Task<bool> SendActivationRequest(string ServerIP, string SerialNo)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {                    Model.ActivationDetails activationDetails = new Model.ActivationDetails();                    activationDetails.DeviceSerialNumber = SerialNo;
 
@@ -44,18 +42,16 @@
                     Response responseData = Newtonsoft.Json.JsonConvert.DeserializeObject<Response>(strResponse);                    if (responseData.Result)// check the values
                     {                        conresult = true;                    }                    else                    {                        conresult = false;                    }                }                catch (Exception ex)                {                    conresult = false;                }            }            return conresult;        }
 
-        public async Task<List<tblCustomer>> GetCustomerDataByLastChangeID(int LastChangeID)        {            List<tblCustomer> lstcustomerdata = new List<tblCustomer>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetCustomerDetails?lastChange=" + LastChangeID;                    var CustomerData = await client.GetStringAsync(URL);
+        public async Task<List<tblCustomer>> GetCustomerDataByLastChangeID(int LastChangeID)        {            List<tblCustomer> lstcustomerdata = new List<tblCustomer>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetCustomerDetails?lastChange=" + LastChangeID;                    var CustomerData = await client.GetStringAsync(URL);
 
                     // get the customer from server
                     lstcustomerdata = Newtonsoft.Json.JsonConvert.DeserializeObject<List<tblCustomer>>(CustomerData);
-
                 }                catch (Exception ex)                {                    Utility.WriteLog("GetCustomerDataByLastChangeID : " + ex.ToString());                }            }            return lstcustomerdata;        }
 
-        public async Task<List<UserManagement>> GetUserDataByLastChangeID(int LastChangeID)        {            List<UserManagement> lstuserdata = new List<UserManagement>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetUserManagementDetails?lastChange=" + LastChangeID;                    var UserData = await client.GetStringAsync(URL);
+        public async Task<List<UserManagement>> GetUserDataByLastChangeID(int LastChangeID)        {            List<UserManagement> lstuserdata = new List<UserManagement>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetUserManagementDetails?lastChange=" + LastChangeID;                    var UserData = await client.GetStringAsync(URL);
 
                     // get the customer from server
                     lstuserdata = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserManagement>>(UserData);
-
                 }                catch (Exception ex)                {                    Utility.WriteLog("GetUserDataByLastChangeID : " + ex.ToString());                }            }            return lstuserdata;        }
 
         public async Task<List<tblCustomer>> QuickPostNew_UpdateCustomerToServer(tblCustomer customer)        {            List<tblCustomer> lstCustomerResponse = new List<tblCustomer>();            using (var client = new HttpClient())            {                try                {
@@ -72,9 +68,9 @@
                     string strResponse = await response.Content.ReadAsStringAsync();
 
                     // get the Response in Class-object format. ( DeSerialized it)
-                    lstCustomerResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<tblCustomer>>(strResponse);                }                catch (Exception ex)                {                }            }            return lstCustomerResponse;        }        public async Task<List<tblCustomer>> PostNew_UpdatefCustomerToServer(List<tblCustomer> customer)        {            List<tblCustomer> lstCustomerResponse = new List<tblCustomer>();            using (var client = new HttpClient())            {                try                {
+                    lstCustomerResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<tblCustomer>>(strResponse);                }                catch (Exception ex)                {                }            }            return lstCustomerResponse;        }        public async Task<List<tblCustomer>> PostNew_UpdatefCustomerToServer(List<tblCustomer> customer)        {            List<tblCustomer> lstCustomerResponse = new List<tblCustomer>();            using (var client = new HttpClient())            {                try                {
                     // serialized the object. ( Convert to JSON string)
-                    var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(customer);                    string URL = "http://" + ServerIPAddress + "/api/Masters/Sync_CustomerData";
+                    var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(customer);                    string URL = "http://" + ServerIPAddress + "/api/Masters/Sync_CustomerData";
 
                     // set the content
                     StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -87,9 +83,9 @@
 
                     // get the Response in Class-object format. ( DeSerialized it)
                     lstCustomerResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<tblCustomer>>(strResponse);                }                catch (Exception ex)                {                }
-            }            return lstCustomerResponse;        }        public async Task<List<UserManagement>> PostNew_UpdateUserToServer(List<UserManagement> user)        {            List<UserManagement> lstUserResponse = new List<UserManagement>();            using (var client = new HttpClient())            {                try                {
+            }            return lstCustomerResponse;        }        public async Task<List<UserManagement>> PostNew_UpdateUserToServer(List<UserManagement> user)        {            List<UserManagement> lstUserResponse = new List<UserManagement>();            using (var client = new HttpClient())            {                try                {
                     // serialized the object. ( Convert to JSON string)
-                    var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(user);                    string URL = "http://" + ServerIPAddress + "/api/Masters/Sync_UserManagementData";
+                    var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(user);                    string URL = "http://" + ServerIPAddress + "/api/Masters/Sync_UserManagementData";
 
                     // set the content
                     StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -117,7 +113,7 @@
 
                     // get the Response in Class-object format. ( DeSerialized it)
                     Response responseData = Newtonsoft.Json.JsonConvert.DeserializeObject<Response>(strResponse);                    if (responseData.Result)// check the values
-                    {                        UserID = responseData.Value;                        conresult = true;                    }                    else                    {                        conresult = false;                    }                }                catch (Exception ex)                {                    Utility.WriteLog("ValidateLogin : " + ex.ToString());                    conresult = false;                }            }            return conresult;        }        public async Task<List<Employee>> GetEmployeeDetails(int EmpID)        {            List<Employee> lstEmployeedata = new List<Employee>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetEmployeeDetails?EmpID=" + EmpID;                    var EmployeeData = await client.GetStringAsync(URL);
+                    {                        UserID = responseData.Value;                        conresult = true;                    }                    else                    {                        conresult = false;                    }                }                catch (Exception ex)                {                    Utility.WriteLog("ValidateLogin : " + ex.ToString());                    conresult = false;                }            }            return conresult;        }        public async Task<List<Employee>> GetEmployeeDetails(int EmpID)        {            List<Employee> lstEmployeedata = new List<Employee>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetEmployeeDetails?EmpID=" + EmpID;                    var EmployeeData = await client.GetStringAsync(URL);
 
                     // get the Employees from server
                     lstEmployeedata = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Employee>>(EmployeeData);

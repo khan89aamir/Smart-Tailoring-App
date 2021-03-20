@@ -59,7 +59,7 @@ namespace Smart_Tailoring_Solution_App.Droid
             var drawable = ContextCompat.GetDrawable(this.Context, resID);
             var bitmap = ((BitmapDrawable)drawable).Bitmap;
 
-            var result = new BitmapDrawable(Resources, Bitmap.CreateScaledBitmap(bitmap, 70, 70, true));
+            var result = new BitmapDrawable(Resources, Bitmap.CreateScaledBitmap(bitmap, 32, 32, true));
             result.Gravity = Android.Views.GravityFlags.Right;
 
             return result;

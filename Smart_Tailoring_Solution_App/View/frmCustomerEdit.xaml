@@ -4,24 +4,34 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BackgroundColor="#525B72"
+             xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
              x:Class="Smart_Tailoring_Solution_App.View.frmCustomerEdit" Title="Edit Customer">
     <ContentPage.Content>
         <StackLayout Padding="5">
             <StackLayout x:Name="pnlCustomerInfo" Padding="20" >
                 <Label   Text="Name" Style="{StaticResource TextStyle}"></Label>
 
-                <Entry   x:Name="txtCustomerName" Placeholder="Enter Customer Name" HorizontalOptions="FillAndExpand" Style="{StaticResource TextStyle}" ></Entry>
-
+                <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtCustomerName" Placeholder="Enter Customer Name" HorizontalOptions="FillAndExpand" Style="{StaticResource TextBoxStyle}" ></custom:StandardEntry>
+                </Frame>
+                
                 <Label Text="Mobile No" Style="{StaticResource TextStyle}"></Label>
-                <Entry x:Name="txtMobileNo" Placeholder="Enter Customer Mobile No" Style="{StaticResource TextStyle}" Keyboard="Numeric" ></Entry>
-
-                <Label Text="Email" Style="{StaticResource TextStyle}"></Label>
-                <Entry  x:Name="txtMail" Placeholder="Enter Customer Email" Style="{StaticResource TextStyle}" Keyboard="Email"  ></Entry>
-
-                <Label Text="Address" Style="{StaticResource TextStyle}"></Label>
-                <Entry x:Name="txtAddress" Placeholder="Enter Customer Address" Style="{StaticResource TextStyle}"></Entry>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtMobileNo"  Placeholder="Enter Customer Mobile No" Style="{StaticResource TextBoxStyle}" Keyboard="Numeric" ></custom:StandardEntry>
+                    </Frame>
+                    
+                    <Label Text="Email" Style="{StaticResource TextStyle}"></Label>
+                        <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtMail" Placeholder="Enter Customer Email" Style="{StaticResource TextBoxStyle}" Keyboard="Email"  ></custom:StandardEntry>
+                        </Frame>
+                        
+                        <Label Text="Address" Style="{StaticResource TextStyle}"></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <custom:StandardEntry x:Name="txtAddress" Placeholder="Enter Customer Address" Style="{StaticResource TextBoxStyle}"></custom:StandardEntry>
+                            </Frame>
+                        
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                     <Button Text="Update" x:Name="btnUpdate"  Style="{StaticResource ButtonStyle}" TextColor="White"  Clicked="btnUpdate_Clicked"  ></Button>
                     <Button Text="Delete" x:Name="btnDelet"  Style="{StaticResource ButtonStyle}" Clicked="btnDelet_Clicked"  ></Button>
                 </StackLayout>
