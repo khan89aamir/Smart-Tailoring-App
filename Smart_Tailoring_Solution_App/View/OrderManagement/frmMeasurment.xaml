@@ -83,9 +83,22 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout>
-                                    <Entry Style="{StaticResource TextStyle}" Text="{Binding MeasurmentName}"></Entry>
-                                </StackLayout>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Margin="10,0,0,0" VerticalOptions="Center" Style="{StaticResource TextStyle}" Text="{Binding MeasurmentName}"></Label>
+                                    <Entry Grid.Column="1" Keyboard="Telephone" HorizontalOptions="Start" Style="{StaticResource TextStyle}" HorizontalTextAlignment="Center" WidthRequest="100" Text="{Binding value}"></Entry>
+
+                                    <Label Grid.Column="2" Margin="10,0,0,0" VerticalOptions="Center" Style="{StaticResource TextStyle}" Text="{Binding IsMendatory}"></Label>
+
+                                </Grid>
+                               
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
