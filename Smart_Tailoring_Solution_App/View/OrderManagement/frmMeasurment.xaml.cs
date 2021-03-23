@@ -65,5 +65,10 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             pnlMeasur.IsVisible = false;
             pnlStyle.IsVisible = true;
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new View.OrderManagement.frmOrderConfirm());
+        }
     }
 }
