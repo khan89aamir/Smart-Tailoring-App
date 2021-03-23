@@ -27,7 +27,7 @@
                             
                             <Label Text="Activation Code : " Style="{StaticResource TextStyle}"   ></Label>
                                 <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtActivationCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Activation Code" Keyboard="Numeric"></custom:StandardEntry>
+                                <custom:StandardEntry x:Name="txtActivationCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Activation Code" IsReadOnly="True" Keyboard="Numeric"></custom:StandardEntry>
                                 </Frame>
                                 
                                 <Label Text="Server IP : " Style="{StaticResource TextStyle}"   ></Label>
