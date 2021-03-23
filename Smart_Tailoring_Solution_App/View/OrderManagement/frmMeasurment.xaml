@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
                  BackgroundColor="#525B72"
+             Title="Measurment Style"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmMeasurment">
     
     <ContentPage.Content>
@@ -67,13 +68,101 @@
                 </Grid>
             </StackLayout>
 
-            <StackLayout x:Name="pnlBodyPosture" IsVisible="false">
-                <StackLayout BackgroundColor="#0091D5">
-                    <Label Padding="10" HorizontalOptions="Center" Text="Body Posture" Style="{StaticResource TextStyle}"></Label>
+            <ScrollView x:Name="pnlBodyPosture" IsVisible="false">
+                <StackLayout  >
+                    <StackLayout BackgroundColor="#0091D5">
+                        <Label Padding="10" HorizontalOptions="Center" Text="Body Posture" Style="{StaticResource TextStyle}"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Margin="10,0,0,0" Text="Stomach" Style="{StaticResource TextStyle}" ></Label>
+                        <ScrollView HorizontalScrollBarVisibility="Always" Orientation="Horizontal" >
+                            <StackLayout Padding="5" Orientation="Horizontal">
+
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Tummy.jpg"></Image>
+                                        <RadioButton Text="" GroupName="stoamch" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Prominent%20stmouch.jpg"></Image>
+                                        <RadioButton GroupName="stoamch" Text="" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+
+                            </StackLayout>
+
+                        </ScrollView>
+
+                    </StackLayout>
+
+
+                    <StackLayout>
+                        <Label Margin="10,0,0,0" Text="Back" Style="{StaticResource TextStyle}" ></Label>
+                        <ScrollView HorizontalScrollBarVisibility="Always" Orientation="Horizontal" >
+                            <StackLayout Padding="5" Orientation="Horizontal">
+
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Normal%20back.jpg"></Image>
+                                        <RadioButton Text="" GroupName="Back" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/errect.jpg"></Image>
+                                        <RadioButton GroupName="Back" Text="" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/hunch.jpg"></Image>
+                                        <RadioButton GroupName="Back" Text="" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+
+                            </StackLayout>
+
+                        </ScrollView>
+
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Margin="10,0,0,0" Text="Shoulder" Style="{StaticResource TextStyle}" ></Label>
+                        <ScrollView HorizontalScrollBarVisibility="Always" Orientation="Horizontal" >
+                            <StackLayout Padding="5" Orientation="Horizontal">
+
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Normal%20Shoulder.jpg"></Image>
+                                        <RadioButton Text="" GroupName="Shoulder" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Slooping%20shoulder.jpg"></Image>
+                                        <RadioButton GroupName="Shoulder" Text="" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame Padding="0" Margin="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Square%20Shoulder.jpg"></Image>
+                                        <RadioButton GroupName="Shoulder" Text="" HorizontalOptions="Center"></RadioButton>
+                                    </StackLayout>
+                                </Frame>
+
+                            </StackLayout>
+
+                        </ScrollView>
+
+                    </StackLayout>
+
                 </StackLayout>
-                
-                
-            </StackLayout>
+            </ScrollView>
+          
             <StackLayout x:Name="pnlMeasur"  IsVisible="false" >
                 <StackLayout BackgroundColor="#0091D5">
                     <Label Padding="10" HorizontalOptions="Center" Text="Measurement" Style="{StaticResource TextStyle}"></Label>
@@ -93,9 +182,23 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Label Margin="10,0,0,0" VerticalOptions="Center" Style="{StaticResource TextStyle}" Text="{Binding MeasurmentName}"></Label>
-                                    <Entry Grid.Column="1" Keyboard="Telephone" HorizontalOptions="Start" Style="{StaticResource TextStyle}" HorizontalTextAlignment="Center" WidthRequest="100" Text="{Binding value}"></Entry>
-
-                                    <Label Grid.Column="2" Margin="10,0,0,0" VerticalOptions="Center" Style="{StaticResource TextStyle}" Text="{Binding IsMendatory}"></Label>
+                                    <Entry Grid.Column="1" Keyboard="Telephone" HorizontalOptions="Start"
+                                           Style="{StaticResource TextStyle}"
+                                           HorizontalTextAlignment="Center"
+                                           Placeholder="0.00"
+                                           PlaceholderColor="Gray"
+                                           
+                                           WidthRequest="100" Text="{Binding value}"></Entry>
+                                    <BoxView Grid.Column="2" HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             CornerRadius="50"
+                                             WidthRequest="10"
+                                             HeightRequest="10"
+                                             BackgroundColor="White"
+                                             IsVisible="{Binding IsMendatory}">
+                                        
+                                    </BoxView>
+                                   
 
                                 </Grid>
                                
@@ -106,11 +209,161 @@
                 
                 
             </StackLayout>
-            <StackLayout x:Name="pnlStyle"  IsVisible="false" >
+            <StackLayout x:Name="pnlStyle"  IsVisible="true" >
                 <StackLayout BackgroundColor="#0091D5">
-                    <Label Padding="10" HorizontalOptions="Center" Text="Style" Style="{StaticResource TextStyle}"></Label>
+                    <Label Padding="10" HorizontalOptions="Center"  Text="Style" Style="{StaticResource TextStyle}"></Label>
                 </StackLayout>
+                <ScrollView>
+                    <StackLayout>
+                        
+                
 
+                  
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Row="0" Grid.Column="0">
+                                    <Label HorizontalOptions="Start" Text="SKU Style No" Style="{StaticResource TextStyle}"></Label>
+                                    <Picker TextColor="White">
+                                        <Picker.Items>
+                                            <x:String>1</x:String>
+                                            <x:String>2</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="0" Grid.Column="1">
+
+                                    <Label HorizontalOptions="Start" Text="Stitch Type" Style="{StaticResource TextStyle}"></Label>
+                                    <Picker TextColor="White">
+                                        <Picker.Items>
+                                            <x:String>Finish</x:String>
+                                            <x:String>Trail</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="0">
+
+                                    <Label HorizontalOptions="Start" Text="Fit Type" Style="{StaticResource TextStyle}"></Label>
+                                    <Picker TextColor="White">
+                                        <Picker.Items>
+                                            <x:String>Slim Fit</x:String>
+                                            <x:String>Regular Fit</x:String>
+                                            <x:String>Comfort Fit</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="1">
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <CheckBox Color="White"></CheckBox>
+                                        <Label VerticalOptions="Center" HorizontalOptions="Start" Text="Copy Style as per previous" Style="{StaticResource TextStyle}"></Label>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Grid>
+                       
+                 
+
+                        <Frame Padding="5" Margin="0" BorderColor="White" CornerRadius="12" BackgroundColor="#525B72">
+                            <ScrollView Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" CornerRadius="10" Text="Back"></Button>
+                                      
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" Text="Bottom"></Button>
+                                        <BoxView BackgroundColor="White" HorizontalOptions="Center" WidthRequest="10" CornerRadius="50" HeightRequest="10"></BoxView>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start"  CornerRadius="10" Text="Collar"></Button>
+                                        <BoxView BackgroundColor="White" HorizontalOptions="Center" WidthRequest="10" CornerRadius="50" HeightRequest="10"></BoxView>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" CornerRadius="10" Text="Cuff"></Button>
+                                       
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" CornerRadius="10" Text="Hlaf Sleeve"></Button>
+                                       
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" CornerRadius="10" Text="Placket"></Button>
+                                        <BoxView BackgroundColor="White" HorizontalOptions="Center" WidthRequest="10" CornerRadius="50" HeightRequest="10"></BoxView>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" CornerRadius="10" Text="Pocket"></Button>
+                                        
+                                    </StackLayout>
+
+                                  
+                                </StackLayout>
+                            </ScrollView>
+                         
+                        </Frame>
+
+                       
+                            <ScrollView Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal" >
+                                <Frame Margin="0" Padding="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
+                                    </StackLayout>
+                                  
+                                    
+                                </Frame>
+                                <Frame Margin="0" Padding="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
+                                    </StackLayout>
+
+                                </Frame>
+                                <Frame Margin="0" Padding="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
+                                    </StackLayout>
+
+                                </Frame>
+                                <Frame Margin="0" Padding="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
+                                    </StackLayout>
+
+                                </Frame>
+                                <Frame Margin="0" Padding="0" CornerRadius="12">
+                                    <StackLayout>
+                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
+                                    </StackLayout>
+
+                                </Frame>
+                               
+                            </StackLayout>
+                        </ScrollView>
+                      
+
+
+
+
+
+                    </StackLayout>
+
+                </ScrollView>
+                <Button Clicked="Button_Clicked" Style="{StaticResource ButtonStyle}" WidthRequest="200" HorizontalOptions="Center" Text="Complete Order"></Button>
             </StackLayout>
 
 

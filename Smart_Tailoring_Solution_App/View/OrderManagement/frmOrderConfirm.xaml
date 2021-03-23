@@ -4,12 +4,23 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+                 xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
                 BackgroundColor="#525B72"
+             Title="Order Finish"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderConfirm">
     <ContentPage.Content>
         <StackLayout>
-            
+            <Image Source="splash_logo"></Image>
+            <StackLayout Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <Image Source="check"></Image>
+                <Label HorizontalOptions="Center" Text="Your order has been successfully created"  Style="{StaticResource TextStyle}"></Label>
+                <Button  Text="Customer Copy" Clicked="Button_Clicked"  Style="{StaticResource ButtonStyle}" ></Button>
+                <Button Text="Store Copy" Clicked="Button_Clicked_1"  Style="{StaticResource ButtonStyle}" ></Button>
+                <Button Text="Factory Copy" Clicked="Button_Clicked_2"  Style="{StaticResource ButtonStyle}" ></Button>
+
+            </StackLayout>
         </StackLayout>
+       
     
     </ContentPage.Content>
 </ContentPage>
