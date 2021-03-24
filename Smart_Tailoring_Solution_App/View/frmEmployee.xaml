@@ -2,84 +2,99 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
              mc:Ignorable="d"
              BackgroundColor="#525B72"
-             x:Class="Smart_Tailoring_Solution_App.View.frmEmployee">
+             x:Class="Smart_Tailoring_Solution_App.View.frmEmployee"
+             Title="My Profile">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Style="{StaticResource TextStyle}" Text="Employee Details !" FontAttributes="Bold"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-
+        <ScrollView>
             <StackLayout>
+                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
+                    <StackLayout>
 
-                <ListView x:Name="dgvEmployee" HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Padding="4">
-                                <!--<StackLayout  Orientation="Horizontal"  Padding="10">-->
-
-                                    <Label Style="{StaticResource TextStyle}" Text="{Binding Name,StringFormat='Name: {0:F0)}' }"></Label>
-
-                                    <Label  Style="{StaticResource TextStyle}"  Text="{Binding MobileNo,StringFormat='MobileNo: {0:F0)}' }"></Label>
-
-                                    <Label Style="{StaticResource TextStyle}" Text="{Binding EmployeeCode,StringFormat='EmployeeCode: {0:F0)}' }"></Label>
-
-                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding Gender,StringFormat='Gender: {0:F0)}' }"></Label>
-
-                                    <Label Style="{StaticResource TextStyle}" Text="{Binding EmployeeType,StringFormat='EmployeeType: {0:F0)}' }"></Label>
-
-                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding Address,StringFormat='Address:  {0:F0)}' }"></Label>
-                                    
+                        <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
+                            <StackLayout>
+                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                    <Label Text="Login Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
                                 </StackLayout>
-                            </ViewCell>
+                            </StackLayout>
+                        </Frame>
 
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                        <StackLayout Padding="10">
+                            <Label Text="User Name : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtUserName" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter User Name" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            </Frame>
 
-            </StackLayout>
+                            <Label Text="Email ID : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtEmailID" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Email ID" IsReadOnly="True" Keyboard="Email"></custom:StandardEntry>
+                            </Frame>
 
-            <StackLayout>
-                <Label Style="{StaticResource TextStyle}" Text="User Details !" FontAttributes="Bold"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                            <Label Text="Password : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtPassword" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Password" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            </Frame>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                <Button CornerRadius="20"  Style="{StaticResource ButtonStyle}" x:Name="btnEdit" Text="Edit" Clicked="btnEdit_Clicked" ></Button>
+                                <Button CornerRadius="20"  Style="{StaticResource ButtonStyle}" x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"></Button>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+
+                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
+                    <StackLayout>
+
+                        <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
+                            <StackLayout>
+                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                    <Label Text="Employee Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <StackLayout Padding="10">
+                            <Label Text="Employee Code : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtEmployeeCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Employee Code" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            </Frame>
+
+                            <Label Text="Employee Name : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtEmployeeName" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Employee Name" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            </Frame>
+
+                            <Label Text="Mobile No. : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtMobileNo" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Mobile No." IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            </Frame>
+                            
+                            <Label Text="Gender : " Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtGender" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Select Gender" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            </Frame>
+                            
+                            <Label Text="Employee Type" Style="{StaticResource TextStyle}"   ></Label>
+                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <custom:StandardEntry x:Name="txtEmployeeType" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Employee Type" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            </Frame>
+
+                        </StackLayout>
+                        <StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
                 
-                <ListView x:Name="dgvUsers" HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Padding="4">
-                                    <!--<StackLayout  Orientation="Horizontal"  Padding="10">-->
-
-                                    <Label Style="{StaticResource TextStyle}" Text="{Binding UserID,StringFormat='UserID: {0:0}' }"></Label>
-
-                                    <Label  Style="{StaticResource TextStyle}"  Text="{Binding UserName,StringFormat='UserName: {0:F0)}' }"></Label>
-
-                                    <!--<Label Style="{StaticResource TextStyle}" Text="{Binding Password,StringFormat='Password: {0:F0)}' }"></Label>-->
-
-                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding EmailID,StringFormat='EmailID: {0:F0)}' }"></Label>
-
-                                    <Label Style="{StaticResource TextStyle}" Text="{Binding ActiveStatus,StringFormat='ActiveStatus: {0:0}' }"></Label>
-
-                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding EmployeeID,StringFormat='EmployeeID:  {0:0}' }"></Label>
-
-                                    <Label  Style="{StaticResource TextStyle}" Text="{Binding MB_UserID,StringFormat='MB_UserID:  {0:0}' }"></Label>
-
-                                </StackLayout>
-                            </ViewCell>
-
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
             </StackLayout>
-            
-        </StackLayout>
-
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

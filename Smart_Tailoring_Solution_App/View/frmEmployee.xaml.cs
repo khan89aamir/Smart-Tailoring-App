@@ -15,6 +15,7 @@ namespace Smart_Tailoring_Solution_App.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class frmEmployee : ContentPage
     {
+        clsSmartTailoringService ObjService = new clsSmartTailoringService();
         public frmEmployee()
         {
             InitializeComponent();
@@ -22,19 +23,41 @@ namespace Smart_Tailoring_Solution_App.View
             LoadEmployee();
             LoadUsers();
         }
-        clsSmartTailoringService ObjService = new clsSmartTailoringService();
 
         private async void LoadEmployee()
         {
-            var lstEmployeeDetails = await ObjService.GetEmployeeDetails(clsSmartTailoringService.UserID);
-            dgvEmployee.ItemsSource = lstEmployeeDetails;
+            //var lstEmployeeDetails = await ObjService.GetEmployeeDetails(clsSmartTailoringService.UserID);
+            List<Employee> tblEmployee = await ObjService.GetEmployeeDetails(clsSmartTailoringService.UserID);
+            if (tblEmployee.Count > 0)
+            {
+                txtEmployeeCode.Text = tblEmployee[0].EmployeeCode;
+                txtEmployeeType.Text = tblEmployee[0].EmployeeType;
+                txtEmployeeName.Text = tblEmployee[0].Name;
+                txtGender.Text = tblEmployee[0].Gender;
+                txtMobileNo.Text = tblEmployee[0].MobileNo;
+            }
         }
         private void LoadUsers()
         {
             clsCommon cls = new clsCommon();
 
-            var lstUserDetails = TAILORING_DB.Instance.GetAllUsers();
-            dgvUsers.ItemsSource = lstUserDetails;
+            List<UserManagement> tblUser = TAILORING_DB.Instance.GetAllUsers();
+            //dgvUsers.ItemsSource = lstUserDetails;
+            if (tblUser.Count > 0)
+            {
+                txtUserName.Text = tblUser[0].UserName;
+                txtEmailID.Text = tblUser[0].EmailID;
+            }
+        }
+
+        private void btnEdit_Clicked(object sender, EventArgs e)
+        {
+            txtPassword.IsReadOnly = false;
+        }
+
+        private void btnUpdate_Clicked(object sender, EventArgs e)
+        {
+            txtPassword.IsReadOnly = true;
         }
     }
 }
