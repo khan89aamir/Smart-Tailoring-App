@@ -17,34 +17,31 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         public frmOrderConfirm()
         {
             InitializeComponent();
-
-           
         }
+
+        string URL = string.Empty;
         protected override void OnAppearing()
         {
             base.OnAppearing();
-          
-
-          
-        }
-      
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            Xamarin.Essentials.Browser.OpenAsync("http://192.168.43.63//Smart_Tailoring_WebAPI/temp/Customer.pdf");
-          
+            URL = "http://" + Service.clsSmartTailoringService.ServerIPAddress + "//Smart_Tailoring_WebAPI/temp/";
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
+        private void btnCustomerCopy_Clicked(object sender, EventArgs e)
         {
-            Xamarin.Essentials.Browser.OpenAsync("http://192.168.43.63//Smart_Tailoring_WebAPI/temp/Store.pdf");
+            //Xamarin.Essentials.Browser.OpenAsync("http://192.168.0.6:3720//Smart_Tailoring_WebAPI/temp/Customer.pdf");
+            Xamarin.Essentials.Browser.OpenAsync(URL + "Customer.pdf");
         }
 
-        private void Button_Clicked_2(object sender, EventArgs e)
+        private void btnStoreCopy_Clicked(object sender, EventArgs e)
         {
-                Xamarin.Essentials.Browser.OpenAsync("http://192.168.43.63//Smart_Tailoring_WebAPI/temp/factory.pdf");
-            
+            //Xamarin.Essentials.Browser.OpenAsync("http://192.168.0.6:3720//Smart_Tailoring_WebAPI/temp/Store.pdf");
+            Xamarin.Essentials.Browser.OpenAsync(URL + "Store.pdf");
+        }
 
+        private void btnFactoryCopy_Clicked(object sender, EventArgs e)
+        {
+            //Xamarin.Essentials.Browser.OpenAsync("http://192.168.0.6:3720//Smart_Tailoring_WebAPI/temp/factory.pdf");
+            Xamarin.Essentials.Browser.OpenAsync(URL + "factory.pdf");
         }
     }
 }

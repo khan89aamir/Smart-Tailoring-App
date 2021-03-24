@@ -14,9 +14,9 @@
             <StackLayout Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                 <Image Source="check"></Image>
                 <Label HorizontalOptions="Center" Text="Your order has been successfully created"  Style="{StaticResource TextStyle}"></Label>
-                <Button  Text="Customer Copy" Clicked="Button_Clicked"  Style="{StaticResource ButtonStyle}" ></Button>
-                <Button Text="Store Copy" Clicked="Button_Clicked_1"  Style="{StaticResource ButtonStyle}" ></Button>
-                <Button Text="Factory Copy" Clicked="Button_Clicked_2"  Style="{StaticResource ButtonStyle}" ></Button>
+                <Button  Text="Customer Copy" x:Name="btnCustomerCopy" Clicked="btnCustomerCopy_Clicked"  Style="{StaticResource ButtonStyle}" ></Button>
+                <Button Text="Store Copy" x:Name="btnStoreCopy" Clicked="btnStoreCopy_Clicked"  Style="{StaticResource ButtonStyle}" ></Button>
+                <Button Text="Factory Copy" x:Name="btnFactoryCopy" Clicked="btnFactoryCopy_Clicked"  Style="{StaticResource ButtonStyle}" ></Button>
 
             </StackLayout>
         </StackLayout>

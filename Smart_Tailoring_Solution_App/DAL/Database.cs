@@ -179,6 +179,7 @@ namespace Smart_Tailoring_Solution_App.DAL
                 CreateActivationDetails();
                 CreateCustomerDetails();
                 CreateUserManagement();
+                //CreateEmployeeDetails();
             }
             catch (Exception ex)
             {
@@ -200,6 +201,11 @@ namespace Smart_Tailoring_Solution_App.DAL
         private CreateTableResult CreateUserManagement()
         {
             return _database.CreateTable<UserManagement>();
+        }
+
+        private CreateTableResult CreateEmployeeDetails()
+        {
+            return _database.CreateTable<Employee>();
         }
         #endregion
 

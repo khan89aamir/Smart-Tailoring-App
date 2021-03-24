@@ -10,6 +10,7 @@ namespace Smart_Tailoring_Solution_App.Model
     public class Employee
     {
         [PrimaryKey]
+        //public int MB_EmpID { get; set; }
         public int EmpID { get; set; }
         public string EmployeeCode { get; set; }
         public string Name { get; set; }

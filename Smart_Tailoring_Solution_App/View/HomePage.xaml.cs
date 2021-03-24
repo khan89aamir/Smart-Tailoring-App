@@ -130,6 +130,7 @@ namespace Smart_Tailoring_Solution_App
 
         private void btnSetting_Clicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new SettingPage());
             //Navigation.PushModalAsync(new View.frmMessageBox());
         }
     }

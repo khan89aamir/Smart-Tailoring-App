@@ -12,21 +12,15 @@
    
     <ContentPage.Content>
 
-       
-        
         <ScrollView>
             <StackLayout Padding="5">
               
-               
                 <StackLayout>
                     <Frame Padding="0" Margin="0" CornerRadius="10">
                         <SearchBar TextColor="Black"  TextChanged="SearchBar_TextChanged" Placeholder="Enter Garment Name" Style="{StaticResource TextStyle}"></SearchBar>
                     </Frame>
                         
-                    
-
-                    <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding 
-                        List}"
+                    <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding List}"
           HasUnevenRows="true"
            ItemSelected="dgvGarmnetList_ItemSelected"
           ItemTapped="dgvGarmnetList_ItemTapped">
@@ -47,11 +41,7 @@
 
                                         <Label Text="{Binding Name}" VerticalOptions="Center"  Style="{StaticResource TextStyle}" Grid.Column="1" Grid.Row="0"></Label>
 
-
-
                                     </Grid>
-
-
 
                                 </ViewCell>
 
@@ -72,9 +62,7 @@
                     <Label x:Name="txtQTY"  Text="QTY"  Style="{StaticResource TextStyle}"></Label>
                     <Frame Margin="0" Padding="0" BackgroundColor="WhiteSmoke"  CornerRadius="8">
                         <custom:StandardPicker Margin="0,0,10,0"    x:Name="picQTY"
-                TitleColor="Black"   BackgroundColor="WhiteSmoke"  TextColor="Black" Title="Select QTY"  Image="caretdown"
-                      
-                    >
+                TitleColor="Black"   BackgroundColor="WhiteSmoke"  TextColor="Black" Title="Select QTY"  Image="caretdown">
                             <custom:StandardPicker.Items>
                                 <x:String>1</x:String>
                                 <x:String>2</x:String>
@@ -101,13 +89,9 @@
                         <custom:StandardDateTimePicker  TextColor="Black"  x:Name="dtpDeliveryDate"></custom:StandardDateTimePicker>
                     </Frame>
 
-
-
                     <Button Margin="10" BackgroundColor="#5D6E99" TextColor="White" x:Name="btnAdd"  Text="Add Garment" Style="{StaticResource ButtonStyle}" Clicked="btnAdd_Clicked" ></Button>
 
                 </StackLayout>
-
-
 
               <StackLayout>
 
@@ -126,7 +110,6 @@
 
                                                 <Button  x:Name="btnDelete" Style="{StaticResource ButtonStyle}"  Padding="0" FontSize="Small"  HeightRequest="35"   Text="Delete"  Clicked="btnDelete_Clicked"></Button>
 
-
                                             </StackLayout>
                                         </ViewCell>
 
@@ -137,16 +120,12 @@
                       
                     </Frame>
                   
-
-             
-
             </StackLayout>
-                <Button x:Name="btnMeasurment" Text="OK" Style="{StaticResource ButtonStyle}" Clicked="btnMeasurment_Clicked"  ></Button>
+                <Button x:Name="btnMeasurment" Text="OK" Style="{StaticResource ButtonStyle}" Clicked="btnMeasurment_Clicked"></Button>
 
             </StackLayout>
 
         </ScrollView>
-
 
     </ContentPage.Content>
 </ContentPage>

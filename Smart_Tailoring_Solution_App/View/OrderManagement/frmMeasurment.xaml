@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
                  BackgroundColor="#525B72"
-             Title="Measurment Style"
+             Title="Measurement Style"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmMeasurment">
     
     <ContentPage.Content>
@@ -80,14 +80,14 @@
 
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Tummy.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/Tummy.jpg"></Image>
                                         <RadioButton Text="" GroupName="stoamch" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Prominent%20stmouch.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/Prominent%20stmouch.jpg"></Image>
                                         <RadioButton GroupName="stoamch" Text="" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
@@ -106,20 +106,20 @@
 
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Normal%20back.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/Normal%20back.jpg"></Image>
                                         <RadioButton Text="" GroupName="Back" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/errect.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/errect.jpg"></Image>
                                         <RadioButton GroupName="Back" Text="" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/hunch.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/hunch.jpg"></Image>
                                         <RadioButton GroupName="Back" Text="" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
@@ -136,20 +136,20 @@
 
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Normal%20Shoulder.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/Normal%20Shoulder.jpg"></Image>
                                         <RadioButton Text="" GroupName="Shoulder" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Slooping%20shoulder.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/Slooping%20shoulder.jpg"></Image>
                                         <RadioButton GroupName="Shoulder" Text="" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
                                 <Frame Padding="0" Margin="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63//Smart_Tailoring_WebAPI/images/Square%20Shoulder.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720//Smart_Tailoring_WebAPI/images/Square%20Shoulder.jpg"></Image>
                                         <RadioButton GroupName="Shoulder" Text="" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
@@ -199,14 +199,12 @@
                                         
                                     </BoxView>
                                    
-
                                 </Grid>
                                
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                
                 
             </StackLayout>
             <StackLayout x:Name="pnlStyle"  IsVisible="true" >
@@ -216,9 +214,6 @@
                 <ScrollView>
                     <StackLayout>
                         
-                
-
-                  
                             <Grid Padding="5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
@@ -272,8 +267,6 @@
 
                             </Grid>
                        
-                 
-
                         <Frame Padding="5" Margin="0" BorderColor="White" CornerRadius="12" BackgroundColor="#525B72">
                             <ScrollView Orientation="Horizontal">
                                 <StackLayout Orientation="Horizontal">
@@ -306,18 +299,16 @@
                                         
                                     </StackLayout>
 
-                                  
                                 </StackLayout>
                             </ScrollView>
                          
                         </Frame>
 
-                       
                             <ScrollView Orientation="Horizontal">
                             <StackLayout Orientation="Horizontal" >
                                 <Frame Margin="0" Padding="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
                                         <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
                                     </StackLayout>
                                   
@@ -325,28 +316,28 @@
                                 </Frame>
                                 <Frame Margin="0" Padding="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
                                         <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
                                     </StackLayout>
 
                                 </Frame>
                                 <Frame Margin="0" Padding="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
                                         <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
                                     </StackLayout>
 
                                 </Frame>
                                 <Frame Margin="0" Padding="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
                                         <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
                                     </StackLayout>
 
                                 </Frame>
                                 <Frame Margin="0" Padding="0" CornerRadius="12">
                                     <StackLayout>
-                                        <Image WidthRequest="150" Source="http://192.168.43.63/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
+                                        <Image WidthRequest="150" Source="http://192.168.0.6:3720/Smart_Tailoring_WebAPI/images/Mandrin%20Collar.jpg"></Image>
                                         <RadioButton HorizontalOptions="Center" GroupName="collar"></RadioButton>
                                     </StackLayout>
 
@@ -356,16 +347,11 @@
                         </ScrollView>
                       
 
-
-
-
-
                     </StackLayout>
 
                 </ScrollView>
                 <Button Clicked="Button_Clicked" Style="{StaticResource ButtonStyle}" WidthRequest="200" HorizontalOptions="Center" Text="Complete Order"></Button>
             </StackLayout>
-
 
         </StackLayout>
     </ContentPage.Content>
