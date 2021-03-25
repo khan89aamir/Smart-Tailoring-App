@@ -37,7 +37,7 @@
                                 
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                                 <Button CornerRadius="20"  Style="{StaticResource ButtonStyle}" x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked" ></Button>
-                                <Button CornerRadius="20"  Style="{StaticResource ButtonStyle}" Text="Deactivate" Clicked="Button_Clicked"></Button>
+                                <Button CornerRadius="20"  Style="{StaticResource ButtonStyle}" x:Name="btnDeActivate" Text="Deactivate" Clicked="btnDeActivate_Clicked"></Button>
                             </StackLayout>
 
                         </StackLayout>

@@ -53,13 +53,16 @@ namespace Smart_Tailoring_Solution_App.View
                         txtPassword.Focus();
                         return;
                     }
+                    ctrActivityIndicator.IsVisible = true;
                     var conStatus = await ObjService.ValidateLogin(strUserName, strPassword, clsSmartTailoringService.ServerIPAddress);
                     if (conStatus)
                     {
+                        ctrActivityIndicator.IsVisible = false;
                         App.Current.MainPage = new MainPage();
                     }
                     else
                     {
+                        ctrActivityIndicator.IsVisible = false;
                         await DisplayAlert("Login Failed", "Invalid Login Details.", "Ok");
                     }
                 }
@@ -71,13 +74,16 @@ namespace Smart_Tailoring_Solution_App.View
             }
             else
             {
+                ctrActivityIndicator.IsVisible = true;
                 var conStatus = DAL.TAILORING_DB.Instance.ValidateLocalLogin(strUserName.Trim(), strPassword.Trim());
                 if (conStatus > 0)
                 {
+                    ctrActivityIndicator.IsVisible = false;
                     App.Current.MainPage = new MainPage();
                 }
                 else
                 {
+                    ctrActivityIndicator.IsVisible = false;
                     await DisplayAlert("Server Connection Failed", "Not able to connect to the server. Please check the server ip address.", "Ok");
                 }
             }

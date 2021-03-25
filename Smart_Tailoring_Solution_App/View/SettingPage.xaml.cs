@@ -13,7 +13,6 @@ namespace Smart_Tailoring_Solution_App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingPage : ContentPage
     {
-
         public SettingPage()
         {
             InitializeComponent();
@@ -25,26 +24,27 @@ namespace Smart_Tailoring_Solution_App
             LoadActivationDetails();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void btnDeActivate_Clicked(object sender, EventArgs e)
         {
-            if (DAL.TAILORING_DB.Instance.DeleteActivation() > 0)
+            bool result = await Model.Utility.ShowQuestionMessageBox("Are you sure, you want to DeActivate this Application?", this);
+            if (result)
             {
-                DisplayAlert("Smart Tailoring", "Application Deactivated", "Ok");
-                Model.Utility.WriteLog("Application Deactivated");
+                if (DAL.TAILORING_DB.Instance.DeleteActivation() > 0)
+                {
+                    await DisplayAlert("Smart Tailoring", "Application Deactivated", "Ok");
+                    Model.Utility.WriteLog("Application Deactivated");
 
-                //Navigation.PushAsync(new MainPage());
-                App.Current.MainPage = new ActivationPage();
+                    //Navigation.PushAsync(new MainPage());
+                    App.Current.MainPage = new ActivationPage();
+                }
             }
         }
 
         private void btnUpdate_Clicked(object sender, EventArgs e)
         {
             ActivationDetails activation = new ActivationDetails();
-
             activation.ActivationCode = txtActivationCode.Text == null ? "" : txtActivationCode.Text.Trim();
-
             activation.DeviceSerialNumber = txtSerialNo.Text == null ? "" : txtSerialNo.Text.Trim();
-
             activation.ServerIP = txtServerIP.Text == null ? "" : txtServerIP.Text.Trim();
 
             if (DAL.TAILORING_DB.Instance.SaveActivationDetails(activation) > 0)

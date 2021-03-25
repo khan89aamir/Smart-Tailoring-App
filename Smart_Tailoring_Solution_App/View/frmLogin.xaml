@@ -12,6 +12,7 @@
             <Image Margin="20" Source="splash_logo.png" WidthRequest="250"></Image>
             <Frame Margin="4" HasShadow="True" Style="{StaticResource GroupBox}" BackgroundColor="#525B72" >
                 <StackLayout>
+                    <ActivityIndicator x:Name="ctrActivityIndicator" IsRunning="true" IsVisible="false" HorizontalOptions="Center" VerticalOptions="Center" />
                     <Label Text="User Name : " FontSize="Medium" FontFamily="serif" TextColor="White"></Label>
                     <Frame Margin="0" Padding="0" CornerRadius="10">
                         <custom:StandardEntry   x:Name="txtUserName"  Placeholder="Enter User Name" FontFamily="serif"  >
