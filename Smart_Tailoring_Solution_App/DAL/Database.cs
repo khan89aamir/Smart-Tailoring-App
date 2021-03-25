@@ -149,6 +149,11 @@ namespace Smart_Tailoring_Solution_App.DAL
             string str = "SELECT * FROM tblUserManagement";
             return _database.Query<UserManagement>(str);
         }
+        public List<UserManagement> GetLoginUser(int UserID)
+        {
+            string str = "SELECT * FROM tblUserManagement WHERE UserID = "+ UserID;
+            return _database.Query<UserManagement>(str);
+        }
         public int UserLastChangeID()
         {
             int LastID = 0;

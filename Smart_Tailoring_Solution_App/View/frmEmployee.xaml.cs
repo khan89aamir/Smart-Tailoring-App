@@ -23,6 +23,8 @@ namespace Smart_Tailoring_Solution_App.View
             LoadEmployee();
             LoadUsers();
         }
+        List<UserManagement> tblUser;
+        clsCommon cls = new clsCommon();
 
         private async void LoadEmployee()
         {
@@ -39,9 +41,8 @@ namespace Smart_Tailoring_Solution_App.View
         }
         private void LoadUsers()
         {
-            clsCommon cls = new clsCommon();
-
-            List<UserManagement> tblUser = TAILORING_DB.Instance.GetAllUsers();
+            tblUser = TAILORING_DB.Instance.GetAllUsers();
+            tblUser = TAILORING_DB.Instance.GetLoginUser(clsSmartTailoringService.UserID);
             //dgvUsers.ItemsSource = lstUserDetails;
             if (tblUser.Count > 0)
             {
@@ -53,11 +54,42 @@ namespace Smart_Tailoring_Solution_App.View
         private void btnEdit_Clicked(object sender, EventArgs e)
         {
             txtPassword.IsReadOnly = false;
+            txtPassword.Focus();
         }
 
         private void btnUpdate_Clicked(object sender, EventArgs e)
         {
-            txtPassword.IsReadOnly = true;
+            string strPassword = txtPassword.Text == null ? "" : txtPassword.Text.Trim();
+            if (strPassword == "")
+            {
+                DisplayAlert("Password", "Please Enter New Password", "OK");
+                txtPassword.Focus();
+                return;
+            }
+            else
+            {
+                UserManagement user = new UserManagement();
+                user.UserID = tblUser[0].UserID;
+                user.UserName = tblUser[0].UserName;
+                user.EmailID = tblUser[0].EmailID;
+                user.EmployeeID = tblUser[0].EmployeeID;
+                user.ActiveStatus = tblUser[0].ActiveStatus;
+                user.Password = cls.Encrypt(strPassword, true);
+                user.MB_UserID = tblUser[0].MB_UserID;
+                int a = TAILORING_DB.Instance.UpdateUserManagement(user);
+                if (a > 0)
+                {
+                    List<Model.UserManagement> lstuser = new List<Model.UserManagement>();
+                    lstuser.Add(user);
+
+                    Model.clsSyncOperation clsSyncOperation = new Model.clsSyncOperation();
+                    clsSyncOperation.SyncUserManagementData(lstuser, true);
+
+                    Model.Utility.ShowMessageBox("User data has been updated in device.", Model.Utility.MessageType.Success, this);
+                }
+                txtPassword.IsReadOnly = true;
+                txtPassword.Text = "";
+            }
         }
     }
 }

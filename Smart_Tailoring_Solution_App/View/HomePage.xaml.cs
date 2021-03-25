@@ -125,6 +125,8 @@ namespace Smart_Tailoring_Solution_App
                 ObjSyncOperation.SyncCustomerData(lstCustomerData, false);
 
                 ObjSyncOperation.SyncUserManagementData(lstUserData);
+
+                Model.Utility.ShowMessageBox("Synchronization has been Compeleted.", Model.Utility.MessageType.Success, this);
             }
         }
 

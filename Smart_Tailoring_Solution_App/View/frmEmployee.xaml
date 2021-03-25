@@ -15,7 +15,7 @@
 
                         <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
-                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                <StackLayout  HorizontalOptions="Center" Margin="0">
                                     <Label Text="Login Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
                                 </StackLayout>
                             </StackLayout>
@@ -34,7 +34,7 @@
 
                             <Label Text="Password : " Style="{StaticResource TextStyle}"   ></Label>
                             <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtPassword" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Password" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                                <custom:StandardEntry x:Name="txtPassword" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Password" IsReadOnly="True" IsPassword="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
@@ -55,7 +55,7 @@
 
                         <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
-                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                <StackLayout  HorizontalOptions="Center" Margin="0">
                                     <Label Text="Employee Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
                                 </StackLayout>
                             </StackLayout>

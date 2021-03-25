@@ -32,7 +32,8 @@ namespace Smart_Tailoring_Solution_App
                 DisplayAlert("Smart Tailoring", "Application Deactivated", "Ok");
                 Model.Utility.WriteLog("Application Deactivated");
 
-                Navigation.PushAsync(new MainPage());
+                //Navigation.PushAsync(new MainPage());
+                App.Current.MainPage = new ActivationPage();
             }
         }
 

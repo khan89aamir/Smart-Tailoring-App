@@ -57,29 +57,31 @@ namespace Smart_Tailoring_Solution_App.Model
             }
         }
 
-        internal async void SyncUserManagementData(List<UserManagement> lstUserData)
+        internal async void SyncUserManagementData(List<UserManagement> lstUserData, bool isQuick = false)
         {
-            Utility.WriteLog("UserManagement Sync Started.....");
-            foreach (UserManagement User in lstUserData)
+            if (!isQuick)
             {
-                Utility.WriteLog("UserManagement Sync : " + User.UserName);
-                // check if the customer is new or updated.
-                if (TAILORING_DB.Instance.IsUserExists(User.UserID))
+                Utility.WriteLog("UserManagement Sync Started.....");
+                foreach (UserManagement User in lstUserData)
                 {
-                    // update the customer
-                    TAILORING_DB.Instance.UpdateUserManagement(User);
-                    Utility.WriteLog("UserManagement Update : User ID : " + User.UserID);
-                }
-                else
-                {
-                    // add new customer
-                    TAILORING_DB.Instance.SaveUserManagement(User);
-                    Utility.WriteLog("New User Added");
+                    Utility.WriteLog("UserManagement Sync : " + User.UserName);
+                    // check if the customer is new or updated.
+                    if (TAILORING_DB.Instance.IsUserExists(User.UserID))
+                    {
+                        // update the customer
+                        TAILORING_DB.Instance.UpdateUserManagement(User);
+                        Utility.WriteLog("UserManagement Update : User ID : " + User.UserID);
+                    }
+                    else
+                    {
+                        // add new customer
+                        TAILORING_DB.Instance.SaveUserManagement(User);
+                        Utility.WriteLog("New User Added");
+                    }
                 }
             }
             Utility.WriteLog("UserManagement pull operation completed !");
             // after Pulling the new/update data, Push the current Data
-
 
             List<UserManagement> tblUser = DAL.TAILORING_DB.Instance.GetNonSyncUser();
             bool resultcon = await ObjService.CheckServerConnection();

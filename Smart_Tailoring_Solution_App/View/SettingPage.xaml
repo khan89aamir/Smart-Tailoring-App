@@ -13,7 +13,7 @@
 
                         <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
-                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                <StackLayout  HorizontalOptions="Center" Margin="0">
                                     <Label Text="Activation Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
                                 </StackLayout>
                             </StackLayout>
@@ -50,7 +50,7 @@
                     <StackLayout>
                         <Frame Style="{StaticResource GroupBox}"  BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
-                                <StackLayout  VerticalOptions="Start" Margin="0">
+                                <StackLayout  HorizontalOptions="Center" Margin="0">
                                     <Label   Text="Other Settings" Style="{StaticResource TextStyle}" FontAttributes="Bold" TextColor="White"></Label>
                                 </StackLayout>
                             </StackLayout>
