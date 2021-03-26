@@ -17,10 +17,13 @@ namespace Smart_Tailoring_Solution_App.View
         public frmLogin()
         {
             InitializeComponent();
+
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) =>
             {
-                Navigation.PushAsync(new frmForgetPassword());
+                App.Current.MainPage = new frmForgetPassword();
+                //Navigation.PushAsync(new frmForgetPassword());
+                //Navigation.PushAsync(new NavigationPage(new frmForgetPassword()));
             };
             lblForgotPassword.GestureRecognizers.Add(tapGestureRecognizer);
         }

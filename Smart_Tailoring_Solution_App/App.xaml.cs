@@ -12,8 +12,8 @@ namespace Smart_Tailoring_Solution_App
         {
             InitializeComponent();
 
-            Device.SetFlags(new string[] { "RadioButton_Experimental"});
-           
+            Device.SetFlags(new string[] { "RadioButton_Experimental" });
+
             DAL.TAILORING_DB.Instance.CreateTables();
             Utility.WriteLog("Tables Created");
             // get data from activation table
@@ -28,6 +28,7 @@ namespace Smart_Tailoring_Solution_App
                 if (lstActivationDetails[0].DeviceSerialNumber == ActivationPage.Id.ToUpper())
                 {
                     App.Current.MainPage = new View.frmLogin();
+                    //MainPage = new NavigationPage(new View.frmLogin());
                     // App.Current.MainPage = new View.Page1();
                 }
                 else

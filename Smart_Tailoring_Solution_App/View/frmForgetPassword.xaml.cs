@@ -19,7 +19,7 @@ namespace Smart_Tailoring_Solution_App
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new MainPage();
+            App.Current.MainPage = new View.frmLogin();
         }
     }
 }
