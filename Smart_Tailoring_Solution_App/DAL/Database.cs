@@ -151,7 +151,7 @@ namespace Smart_Tailoring_Solution_App.DAL
         }
         public List<UserManagement> GetLoginUser(int UserID)
         {
-            string str = "SELECT * FROM tblUserManagement WHERE UserID = "+ UserID;
+            string str = "SELECT * FROM tblUserManagement WHERE UserID = " + UserID;
             return _database.Query<UserManagement>(str);
         }
         public int UserLastChangeID()
@@ -174,6 +174,19 @@ namespace Smart_Tailoring_Solution_App.DAL
                 Service.clsSmartTailoringService.UserID = lstUser[0].UserID;
             }
             return lstUser.Count;
+        }
+        public bool IsEmailAddressExist(string strEmailID)
+        {
+            string str = "SELECT UserID FROM tblUserManagement WHERE EmailID = '" + strEmailID + "'";
+            List<UserManagement> lstUser = _database.Query<UserManagement>(str);
+            if (lstUser.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            };
         }
         #endregion
 

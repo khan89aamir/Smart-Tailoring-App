@@ -124,4 +124,8 @@
 
                     // get the Employees from server
                     lstMeasurment = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsMeasurment>>(MeasurmentData);
-                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentMasterMeasurement : " + ex.ToString());                }            }            return lstMeasurment;        }    }}
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentMasterMeasurement : " + ex.ToString());                }            }            return lstMeasurment;        }        public async Task<List<Model.OrderModel.clsGarmentRate>> GetGarmentRate(int GarmentID, int ServiceType = 0)        {            List<Model.OrderModel.clsGarmentRate> lstGarmentRate = new List<Model.OrderModel.clsGarmentRate>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetGarmentRate?GarmentID=" + GarmentID + "&ServiceType=" + ServiceType;                    var GarmentRateData = await client.GetStringAsync(URL);
+
+                    // get the Garment Rate Data from server
+                    lstGarmentRate = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsGarmentRate>>(GarmentRateData);
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentRate : " + ex.ToString());                }            }            return lstGarmentRate;        }    }}
