@@ -116,6 +116,23 @@ namespace Smart_Tailoring_Solution_App.Model
             return result;
         }
 
+        public static async Task<bool> ShowQuestionMessageBox(string strMessage, MasterDetailPage masterPage)
+        {
+            ViewModel.MessageViewModel messageBoxViewModel = new ViewModel.MessageViewModel();
+            messageBoxViewModel.DispalyModelType = ViewModel.MessageViewModel.ModelType.QuestionModel;
+            messageBoxViewModel.MessageText = strMessage;
+            messageBoxViewModel.MessageTitle = strMessageTitle;
+            messageBoxViewModel.MessageIcon = "question";
+
+            View.frmMessageBox frmMessageBox = new frmMessageBox(messageBoxViewModel);
+
+            await masterPage.Navigation.PushModalAsync(frmMessageBox);
+            await frmMessageBox.PageClosedTask; // Wait here until the SettingsPage is dismissed
+
+            bool result = messageBoxViewModel.ModelResult;
+            return result;
+        }
+
         public static bool DeleteLogFile()
         {
             bool result = false;

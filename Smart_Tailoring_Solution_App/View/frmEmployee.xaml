@@ -64,22 +64,22 @@
                         <StackLayout Padding="10">
                             <Label Text="Employee Code : " Style="{StaticResource TextStyle}"   ></Label>
                             <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtEmployeeCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Employee Code" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                                <custom:StandardEntry x:Name="txtEmployeeCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Employee Code" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 
                             <Label Text="Employee Name : " Style="{StaticResource TextStyle}"   ></Label>
                             <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtEmployeeName" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Employee Name" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                                <custom:StandardEntry x:Name="txtEmployeeName" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Employee Name" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 
                             <Label Text="Mobile No. : " Style="{StaticResource TextStyle}"   ></Label>
                             <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtMobileNo" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Mobile No." IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                                <custom:StandardEntry x:Name="txtMobileNo" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Mobile No." IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
                             
                             <Label Text="Gender : " Style="{StaticResource TextStyle}"   ></Label>
                             <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtGender" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Select Gender" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                                <custom:StandardEntry x:Name="txtGender" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Gender" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
                             
                             <Label Text="Employee Type" Style="{StaticResource TextStyle}"   ></Label>

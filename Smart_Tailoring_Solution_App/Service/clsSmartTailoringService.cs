@@ -1,4 +1,5 @@
-﻿using System;using System.Collections.Generic;using System.Net.Http;using System.Text;using System.Threading.Tasks;using Smart_Tailoring_Solution_App.DAL;using Smart_Tailoring_Solution_App.Model;namespace Smart_Tailoring_Solution_App.Service{
+﻿using System;using System.Collections;
+using System.Collections.Generic;using System.Net.Http;using System.Text;using System.Threading.Tasks;using Smart_Tailoring_Solution_App.DAL;using Smart_Tailoring_Solution_App.Model;namespace Smart_Tailoring_Solution_App.Service{
     public class clsSmartTailoringService    {        public string URL { get; set; }        public static string ServerIPAddress { get; set; }
         public static int UserID { get; set; }
 
@@ -128,4 +129,30 @@
 
                     // get the Garment Rate Data from server
                     lstGarmentRate = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsGarmentRate>>(GarmentRateData);
-                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentRate : " + ex.ToString());                }            }            return lstGarmentRate;        }    }}
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentRate : " + ex.ToString());                }            }            return lstGarmentRate;        }        public async Task<List<Model.GarmentList>> GetGarmentList(int GarmentID = 0)        {            List<Model.GarmentList> lstGarmentList = new List<Model.GarmentList>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetGarmentList?GarmentID=" + GarmentID;                    var GarmentListData = await client.GetStringAsync(URL);
+
+                    // get the Garment List Data from server
+                    lstGarmentList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.GarmentList>>(GarmentListData);
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentList : " + ex.ToString());                }            }            return lstGarmentList;        }
+
+        //Testing
+        public async Task<bool> SetMeasurementStyle(Model.OrderModel.clsMeasurment measure,Model.OrderModel.clsStyle style)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
+                    ArrayList paramList = new ArrayList();
+                    paramList.Add(measure);
+                    paramList.Add(style);
+
+                    // serialized the object. ( Convert to JSON string)
+                    //var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(UserDetails);                    var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(paramList);                    URL = "http://" + ServerIPAddress + "/api/Order/GetMeasurmentStyle";
+
+                    // set the content
+                    StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+                    // post the data and get the response.
+                    HttpResponseMessage response = await client.PostAsync(URL, content);
+
+                    //extract the response in json string format.
+                    string strResponse = await response.Content.ReadAsStringAsync();
+
+                    // get the Response in Class-object format. ( DeSerialized it)
+                    Response responseData = Newtonsoft.Json.JsonConvert.DeserializeObject<Response>(strResponse);                    if (responseData.Result)// check the values
+                    {                        conresult = true;                    }                    else                    {                        conresult = false;                    }                }                catch (Exception ex)                {                    Utility.WriteLog("SetMeasurementStyle : " + ex.ToString());                    conresult = false;                }            }            return conresult;        }    }}

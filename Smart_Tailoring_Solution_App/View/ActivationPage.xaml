@@ -17,10 +17,17 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                </StackLayout>
+                    <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="8" Margin="60,0,60,0">
+                        <StackLayout>
+                            <StackLayout  HorizontalOptions="Center" Margin="0">
+                                <Label Text="Activation Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
+                            </StackLayout>
+                        </StackLayout>
 
-                <StackLayout Padding="10">
-                <Label Text="1. Enter IP Address and Press Connect to Server button." Style="{StaticResource TextStyle}"></Label>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Padding="9">
+                    <Label Text="1. Enter IP Address and Press Connect to Server button." Style="{StaticResource TextStyle}"></Label>
                 <Label Text="2. Enter Activation code and Press Activation button." Style="{StaticResource TextStyle}"></Label>
 
                 <ActivityIndicator x:Name="ctrActivityIndicator" IsRunning="true" IsVisible="false" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -28,7 +35,7 @@
             </StackLayout>
 
                 <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
-                <StackLayout Padding="10" Margin="0,0,0,20">
+                <StackLayout Padding="10" Margin="0,0,0,18">
                     <StackLayout Orientation="Horizontal" >
                         <Label Text="Serial No :" 
               HorizontalTextAlignment="Start" TextColor="White" FontSize="Medium"   FontFamily="serif"

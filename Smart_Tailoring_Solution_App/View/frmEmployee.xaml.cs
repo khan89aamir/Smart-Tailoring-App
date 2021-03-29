@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Smart_Tailoring_Solution_App.DAL;
@@ -41,7 +40,6 @@ namespace Smart_Tailoring_Solution_App.View
         }
         private void LoadUsers()
         {
-            tblUser = TAILORING_DB.Instance.GetAllUsers();
             tblUser = TAILORING_DB.Instance.GetLoginUser(clsSmartTailoringService.UserID);
             //dgvUsers.ItemsSource = lstUserDetails;
             if (tblUser.Count > 0)
@@ -53,8 +51,15 @@ namespace Smart_Tailoring_Solution_App.View
 
         private void btnEdit_Clicked(object sender, EventArgs e)
         {
-            txtPassword.IsReadOnly = false;
-            txtPassword.Focus();
+            if (txtPassword.IsReadOnly)
+            {
+                txtPassword.IsReadOnly = false;
+                txtPassword.Focus();
+            }
+            else
+            {
+                txtPassword.IsReadOnly = true;
+            }
         }
 
         private void btnUpdate_Clicked(object sender, EventArgs e)

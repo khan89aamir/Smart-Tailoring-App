@@ -11,9 +11,8 @@ namespace Smart_Tailoring_Solution_App.View
         public MainPage()
         {
             InitializeComponent();
-           
-            menuList = new List<MasterPageItem>();
 
+            menuList = new List<MasterPageItem>();
             // Adding menu items to menuList and you can define title ,page and icon
             menuList.Add(new MasterPageItem() { Title = "Home", Icon = "home.png", TargetType = typeof(HomePage) });
             menuList.Add(new MasterPageItem() { Title = "My Profile", Icon = "MyProfile.png", TargetType = typeof(View.frmEmployee) });
@@ -33,13 +32,22 @@ namespace Smart_Tailoring_Solution_App.View
 
         // Event for Menu Item selection, here we are going to handle navigation based
         // on user selection in menu ListView
-        private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
             var item = (MasterPageItem)e.SelectedItem;
             Type page = item.TargetType;
-
-            Detail = new NavigationPage((Page)Activator.CreateInstance(page));
+            if (page.Name == "frmLogin")
+            {
+                var result = await Model.Utility.ShowQuestionMessageBox("Are you sure, you want to LogOut?",this);
+                if (Convert.ToBoolean(result))
+                {
+                    App.Current.MainPage = new View.frmLogin();
+                }
+            }
+            else
+            {
+                Detail = new NavigationPage((Page)Activator.CreateInstance(page));
+            }
             IsPresented = false;
         }
         ViewCell lastCell;

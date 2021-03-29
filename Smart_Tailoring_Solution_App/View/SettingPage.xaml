@@ -46,7 +46,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
+                <!--<Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                     <StackLayout>
                         <Frame Style="{StaticResource GroupBox}"  BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
@@ -57,7 +57,7 @@
 
                         </Frame>
                     </StackLayout>
-                </Frame>
+                </Frame>-->
             </StackLayout>
          
         </ScrollView>

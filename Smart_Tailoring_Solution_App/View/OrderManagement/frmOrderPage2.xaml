@@ -8,25 +8,16 @@
              Title="Seleted Garmnets"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderPage2">
 
-  
-    
-    
-    
     <ContentPage.Content>
         <StackLayout Padding="5">
-
-          
             <StackLayout>
-                 
-                <ListView x:Name="dgvAddedGarmnet"  HeightRequest="700" HasUnevenRows="True"   >
-                        <ListView.ItemTemplate>
-
-                           <DataTemplate>
-                                <ViewCell >
-
+                <ListView x:Name="dgvAddedGarmnet"  HeightRequest="700" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
                                 <Frame Padding="5" Margin="2"  Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                                     <StackLayout>
-                                     
+
                                         <Grid Padding="4" Margin="4">
                                             <Grid.RowDefinitions>
 
@@ -46,22 +37,16 @@
                                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" >
 
                                                 <Label  FontAttributes="Bold" Text="Code : GC01" Style="{StaticResource TextStyle}"  ></Label>
-                                              
 
                                             </StackLayout>
                                             <!--Row : 0, -Col : 1 -->
-                                            
-                                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0"  >
 
+                                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0"  >
 
                                                 <Label   Text="Name :" Style="{StaticResource TextStyle}"  ></Label>
                                                 <Label Text="{Binding Name}" Style="{StaticResource TextStyle}"     Grid.Column="0" Grid.Row="0"></Label>
-                                                
-                                                
-                                                
 
                                             </StackLayout>
-
 
                                             <!--Row : 1, -Col : 0 -->
                                             <StackLayout  Orientation="Horizontal" Grid.Column="0" Grid.Row="1"  >
@@ -95,7 +80,7 @@
 
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2"   >
-                                              
+
                                                 <Label  VerticalOptions="Center" Text="Rate :" Style="{StaticResource TextStyle}"  ></Label>
                                                 <Label  VerticalOptions="Center" Text="500" Style="{StaticResource TextStyle}"  ></Label>
 
@@ -111,41 +96,40 @@
                                             </StackLayout>
                                             <!--Row : 3, -Col : 0 -->
                                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="4"  >
-
                                                 <Label   VerticalOptions="Center" Text="Delivery :" Style="{StaticResource TextStyle}"  ></Label>
                                                 <DatePicker TextColor="White"></DatePicker>
-
                                             </StackLayout>
-
                                         </Grid>
                                     </StackLayout>
-                                 
-
                                 </Frame>
-
-
                             </ViewCell>
-
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <StackLayout Orientation="Vertical" HeightRequest="100" BackgroundColor="AliceBlue">
 
                     <StackLayout   Padding="5" Orientation="Horizontal">
-                        <Label Text="Tailroing amt : 300" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
-                        <Label Text="Trim Amount : 80" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label Text="Tailroing Amt :" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label x:Name="lblTotalTailroingAmt" Text="300" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
+                        
+                        <Label Text="Trim Amount :" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label x:Name="lblTotalTrimAmount" Text="80" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        
                     </StackLayout>
                     <StackLayout   Padding="5" Orientation="Horizontal">
-                        <Label Text="Tax : 20" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
-                        <Label Text="Grand Total : 400" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label Text="Tax :" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label x:Name="lblTotalTax" Text="20" HorizontalOptions="StartAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        
+                        <Label Text="Grand Total : " HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label x:Name="lblGrandTotal" Text="400" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
                     </StackLayout>
 
                 </StackLayout>
-                <Button Text="Measurement" Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked"></Button>
-                </StackLayout>
+                <Button Margin="3,0,0,0" Text="Measurement" Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked"></Button>
+            </StackLayout>
 
-         
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

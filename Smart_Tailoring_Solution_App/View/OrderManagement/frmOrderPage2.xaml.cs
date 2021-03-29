@@ -17,7 +17,6 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         public frmOrderPage2()
         {
             InitializeComponent();
-
         }
         
         protected override void OnAppearing()
@@ -25,6 +24,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             base.OnAppearing();
             dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
 
+            var grid = dgvAddedGarmnet.ItemsSource;
         }
 
         private void chkTrailDate_CheckedChanged(object sender, CheckedChangedEventArgs e)
