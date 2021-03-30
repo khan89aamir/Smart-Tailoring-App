@@ -227,7 +227,7 @@
 
                                 <StackLayout Grid.Row="0" Grid.Column="0">
                                     <Label HorizontalOptions="Start" Text="SKU Style No" Style="{StaticResource TextStyle}"></Label>
-                                    <Picker TextColor="White">
+                                    <Picker TextColor="White" x:Name="pickerQTY">
                                         <Picker.Items>
                                             <x:String>1</x:String>
                                             <x:String>2</x:String>
@@ -238,22 +238,22 @@
                                 <StackLayout Grid.Row="0" Grid.Column="1">
 
                                     <Label HorizontalOptions="Start" Text="Stitch Type" Style="{StaticResource TextStyle}"></Label>
-                                    <Picker TextColor="White">
-                                        <Picker.Items>
-                                            <x:String>Finish</x:String>
+                                <Picker TextColor="White" x:Name="pickerStitchType" ItemDisplayBinding="{Binding StichTypeName}">
+                                        <!--<Picker.Items>
+                                            <x:String>Finish1</x:String>
                                             <x:String>Trail</x:String>
-                                        </Picker.Items>
+                                        </Picker.Items>-->
                                     </Picker>
                                 </StackLayout>
                                 <StackLayout Grid.Row="1" Grid.Column="0">
 
                                     <Label HorizontalOptions="Start" Text="Fit Type" Style="{StaticResource TextStyle}"></Label>
-                                    <Picker TextColor="White">
-                                        <Picker.Items>
-                                            <x:String>Slim Fit</x:String>
+                                <Picker TextColor="White" x:Name="pickerFitType" ItemDisplayBinding="{Binding FitTypeName}">
+                                        <!--<Picker.Items>
+                                            <x:String>Slim Fit1</x:String>
                                             <x:String>Regular Fit</x:String>
                                             <x:String>Comfort Fit</x:String>
-                                        </Picker.Items>
+                                        </Picker.Items>-->
                                     </Picker>
                                 </StackLayout>
                                 <StackLayout Grid.Row="1" Grid.Column="1">
@@ -287,7 +287,7 @@
                                        
                                     </StackLayout>
                                     <StackLayout>
-                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" CornerRadius="10" Text="Hlaf Sleeve"></Button>
+                                        <Button Style="{StaticResource ButtonStyle}" WidthRequest="100"  HorizontalOptions="Start" CornerRadius="10" Text="Half Sleve"></Button>
                                        
                                     </StackLayout>
                                     <StackLayout>
@@ -350,7 +350,7 @@
                     </StackLayout>
 
                 </ScrollView>
-                <Button Clicked="Button_Clicked" Style="{StaticResource ButtonStyle}" WidthRequest="200" HorizontalOptions="Center" Text="Complete Order"></Button>
+                <Button x:Name="btnCompleteOrder" Clicked="Button_Clicked" Style="{StaticResource ButtonStyle}" WidthRequest="200" HorizontalOptions="Center" Text="Complete Order"></Button>
             </StackLayout>
 
         </StackLayout>

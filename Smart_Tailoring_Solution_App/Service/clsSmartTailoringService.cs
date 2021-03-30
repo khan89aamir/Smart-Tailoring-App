@@ -135,6 +135,18 @@ using System.Collections.Generic;using System.Net.Http;using System.Text;usin
                     lstGarmentList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.GarmentList>>(GarmentListData);
                 }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentList : " + ex.ToString());                }            }            return lstGarmentList;        }
 
+        public async Task<List<Model.OrderModel.StitchType>> GetStitchType()        {            List<Model.OrderModel.StitchType> lstStitchTypeList = new List<Model.OrderModel.StitchType>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetStitchType";                    var StitchTypeData = await client.GetStringAsync(URL);
+
+                    // get the Garment List Data from server
+                    lstStitchTypeList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.StitchType>>(StitchTypeData);
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetStitchType : " + ex.ToString());                }            }            return lstStitchTypeList;        }
+
+        public async Task<List<Model.OrderModel.FitType>> GetFitType()        {            List<Model.OrderModel.FitType> lstFitTypeList = new List<Model.OrderModel.FitType>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetFitType";                    var FitTypeData = await client.GetStringAsync(URL);
+
+                    // get the Garment List Data from server
+                    lstFitTypeList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.FitType>>(FitTypeData);
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetFitType : " + ex.ToString());                }            }            return lstFitTypeList;        }
+
         //Testing
         public async Task<bool> SetMeasurementStyle(Model.OrderModel.clsMeasurment measure,Model.OrderModel.clsStyle style)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
                     ArrayList paramList = new ArrayList();

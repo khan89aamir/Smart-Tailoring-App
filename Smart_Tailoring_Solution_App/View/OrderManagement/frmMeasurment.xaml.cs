@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -50,7 +49,11 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             Service.clsSmartTailoringService ObjService = new Service.clsSmartTailoringService();
             var MeasurmentData = await ObjService.GetGarmentMasterMeasurement(1);
             dgvMeasurment.ItemsSource = MeasurmentData;
-            
+
+            pickerStitchType.ItemsSource = await ObjService.GetStitchType();
+            pickerFitType.ItemsSource = await ObjService.GetFitType();
+
+
             //Testing multiple-complex-type-parameters
             //Model.OrderModel.clsMeasurment measure = new Model.OrderModel.clsMeasurment();
             //measure.MeasurmentID = 1;
@@ -71,7 +74,6 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
             tabBodyPsoture.BackgroundColor = Color.FromHex("#525B72");
             tabMeasure.BackgroundColor = Color.FromHex("#525B72");
-
 
             pnlBodyPosture.IsVisible = false;
             pnlMeasur.IsVisible = false;
