@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smart_Tailoring_Solution_App.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,13 +57,12 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             pnlLoading.IsVisible = true;
 
             Service.clsSmartTailoringService ObjService = new Service.clsSmartTailoringService();
-             var MeasurmentData= await ObjService.GetGarmentMasterMeasurement(1);
-
-            dgvMeasurment.ItemsSource    = MeasurmentData;
+            var MeasurmentData = await ObjService.GetGarmentMasterMeasurement(Utility.GarmentID);
+            dgvMeasurment.ItemsSource = MeasurmentData;
 
             pnlLoading.IsVisible = false;
         }
-            
+
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
             tabStyle.BackgroundColor = Color.FromHex("#0091D5");
@@ -78,7 +78,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-          
+
         }
     }
 }

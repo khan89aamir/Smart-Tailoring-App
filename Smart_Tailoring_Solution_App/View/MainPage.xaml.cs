@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Smart_Tailoring_Solution_App.MenuItems;
+using Xamarin.Essentials;
 
 namespace Smart_Tailoring_Solution_App.View
 {
+    [Obsolete]
     public partial class MainPage : MasterDetailPage
     {
         public List<MasterPageItem> menuList { get; set; }
+        ViewCell lastCell;
+
         public MainPage()
         {
             InitializeComponent();
+
+            lblVersion.Text = "Version : " + VersionTracking.CurrentVersion;
 
             menuList = new List<MasterPageItem>();
             // Adding menu items to menuList and you can define title ,page and icon
@@ -38,9 +44,10 @@ namespace Smart_Tailoring_Solution_App.View
             Type page = item.TargetType;
             if (page.Name == "frmLogin")
             {
-                var result = await Model.Utility.ShowQuestionMessageBox("Are you sure, you want to LogOut?",this);
+                var result = await Model.Utility.ShowQuestionMessageBox("Are you sure, you want to Logout?", this);
                 if (Convert.ToBoolean(result))
                 {
+                    ResetLoginDetails();
                     App.Current.MainPage = new View.frmLogin();
                 }
             }
@@ -50,7 +57,14 @@ namespace Smart_Tailoring_Solution_App.View
             }
             IsPresented = false;
         }
-        ViewCell lastCell;
+        
+        private void ResetLoginDetails()
+        {
+            Service.clsSmartTailoringService.UserID = 0;
+            Service.clsSmartTailoringService.UserTypeID = 0;
+            Service.clsSmartTailoringService.UserName = string.Empty;
+        }
+
         private void ViewCell_Tapped(object sender, System.EventArgs e)
         {
             if (lastCell != null)

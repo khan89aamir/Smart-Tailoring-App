@@ -12,7 +12,7 @@ namespace Smart_Tailoring_Solution_App
         {
             InitializeComponent();
 
-            Device.SetFlags(new string[] { "RadioButton_Experimental" });
+            //Device.SetFlags(new string[] { "RadioButton_Experimental" });
 
             DAL.TAILORING_DB.Instance.CreateTables();
             Utility.WriteLog("Tables Created");

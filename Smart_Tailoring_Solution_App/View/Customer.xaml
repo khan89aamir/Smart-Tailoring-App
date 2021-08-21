@@ -10,10 +10,10 @@
 
 
             <Frame BackgroundColor="#525B72">
-                    <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <RadioButton x:Name="btnNewCustomer" Text="New Customer"  Style="{StaticResource TextStyle}" Clicked="btnNewCustomer_Clicked" />
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <RadioButton x:Name="btnNewCustomer" Value="New" Content="New Customer"  Style="{StaticResource TextStyle}" />
 
-                    <RadioButton x:Name="btnOldCustomer"  Text="Old Customer" Style="{StaticResource TextStyle}"  Clicked="btnOldCustomer_Clicked"/>
+                    <RadioButton x:Name="btnOldCustomer" Value="Old" Content="Old Customer" Style="{StaticResource TextStyle}" />
                     </StackLayout>
                 
                 </Frame>

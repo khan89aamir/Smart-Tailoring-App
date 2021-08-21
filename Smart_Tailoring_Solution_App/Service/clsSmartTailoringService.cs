@@ -1,7 +1,10 @@
 ﻿using System;using System.Collections;
 using System.Collections.Generic;using System.Net.Http;using System.Text;using System.Threading.Tasks;using Smart_Tailoring_Solution_App.DAL;using Smart_Tailoring_Solution_App.Model;namespace Smart_Tailoring_Solution_App.Service{
     public class clsSmartTailoringService    {        public string URL { get; set; }        public static string ServerIPAddress { get; set; }
+        public static string http = "http://";
         public static int UserID { get; set; }
+        public static int UserTypeID { get; set; } = 0;
+        public static string UserName { get; set; }
 
         public async Task<bool> CheckServerConnection(string ServerIP)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
                     URL = "http://" + ServerIP + "/api/Masters/GetStatus";
@@ -121,7 +124,7 @@ using System.Collections.Generic;using System.Net.Http;using System.Text;usin
                 }                catch (Exception ex)                {                    Utility.WriteLog("GetEmployeeDetails : " + ex.ToString());                }            }            return lstEmployeedata;        }
 
 
-        public async Task<List<Model.OrderModel.clsMeasurment>> GetGarmentMasterMeasurement(int GarmentID)        {            List<Model.OrderModel.clsMeasurment> lstMeasurment = new List<Model.OrderModel.clsMeasurment>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetGarmentMasterMeasurement?GarmentID=" + GarmentID;                    var MeasurmentData = await client.GetStringAsync(URL);
+        public async Task<List<Model.OrderModel.clsMeasurment>> GetGarmentMasterMeasurement(int GarmentID)        {            List<Model.OrderModel.clsMeasurment> lstMeasurment = new List<Model.OrderModel.clsMeasurment>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetGarmentMasterMeasurement?GarmentID=" + GarmentID;                    var MeasurmentData = await client.GetStringAsync(URL);
 
                     // get the Employees from server
                     lstMeasurment = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsMeasurment>>(MeasurmentData);
@@ -129,10 +132,10 @@ using System.Collections.Generic;using System.Net.Http;using System.Text;usin
 
                     // get the Garment Rate Data from server
                     lstGarmentRate = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsGarmentRate>>(GarmentRateData);
-                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentRate : " + ex.ToString());                }            }            return lstGarmentRate;        }        public async Task<List<Model.GarmentList>> GetGarmentList(int GarmentID = 0)        {            List<Model.GarmentList> lstGarmentList = new List<Model.GarmentList>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetGarmentList?GarmentID=" + GarmentID;                    var GarmentListData = await client.GetStringAsync(URL);
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentRate : " + ex.ToString());                }            }            return lstGarmentRate;        }        public async Task<List<GarmentList>> GetGarmentList(int GarmentID = 0)        {            List<GarmentList> lstGarmentList = new List<GarmentList>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetGarmentList?GarmentID=" + GarmentID;                    var GarmentListData = await client.GetStringAsync(URL);
 
                     // get the Garment List Data from server
-                    lstGarmentList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.GarmentList>>(GarmentListData);
+                    lstGarmentList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<GarmentList>>(GarmentListData);
                 }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentList : " + ex.ToString());                }            }            return lstGarmentList;        }
 
         public async Task<List<Model.OrderModel.StitchType>> GetStitchType()        {            List<Model.OrderModel.StitchType> lstStitchTypeList = new List<Model.OrderModel.StitchType>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetStitchType";                    var StitchTypeData = await client.GetStringAsync(URL);
@@ -148,13 +151,14 @@ using System.Collections.Generic;using System.Net.Http;using System.Text;usin
                 }                catch (Exception ex)                {                    Utility.WriteLog("GetFitType : " + ex.ToString());                }            }            return lstFitTypeList;        }
 
         //Testing
-        public async Task<bool> SetMeasurementStyle(Model.OrderModel.clsMeasurment measure,Model.OrderModel.clsStyle style)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
+        public async Task<bool> SetMeasurementStyle(Model.OrderModel.clsMeasurment measure, Model.OrderModel.clsStyle style)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {
                     ArrayList paramList = new ArrayList();
                     paramList.Add(measure);
                     paramList.Add(style);
 
                     // serialized the object. ( Convert to JSON string)
-                    //var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(UserDetails);                    var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(paramList);                    URL = "http://" + ServerIPAddress + "/api/Order/GetMeasurmentStyle";
+                    //var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(UserDetails);
+                    var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(paramList);                    URL = "http://" + ServerIPAddress + "/api/Order/GetMeasurmentStyle";
 
                     // set the content
                     StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");

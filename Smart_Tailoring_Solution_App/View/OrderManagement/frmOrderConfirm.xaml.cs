@@ -9,6 +9,8 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using System.Net.Http;
+using Smart_Tailoring_Solution_App.Model;
+
 namespace Smart_Tailoring_Solution_App.View.OrderManagement
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -17,6 +19,9 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         public frmOrderConfirm()
         {
             InitializeComponent();
+
+            Utility.GarmentID = 0;
+            Utility.MasterGarmentID = 0;
         }
 
         string URL = string.Empty;

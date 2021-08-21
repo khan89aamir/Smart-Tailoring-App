@@ -1,4 +1,5 @@
-﻿using Smart_Tailoring_Solution_App.Service;
+﻿using Smart_Tailoring_Solution_App.Model;
+using Smart_Tailoring_Solution_App.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,13 +14,16 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class frmOrderPage1 : ContentPage
     {
-        ObservableCollection<Model.GarmentList> lstGarmnetList;
+        ObservableCollection<GarmentList> lstGarmnetList;
+        ObservableCollection<SelectedGarments> lstSelectedGarment = new ObservableCollection<SelectedGarments>();
+
+        ViewCell lastCell;
 
         public frmOrderPage1()
         {
             InitializeComponent();
 
-            lstGarmnetList = new ObservableCollection<Model.GarmentList>();
+            lstGarmnetList = new ObservableCollection<GarmentList>();
 
             //lstGarmnetList.Add(new Model.GarmentList
             //{
@@ -31,7 +35,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             //lstGarmnetList.Add(new Model.GarmentList { GarmentID = 3, Name = "2-PC Suit", ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
             //lstGarmnetList.Add(new Model.GarmentList { GarmentID = 4, Name = "Jacket", ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
             //lstGarmnetList.Add(new Model.GarmentList { GarmentID = 5, Name = "3-PC Suit", ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
-            
+
             LoadGarments();
 
             dgvGarmnetList.ItemsSource = lstGarmnetList;
@@ -49,7 +53,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
                 dgvGarmnetList.IsVisible = true;
             }
             //thats all you need to make a search
-            IList<Model.GarmentList> data = lstGarmnetList.Where(p =>
+            IList<GarmentList> data = lstGarmnetList.Where(p =>
                        p.Name != null &&
                        p.Name.ToLower().StartsWith(e.NewTextValue.ToLower())
                        ).ToList();
@@ -62,7 +66,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
             else
             {
-                ObservableCollection<Model.GarmentList> myCollection = new ObservableCollection<Model.GarmentList>(data);
+                ObservableCollection<GarmentList> myCollection = new ObservableCollection<GarmentList>(data);
                 dgvGarmnetList.ItemsSource = myCollection;
             }
         }
@@ -75,7 +79,6 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             txtGarmentName.Text = SelecteGarment.Name;
             picQTY.SelectedIndex = 0;
         }
-        ViewCell lastCell;
 
         private void ViewCell_Tapped(object sender, EventArgs e)
         {
@@ -93,12 +96,12 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         {
 
         }
-        ObservableCollection<Model.SelectedGarments> lstSelectedGarment = new ObservableCollection<Model.SelectedGarments>();
+
         private void btnAdd_Clicked(object sender, EventArgs e)
         {
             for (int i = 1; i <= Convert.ToInt32(picQTY.SelectedItem); i++)
             {
-                Model.SelectedGarments garment = new Model.SelectedGarments();
+                SelectedGarments garment = new SelectedGarments();
                 garment.Name = txtGarmentName.Text;
                 garment.QTY = 1;
                 garment.IsTrail = chkTrailDate.IsChecked;
@@ -110,27 +113,44 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private async void btnDelete_Clicked(object sender, EventArgs e)
         {
-            bool result = await Model.Utility.ShowQuestionMessageBox("Are you sure, you want to delete this Garment?", this);
+            bool result = await Utility.ShowQuestionMessageBox("Are you sure, you want to delete this Garment?", this);
             if (result)
             {
                 Button button = (Button)sender;
                 var binding = button.BindingContext;
 
-                Model.SelectedGarments tc = (Model.SelectedGarments)(binding);
+                SelectedGarments tc = (SelectedGarments)(binding);
 
                 lstSelectedGarment.Remove(tc);
 
                 dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
 
-                Model.Utility.ShowMessageBox("Garment has been deleted successfully.", Model.Utility.MessageType.Success, this);
+                Utility.ShowMessageBox("Garment has been deleted successfully.", Utility.MessageType.Success, this);
             }
         }
 
-        private void LoadGarments()
+        private async void LoadGarments()
         {
             clsSmartTailoringService service = new clsSmartTailoringService();
-            var lstGarments = service.GetGarmentList();
-            
+            try
+            {
+                List<GarmentList> lstGarmnet = await service.GetGarmentList();
+                if (lstGarmnet != null)
+                {
+                    for (int i = 0; i < lstGarmnet.Count; i++)
+                    {
+                        GarmentList gar = lstGarmnet[i];
+                        gar.ImageURL = clsSmartTailoringService.http + clsSmartTailoringService.ServerIPAddress + gar.ImageURL;
+
+                        lstGarmnetList.Add(gar);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.WriteLog("frmOrderPage1 " + ex.ToString());
+            }
+
         }
         private void btnMeasurment_Clicked(object sender, EventArgs e)
         {

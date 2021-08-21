@@ -81,14 +81,14 @@
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/Tummy.jpg"></Image>
-                                        <RadioButton Text="" GroupName="stoamch" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="stoamch" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/Prominent%20stmouch.jpg"></Image>
-                                        <RadioButton GroupName="stoamch" Text="" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="stoamch" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
@@ -107,20 +107,20 @@
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/Normal%20back.jpg"></Image>
-                                        <RadioButton Text="" GroupName="Back" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="Back" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/errect.jpg"></Image>
-                                        <RadioButton GroupName="Back" Text="" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="Back" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/hunch.jpg"></Image>
-                                        <RadioButton GroupName="Back" Text="" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="Back" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
@@ -137,20 +137,20 @@
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/Normal%20Shoulder.jpg"></Image>
-                                        <RadioButton Text="" GroupName="Shoulder" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="Shoulder" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/Slooping%20shoulder.jpg"></Image>
-                                        <RadioButton GroupName="Shoulder" Text="" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="Shoulder" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
                                 <Frame Padding="0" Margin="0" CornerRadius="7">
                                     <StackLayout>
                                         <Image WidthRequest="150" Source="http://192.168.43.51/images/Square%20Shoulder.jpg"></Image>
-                                        <RadioButton GroupName="Shoulder" Text="" HorizontalOptions="Center"></RadioButton>
+                                        <RadioButton GroupName="Shoulder" HorizontalOptions="Center"></RadioButton>
                                     </StackLayout>
                                 </Frame>
 

@@ -19,7 +19,7 @@
                     <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         <Image Source="measuring.png" Aspect="AspectFit" WidthRequest="80" HeightRequest="80" />
                         <Label Text="Smart Tailoring App" TextColor="Black" FontSize="Large" FontFamily="serif" />
-                        <Label Text="Version : 1.0.0.0" TextColor="Black" FontSize="Default" FontFamily="serif" />
+                        <Label x:Name="lblVersion" Text="Version : 1.0.0.0" TextColor="Black" FontSize="Default" FontFamily="serif" />
                     </StackLayout>
                 </Grid>
                 <StackLayout Grid.Row="1" Spacing="0">
