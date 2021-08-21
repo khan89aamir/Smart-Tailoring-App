@@ -121,7 +121,7 @@ using System.Collections.Generic;using System.Net.Http;using System.Text;usin
                 }                catch (Exception ex)                {                    Utility.WriteLog("GetEmployeeDetails : " + ex.ToString());                }            }            return lstEmployeedata;        }
 
 
-        public async Task<List<Model.OrderModel.clsMeasurment>> GetGarmentMasterMeasurement(int GarmentID)        {            List<Model.OrderModel.clsMeasurment> lstMeasurment = new List<Model.OrderModel.clsMeasurment>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Order/GetGarmentMasterMeasurement?GarmentID=" + GarmentID;                    var MeasurmentData = await client.GetStringAsync(URL);
+        public async Task<List<Model.OrderModel.clsMeasurment>> GetGarmentMasterMeasurement(int GarmentID)        {            List<Model.OrderModel.clsMeasurment> lstMeasurment = new List<Model.OrderModel.clsMeasurment>();            using (var client = new HttpClient())            {                try                {                    string URL = "http://" + ServerIPAddress + "/api/Masters/GetGarmentMasterMeasurement?GarmentID=" + GarmentID;                    var MeasurmentData = await client.GetStringAsync(URL);
 
                     // get the Employees from server
                     lstMeasurment = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsMeasurment>>(MeasurmentData);

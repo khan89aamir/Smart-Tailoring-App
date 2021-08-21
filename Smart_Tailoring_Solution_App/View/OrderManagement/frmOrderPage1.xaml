@@ -7,18 +7,20 @@
              Title="Garment Selection"
           BackgroundColor="#525B72"
              xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
+          
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderPage1">
-
+   
     <ContentPage.Content>
+
         <ScrollView>
-            <StackLayout Padding="5">
-
+            <StackLayout Padding="5" Margin="7">
+              
                 <StackLayout>
-                    <Frame Padding="0" Margin="0" CornerRadius="10">
-                        <SearchBar TextColor="Black"  TextChanged="SearchBar_TextChanged" Placeholder="Enter Garment Name" Style="{StaticResource TextStyle}"></SearchBar>
+                    <Frame Padding="0" Margin="0" CornerRadius="7">
+                        <SearchBar  TextColor="Black"  TextChanged="SearchBar_TextChanged" Placeholder="Enter Garment Name" Style="{StaticResource TextStyle}" Margin="-5" ></SearchBar>
                     </Frame>
-
-                    <ListView x:Name="dgvGarmnetList" IsVisible="false"  ItemsSource="{Binding List}"
+                        
+                    <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding List}"
           HasUnevenRows="true"
            ItemSelected="dgvGarmnetList_ItemSelected"
           ItemTapped="dgvGarmnetList_ItemTapped">
@@ -57,25 +59,48 @@
                         </custom:StandardEntry>
                     </Frame>
 
-                    <Label x:Name="txtQTY"  Text="QTY"  Style="{StaticResource TextStyle}"></Label>
-                    <Frame Margin="0" Padding="0" BackgroundColor="WhiteSmoke"  CornerRadius="8">
-                        <custom:StandardPicker Margin="0,0,10,0"    x:Name="picQTY"
-                TitleColor="Black"   BackgroundColor="WhiteSmoke"  TextColor="Black" Title="Select QTY"  Image="caretdown">
-                            <custom:StandardPicker.Items>
-                                <x:String>1</x:String>
-                                <x:String>2</x:String>
-                                <x:String>3</x:String>
-                                <x:String>4</x:String>
-                                <x:String>5</x:String>
-                            </custom:StandardPicker.Items>
-                        </custom:StandardPicker>
+                    <Label Text="QTY : " TextColor="White"  Style="{StaticResource TextStyle}"
+               VerticalTextAlignment="Center"  />
+                    <Frame BorderColor="#9F9F9F"
+                                       HasShadow="False"
+                                     CornerRadius="7"
+                                   >
+                        <Frame.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="0" />
+                                <On Platform="Android" Value="3,0,0,0" />
+                            </OnPlatform>
+                        </Frame.Padding>
+                        <Grid>
+                            <custom:StandardPicker
+                                        x:Name="picQTY" 
+                                        TextColor="Black"  
+                                        Title="Select QTY "
+                                        Image="caretdown"
+                               HeightRequest="39"
+                                      >
+                                <Picker.Items>
+                                    <x:String>1</x:String>
+                                    <x:String>2 Monkey</x:String>
+                                    <x:String>3</x:String>
+                                   
+                                </Picker.Items>
+                            </custom:StandardPicker>
+                            <Image VerticalOptions="Center"
+                                         x:Name="imgPass"
+                                         Margin="0,0,10,0"
+                                         HeightRequest="20"
+                                         HorizontalOptions="End"
+                                         Source="caretdown" >
+                            </Image>
+                        </Grid>
                     </Frame>
 
 
                     <StackLayout Orientation="Horizontal">
                         <CheckBox x:Name="chkTrailDate" Color="White" CheckedChanged="chkTrailDate_CheckedChanged"></CheckBox>
                         <Label VerticalOptions="Center" Text="Trail Date :"  Style="{StaticResource TextStyle}"></Label>
-
+                      
                     </StackLayout>
                     <Frame Margin="0" Padding="8" BackgroundColor="WhiteSmoke"  CornerRadius="8" >
                         <custom:StandardDateTimePicker IsEnabled="False"  TextColor="Black"  x:Name="dtpTrailDate"></custom:StandardDateTimePicker>
@@ -91,9 +116,9 @@
 
                 </StackLayout>
 
-                <StackLayout>
+              <StackLayout>
 
-                    <Frame Padding="0" Margin="0" HasShadow="True" BackgroundColor="#79849F"  BorderColor="Gray" CornerRadius="10">
+                    <Frame Padding="0" Margin="0" HasShadow="True" BackgroundColor="#79849F"  BorderColor="Gray" CornerRadius="7">
                         <StackLayout>
                             <Label Margin="10" Style="{StaticResource TextStyle}" Text="Added Garment List :"></Label>
                             <ListView x:Name="dgvAddedGarmnet" HeightRequest="300" MinimumHeightRequest="100"  >
@@ -115,10 +140,11 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                         </StackLayout>
+                      
                     </Frame>
-                </StackLayout>
-                
-                <Button Margin="2,0,0,0" x:Name="btnMeasurment" Text="OK" Style="{StaticResource ButtonStyle}" Clicked="btnMeasurment_Clicked"></Button>
+                  
+            </StackLayout>
+                <Button x:Name="btnMeasurment" Text="OK" Style="{StaticResource ButtonStyle}" Clicked="btnMeasurment_Clicked"></Button>
 
             </StackLayout>
 

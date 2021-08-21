@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,9 +15,14 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         public frmMeasurment()
         {
             InitializeComponent();
+            ShowBodyPosture();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            ShowBodyPosture();
+        }
+        private void ShowBodyPosture()
         {
             tabBodyPsoture.BackgroundColor = Color.FromHex("#0091D5");
 
@@ -27,6 +33,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             pnlBodyPosture.IsVisible = true;
             pnlMeasur.IsVisible = false;
             pnlStyle.IsVisible = false;
+
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
@@ -46,34 +53,23 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private async void LoadMeasureent()
         {
+            pnlLoading.IsVisible = true;
+
             Service.clsSmartTailoringService ObjService = new Service.clsSmartTailoringService();
-            var MeasurmentData = await ObjService.GetGarmentMasterMeasurement(1);
-            dgvMeasurment.ItemsSource = MeasurmentData;
+             var MeasurmentData= await ObjService.GetGarmentMasterMeasurement(1);
 
-            pickerStitchType.ItemsSource = await ObjService.GetStitchType();
-            pickerFitType.ItemsSource = await ObjService.GetFitType();
+            dgvMeasurment.ItemsSource    = MeasurmentData;
 
-
-            //Testing multiple-complex-type-parameters
-            //Model.OrderModel.clsMeasurment measure = new Model.OrderModel.clsMeasurment();
-            //measure.MeasurmentID = 1;
-            //measure.MeasurmentName = "Length";
-            //measure.value = "1";
-
-            //Model.OrderModel.clsStyle style = new Model.OrderModel.clsStyle();
-            //style.StyleID = 1;
-            //style.StyleName = "Collor";
-            //style.IsMandatory = true;
-
-            //var result= await ObjService.SetMeasurementStyle(measure, style);
+            pnlLoading.IsVisible = false;
         }
-
+            
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
             tabStyle.BackgroundColor = Color.FromHex("#0091D5");
 
             tabBodyPsoture.BackgroundColor = Color.FromHex("#525B72");
             tabMeasure.BackgroundColor = Color.FromHex("#525B72");
+
 
             pnlBodyPosture.IsVisible = false;
             pnlMeasur.IsVisible = false;
@@ -82,7 +78,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new View.OrderManagement.frmOrderConfirm());
+          
         }
     }
 }

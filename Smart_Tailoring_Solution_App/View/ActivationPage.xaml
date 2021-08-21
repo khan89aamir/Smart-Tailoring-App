@@ -2,32 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Smart_Tailoring_Solution_App.ActivationPage"
              BackgroundColor="#525B72">
     <ContentPage.Content>
         <ScrollView>
         <StackLayout >
-                <StackLayout  Padding="20">
-                    <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
-                        <StackLayout>
-                            <StackLayout  VerticalOptions="Start" Margin="0">
-                                <Label HorizontalOptions="Center" Text="Smart Tailoring Solution" FontSize="Title" FontFamily="serif" TextColor="White" FontAttributes="Bold"></Label>
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
-                    <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="8" Margin="60,0,60,0">
-                        <StackLayout>
-                            <StackLayout  HorizontalOptions="Center" Margin="0">
-                                <Label Text="Activation Details" Style="{StaticResource TextStyle}" TextColor="White" FontAttributes="Bold"></Label>
-                            </StackLayout>
-                        </StackLayout>
+                <StackLayout BackgroundColor="#0091D5">
+                    <Label Text="Smart Tailoring Solution-Activation" Style="{StaticResource TextStyle}" HorizontalOptions="Center" Padding="15"></Label>
 
-                    </Frame>
                 </StackLayout>
-                <StackLayout Padding="9">
-                    <Label Text="1. Enter IP Address and Press Connect to Server button." Style="{StaticResource TextStyle}"></Label>
+               
+
+                <StackLayout Padding="10">
+                <Label Text="1. Enter IP Address and Press Connect to Server button." Style="{StaticResource TextStyle}"></Label>
                 <Label Text="2. Enter Activation code and Press Activation button." Style="{StaticResource TextStyle}"></Label>
 
                 <ActivityIndicator x:Name="ctrActivityIndicator" IsRunning="true" IsVisible="false" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -35,7 +24,7 @@
             </StackLayout>
 
                 <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
-                <StackLayout Padding="10" Margin="0,0,0,18">
+                <StackLayout Padding="10" Margin="0,0,0,20">
                     <StackLayout Orientation="Horizontal" >
                         <Label Text="Serial No :" 
               HorizontalTextAlignment="Start" TextColor="White" FontSize="Medium"   FontFamily="serif"
@@ -47,15 +36,17 @@
                     <StackLayout Orientation="Horizontal">
                       <Label Text="Server IP : "
                VerticalTextAlignment="Center" TextColor="White" FontSize="Medium"  FontFamily="serif"/>
-                            <Frame Margin="0" Padding="0" CornerRadius="10" HorizontalOptions="FillAndExpand">
-                                <custom:StandardEntry Text="" x:Name="txtServerIP" Keyboard="Text"  Placeholder="Enter Server IP" FontSize="Medium"  FontFamily="serif"></custom:StandardEntry>
-                            </Frame>
+
+                    <Entry Text="" x:Name="txtServerIP"  Style="{StaticResource TextBoxStyle}" Keyboard="Text" PlaceholderColor="WhiteSmoke"  Placeholder="Enter Server IP" TextColor="White" FontSize="Medium"  FontFamily="serif"></Entry>
+
                         </StackLayout>
                     
                     <StackLayout>
-                            <Button x:Name="btnConnectToServer" Clicked="btnConnectToServer_Clicked"  Margin="60,10,0,0"  Text="Connect To Server" HorizontalOptions="Center" CornerRadius="10"
-                     Style="{StaticResource ButtonStyle}" HeightRequest="40">
-                            </Button>
+                        <Button x:Name="btnConnectToServer" Clicked="btnConnectToServer_Clicked"  Margin="0,10,0,0"  Text="Connect To Server" 
+                     HorizontalOptions="Center"
+                     CornerRadius="7"
+                     Style="{StaticResource ButtonStyle}"
+                         HeightRequest="40"></Button>
                     </StackLayout>
 
                 </StackLayout>
@@ -63,20 +54,24 @@
             </Frame>
 
                 <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
-                    <StackLayout>
-                        <Image Source="LockLogo.png" WidthRequest="100"></Image>
-                        <Label Text="Activate Application" HorizontalOptions="Center" TextColor="White" FontFamily="serif"></Label>
+                <StackLayout>
+                    <Image Source="LockLogo.png" WidthRequest="100"></Image>
+                    <Label Text="Activate Application" HorizontalOptions="Center" TextColor="White" FontFamily="serif"></Label>
 
-                        <StackLayout VerticalOptions="Center" Padding="10" >
-                            <Frame Margin="0" Padding="0" CornerRadius="10" HorizontalOptions="FillAndExpand">
-                                <custom:StandardEntry x:Name="txtActivationCode" Placeholder="Enter Activation Code" Keyboard="Numeric" HorizontalTextAlignment="Center"  />
-                            </Frame>
-                            <Button Text="Activate Application" VerticalOptions="Center" 
-                              Style="{StaticResource ButtonStyle}" CornerRadius="20" Clicked="Button_Clicked"/>
-                        </StackLayout>
+                    <StackLayout VerticalOptions="Center" Padding="10" >
 
+                            <Entry x:Name="txtActivationCode"  TextColor="White" Placeholder="Enter Activation Code" Keyboard="Numeric" HorizontalTextAlignment="Center"  />
+
+                        <Button Text="Activate Application"
+               VerticalOptions="Center" 
+                Style="{StaticResource ButtonStyle}"
+                CornerRadius="20"
+                Clicked="Button_Clicked"/>
                     </StackLayout>
-                </Frame>
+
+                </StackLayout>
+              
+            </Frame>
          
         </StackLayout>
             </ScrollView>

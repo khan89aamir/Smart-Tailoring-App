@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
+                <Frame CornerRadius="7" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                     <StackLayout>
 
                         <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
@@ -23,17 +23,17 @@
 
                         <StackLayout Padding="10">
                             <Label Text="User Name : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
                                 <custom:StandardEntry x:Name="txtUserName" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter User Name" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 
                             <Label Text="Email ID : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
                                 <custom:StandardEntry x:Name="txtEmailID" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Email ID" IsReadOnly="True" Keyboard="Email"></custom:StandardEntry>
                             </Frame>
 
                             <Label Text="Password : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
                                 <custom:StandardEntry x:Name="txtPassword" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Password" IsReadOnly="True" IsPassword="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 
@@ -50,7 +50,7 @@
                 </Frame>
 
 
-                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
+                <Frame CornerRadius="7" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                     <StackLayout>
 
                         <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
@@ -63,27 +63,27 @@
 
                         <StackLayout Padding="10">
                             <Label Text="Employee Code : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtEmployeeCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Employee Code" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
+                                <custom:StandardEntry x:Name="txtEmployeeCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Employee Code" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 
                             <Label Text="Employee Name : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtEmployeeName" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Employee Name" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
+                                <custom:StandardEntry x:Name="txtEmployeeName" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Employee Name" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 
                             <Label Text="Mobile No. : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtMobileNo" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Mobile No." IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
+                                <custom:StandardEntry x:Name="txtMobileNo" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Mobile No." IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
                             
                             <Label Text="Gender : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
-                                <custom:StandardEntry x:Name="txtGender" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Gender" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
+                                <custom:StandardEntry x:Name="txtGender" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Select Gender" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
                             
                             <Label Text="Employee Type" Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
                                 <custom:StandardEntry x:Name="txtEmployeeType" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Employee Type" IsReadOnly="True" Keyboard="Text"></custom:StandardEntry>
                             </Frame>
 

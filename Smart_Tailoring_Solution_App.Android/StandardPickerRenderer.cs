@@ -38,15 +38,11 @@ namespace Smart_Tailoring_Solution_App.Droid
             if (Control != null && this.Element != null && !string.IsNullOrEmpty(element.Image))
                 Control.Background = AddPickerStyles(element.Image);
 
-          
-
         }
 
         public LayerDrawable AddPickerStyles(string imagePath)
         {
-          
-
-            Drawable[] layers = {GetDrawable(imagePath) };
+            Drawable[] layers = { GetDrawable(imagePath) };
             LayerDrawable layerDrawable = new LayerDrawable(layers);
             layerDrawable.SetLayerInset(0, 0, 0, 0, 0);
 
@@ -59,14 +55,13 @@ namespace Smart_Tailoring_Solution_App.Droid
             var drawable = ContextCompat.GetDrawable(this.Context, resID);
             var bitmap = ((BitmapDrawable)drawable).Bitmap;
 
-            var result = new BitmapDrawable(Resources, Bitmap.CreateScaledBitmap(bitmap, 32, 32, true));
+            var result = new BitmapDrawable(Resources, Bitmap.CreateScaledBitmap(bitmap, 1, 1, true));
             result.Gravity = Android.Views.GravityFlags.Right;
 
             return result;
         }
 
 
-      
 
     }
 }

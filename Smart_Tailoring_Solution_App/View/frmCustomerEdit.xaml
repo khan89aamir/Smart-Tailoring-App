@@ -12,22 +12,22 @@
             <StackLayout x:Name="pnlCustomerInfo" Padding="20" >
                 <Label   Text="Name" Style="{StaticResource TextStyle}"></Label>
 
-                <Frame Margin="0" Padding="0" CornerRadius="10">
+                <Frame Margin="0" Padding="0" CornerRadius="7">
                     <custom:StandardEntry x:Name="txtCustomerName" Placeholder="Enter Customer Name" HorizontalOptions="FillAndExpand" Style="{StaticResource TextBoxStyle}" ></custom:StandardEntry>
                 </Frame>
                 
                 <Label Text="Mobile No" Style="{StaticResource TextStyle}"></Label>
-                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <Frame Margin="0" Padding="0" CornerRadius="7">
                     <custom:StandardEntry x:Name="txtMobileNo"  Placeholder="Enter Customer Mobile No" Style="{StaticResource TextBoxStyle}" Keyboard="Numeric" ></custom:StandardEntry>
                     </Frame>
                     
                     <Label Text="Email" Style="{StaticResource TextStyle}"></Label>
-                        <Frame Margin="0" Padding="0" CornerRadius="10">
+                        <Frame Margin="0" Padding="0" CornerRadius="7">
                     <custom:StandardEntry x:Name="txtMail" Placeholder="Enter Customer Email" Style="{StaticResource TextBoxStyle}" Keyboard="Email"  ></custom:StandardEntry>
                         </Frame>
                         
                         <Label Text="Address" Style="{StaticResource TextStyle}"></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
                     <custom:StandardEntry x:Name="txtAddress" Placeholder="Enter Customer Address" Style="{StaticResource TextBoxStyle}"></custom:StandardEntry>
                             </Frame>
                         
