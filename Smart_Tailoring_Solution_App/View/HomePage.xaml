@@ -5,81 +5,86 @@
              BackgroundColor="#525B72"
              Title="Home">
     <ContentPage.Content>
+        <RefreshView x:Name="Refresh_connStatus" BackgroundColor="#525B72" RefreshColor="White" Refreshing="Refresh_connStatus_Refreshing">
+            <ScrollView>
+                <StackLayout>
 
-        <StackLayout >
-            <StackLayout Orientation="Horizontal">
-                <Label Padding="10" Text="Login By : Rajesh " Style="{StaticResource TextStyle}"></Label>
-                <Label  Padding="0,10,0,0" Text="Con Status:  " Style="{StaticResource TextStyle}" HorizontalOptions="EndAndExpand"></Label>
-                <Label x:Name="lblConnectionStatus"   Padding="0,10,10,0" Text="NA" Style="{StaticResource TextStyle}"  HorizontalOptions="End"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Padding="10,10,0,0" Text="Login By :" Style="{StaticResource TextStyle}"></Label>
+                        <Label x:Name="lblLoginName" Padding="0,10,10,0" Text="" Style="{StaticResource TextStyle}"></Label>
+                        <Label  Padding="0,10,0,0" Text="Con Status : " Style="{StaticResource TextStyle}" HorizontalOptions="EndAndExpand"></Label>
+                        <Label x:Name="lblConnectionStatus"   Padding="0,10,10,0" Text="NA" Style="{StaticResource TextStyle}"  HorizontalOptions="End"></Label>
+                    </StackLayout>
 
-            </StackLayout>
-            <StackLayout x:Name="pnlHome" VerticalOptions="CenterAndExpand">
-           
-                 <Grid Padding="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                    <StackLayout x:Name="pnlHome" VerticalOptions="CenterAndExpand">
 
-                    <Frame  Grid.Column="0" Padding="20"  BackgroundColor="#017E84" HasShadow="True" CornerRadius="7"  >
-                        <Label FontSize="Default"  FontFamily="serif" TextColor="White">Total Orders:    20</Label>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                    </Frame>
-                    <Frame  Grid.Column="1" Padding="20"  BackgroundColor="#E87121" HasShadow="True" CornerRadius="7"  >
-                        <Label FontSize="Default"  FontFamily="serif" TextColor="White">Todays Orders:    20</Label>
+                            <Frame  Grid.Column="0" Padding="20"  BackgroundColor="#017E84" HasShadow="True" CornerRadius="10"  >
+                                <Label FontSize="Default"  FontFamily="serif" TextColor="White">Total Orders:    20</Label>
 
-                    </Frame>
-                    <Frame  Grid.Column="2" Padding="20"  BackgroundColor="#3370AC" HasShadow="True" CornerRadius="7"  >
-                        <Label FontSize="Default"  FontFamily="serif" TextColor="White">Cancel Orders:    20</Label>
+                            </Frame>
+                            <Frame  Grid.Column="1" Padding="20"  BackgroundColor="#E87121" HasShadow="True" CornerRadius="10"  >
+                                <Label FontSize="Default"  FontFamily="serif" TextColor="White">Todays Orders:    20</Label>
 
-                    </Frame>
+                            </Frame>
+                            <Frame  Grid.Column="2" Padding="20"  BackgroundColor="#3370AC" HasShadow="True" CornerRadius="10"  >
+                                <Label FontSize="Default"  FontFamily="serif" TextColor="White">Cancel Orders:    20</Label>
 
-                </Grid>
-                <Image Source="splash_logo.png" WidthRequest="230"  Margin="20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" ></Image>
+                            </Frame>
 
-            </StackLayout>
+                        </Grid>
+                        <Image Source="splash_logo.png" WidthRequest="230"  Margin="20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" ></Image>
 
-            <StackLayout VerticalOptions="EndAndExpand" >
-                <Frame HasShadow="True" Padding="1" Margin="2" HeightRequest="100" BackgroundColor="#525B72" VerticalOptions="End">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="EndAndExpand" >
+                        <Frame HasShadow="True" Padding="1" Margin="2" HeightRequest="100" BackgroundColor="#525B72" VerticalOptions="End">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
 
 
-                        <StackLayout Margin="15">
-                            <ImageButton x:Name="btnOrder" Source="order.png" Margin="0,0,0,0"
+                                <StackLayout Margin="15">
+                                    <ImageButton x:Name="btnOrder" Source="order.png" Margin="0,0,0,0"
                   Clicked="btnOrder_Clicked"
                              WidthRequest="50"
                              HeightRequest="50"
                              BackgroundColor="Transparent"
                     />
-                            <Label Text="Order" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
-                        </StackLayout>
-                        <StackLayout Margin="15">
-                            <ImageButton x:Name="btnSetting" Source="setting.png" Margin="0,0,0,0"
+                                    <Label Text="Order" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
+                                </StackLayout>
+                                <StackLayout Margin="15">
+                                    <ImageButton x:Name="btnSetting" Source="setting.png" Margin="0,0,0,0"
                  Clicked="btnSetting_Clicked"
                              WidthRequest="50"
                              HeightRequest="50"
                              BackgroundColor="Transparent"
                     />
-                            <Label Text="Settings" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
-                        </StackLayout>
-                        <StackLayout Margin="15">
-                            <ImageButton x:Name="btnSync" Source="syncflat.png" Margin="0,0,0,0"
+                                    <Label Text="Settings" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
+                                </StackLayout>
+                                <StackLayout Margin="15">
+                                    <ImageButton x:Name="btnSync" Source="syncflat.png" Margin="0,0,0,0"
                 Clicked="btnSync_Clicked"
                              WidthRequest="50"
                              HeightRequest="50"
                              BackgroundColor="Transparent"
                     />
-                            <Label Text="Sync" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
-                        </StackLayout>
+                                    <Label Text="Sync" FontFamily="serif" TextColor="White" HorizontalOptions="Center"></Label>
+                                </StackLayout>
 
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
-                </Frame>
-            </StackLayout>
-         
-            <Button Text="API Test" Clicked="Button_Clicked_1" IsVisible="false" ></Button>
-            <Button x:Name="btnPostData" Text="PostData" Clicked="btnPostData_Clicked" IsVisible="false" ></Button>
-        </StackLayout>
 
+                    <Button Text="API Test" Clicked="Button_Clicked_1" IsVisible="false" ></Button>
+                    <Button x:Name="btnPostData" Text="PostData" Clicked="btnPostData_Clicked" IsVisible="false" ></Button>
+                </StackLayout>
+
+            </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

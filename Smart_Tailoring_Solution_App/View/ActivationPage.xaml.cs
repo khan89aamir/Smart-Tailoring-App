@@ -55,6 +55,7 @@ namespace Smart_Tailoring_Solution_App
             if (txtServerIP.Text.Trim().Length == 0)
             {
                 await DisplayAlert("Server IP", "Please Enter Server IP Address", "OK");
+                txtServerIP.Focus();
                 return;
             }
             ctrActivityIndicator.IsVisible = true;
@@ -88,11 +89,11 @@ namespace Smart_Tailoring_Solution_App
             if (txtServerIP.Text.Trim().Length == 0)
             {
                 await DisplayAlert("Server IP", "Please Enter Server IP Address", "OK");
+                txtServerIP.Focus();
                 return;
             }
             ctrActivityIndicator.IsVisible = true;
 
-         
             // check if th service is available. 
             var result = await ObjService.SendActivationRequest(txtServerIP.Text, lblSerialNo.Text);
 

@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 using Smart_Tailoring_Solution_App.DAL;
 using Smart_Tailoring_Solution_App.Model;
 using Smart_Tailoring_Solution_App.View;
+using Smart_Tailoring_Solution_App.Service;
 
 namespace Smart_Tailoring_Solution_App
 {
@@ -18,6 +19,7 @@ namespace Smart_Tailoring_Solution_App
         {
             InitializeComponent();
             CheckConectionStatus();
+            GetLoginUser();
         }
 
         Service.clsSmartTailoringService ObjService = new Service.clsSmartTailoringService();
@@ -57,6 +59,19 @@ namespace Smart_Tailoring_Solution_App
             }
         }
 
+        private void GetLoginUser()
+        {
+            List<UserManagement> tblUser = TAILORING_DB.Instance.GetLoginUser(clsSmartTailoringService.UserID);
+            //dgvUsers.ItemsSource = lstUserDetails;
+            if (tblUser.Count > 0)
+            {
+                lblLoginName.Text = tblUser[0].UserName;
+            }
+            else
+            {
+                lblLoginName.Text = "NA";
+            }
+        }
         private async void btnPostData_Clicked(object sender, EventArgs e)
         {
             using (var client = new HttpClient())
@@ -133,7 +148,13 @@ namespace Smart_Tailoring_Solution_App
         private void btnSetting_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SettingPage());
-            //Navigation.PushModalAsync(new View.frmMessageBox());
+        }
+
+        private void Refresh_connStatus_Refreshing(object sender, EventArgs e)
+        {
+            CheckConectionStatus();
+            GetLoginUser();
+            Refresh_connStatus.IsRefreshing = false;
         }
     }
 }
