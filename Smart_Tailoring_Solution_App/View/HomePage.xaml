@@ -22,15 +22,15 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Frame  Grid.Column="0" Padding="20"  BackgroundColor="#017E84" HasShadow="True" CornerRadius="10"  >
+                    <Frame  Grid.Column="0" Padding="20"  BackgroundColor="#017E84" HasShadow="True" CornerRadius="7"  >
                         <Label FontSize="Default"  FontFamily="serif" TextColor="White">Total Orders:    20</Label>
 
                     </Frame>
-                    <Frame  Grid.Column="1" Padding="20"  BackgroundColor="#E87121" HasShadow="True" CornerRadius="10"  >
+                    <Frame  Grid.Column="1" Padding="20"  BackgroundColor="#E87121" HasShadow="True" CornerRadius="7"  >
                         <Label FontSize="Default"  FontFamily="serif" TextColor="White">Todays Orders:    20</Label>
 
                     </Frame>
-                    <Frame  Grid.Column="2" Padding="20"  BackgroundColor="#3370AC" HasShadow="True" CornerRadius="10"  >
+                    <Frame  Grid.Column="2" Padding="20"  BackgroundColor="#3370AC" HasShadow="True" CornerRadius="7"  >
                         <Label FontSize="Default"  FontFamily="serif" TextColor="White">Cancel Orders:    20</Label>
 
                     </Frame>

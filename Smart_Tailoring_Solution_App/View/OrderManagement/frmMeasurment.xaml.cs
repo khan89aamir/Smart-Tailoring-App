@@ -15,9 +15,14 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         public frmMeasurment()
         {
             InitializeComponent();
+            ShowBodyPosture();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            ShowBodyPosture();
+        }
+        private void ShowBodyPosture()
         {
             tabBodyPsoture.BackgroundColor = Color.FromHex("#0091D5");
 
@@ -28,6 +33,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             pnlBodyPosture.IsVisible = true;
             pnlMeasur.IsVisible = false;
             pnlStyle.IsVisible = false;
+
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
@@ -47,10 +53,14 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private async void LoadMeasureent()
         {
+            pnlLoading.IsVisible = true;
+
             Service.clsSmartTailoringService ObjService = new Service.clsSmartTailoringService();
              var MeasurmentData= await ObjService.GetGarmentMasterMeasurement(1);
 
             dgvMeasurment.ItemsSource    = MeasurmentData;
+
+            pnlLoading.IsVisible = false;
         }
             
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
@@ -68,7 +78,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new View.OrderManagement.frmOrderConfirm());
+          
         }
     }
 }

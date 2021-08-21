@@ -9,15 +9,11 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout >
-                <StackLayout  Padding="20">
-                    <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
-                        <StackLayout>
-                            <StackLayout  VerticalOptions="Start" Margin="0">
-                                <Label HorizontalOptions="Center" Text="Smart Tailoring Solution" FontSize="Title" FontFamily="serif" TextColor="White" FontAttributes="Bold"></Label>
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
+                <StackLayout BackgroundColor="#0091D5">
+                    <Label Text="Smart Tailoring Solution-Activation" Style="{StaticResource TextStyle}" HorizontalOptions="Center" Padding="15"></Label>
+
                 </StackLayout>
+               
 
                 <StackLayout Padding="10">
                 <Label Text="1. Enter IP Address and Press Connect to Server button." Style="{StaticResource TextStyle}"></Label>
@@ -41,14 +37,14 @@
                       <Label Text="Server IP : "
                VerticalTextAlignment="Center" TextColor="White" FontSize="Medium"  FontFamily="serif"/>
 
-                    <Entry Text="" x:Name="txtServerIP"  Style="{StaticResource TextBoxStyle}" Keyboard="Text"  Placeholder="Enter Server IP" TextColor="White" FontSize="Medium"  FontFamily="serif"></Entry>
+                    <Entry Text="" x:Name="txtServerIP"  Style="{StaticResource TextBoxStyle}" Keyboard="Text" PlaceholderColor="WhiteSmoke"  Placeholder="Enter Server IP" TextColor="White" FontSize="Medium"  FontFamily="serif"></Entry>
 
                         </StackLayout>
                     
                     <StackLayout>
                         <Button x:Name="btnConnectToServer" Clicked="btnConnectToServer_Clicked"  Margin="0,10,0,0"  Text="Connect To Server" 
                      HorizontalOptions="Center"
-                     CornerRadius="10"
+                     CornerRadius="7"
                      Style="{StaticResource ButtonStyle}"
                          HeightRequest="40"></Button>
                     </StackLayout>

@@ -14,12 +14,12 @@
                 <StackLayout>
                     <ActivityIndicator x:Name="ctrActivityIndicator" IsRunning="true" IsVisible="false" HorizontalOptions="Center" VerticalOptions="Center" />
                     <Label Text="User Name : " FontSize="Medium" FontFamily="serif" TextColor="White"></Label>
-                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <Frame Margin="0" Padding="0" CornerRadius="7">
                         <custom:StandardEntry   x:Name="txtUserName"  Placeholder="Enter User Name" FontFamily="serif"  >
                         </custom:StandardEntry>
                     </Frame>
                     <Label Margin="0,10,0,0" Text="Password : " FontSize="Medium" FontFamily="serif" TextColor="White"></Label>
-                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                    <Frame Margin="0" Padding="0" CornerRadius="7">
                         <custom:StandardEntry   x:Name="txtPassword"  Placeholder="Enter  Password" IsPassword="True" FontFamily="serif"  >
                         </custom:StandardEntry>
                     </Frame>

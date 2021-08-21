@@ -37,7 +37,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new View.OrderManagement.frmMeasurment());
+            Navigation.PushAsync(new View.OrderManagement.frmSelectSKU());
         }
     }
 }

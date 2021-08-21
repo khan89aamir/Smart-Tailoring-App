@@ -30,6 +30,7 @@ namespace Smart_Tailoring_Solution_App.View
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+           
             string strUserName = txtUserName.Text == null ? "" : txtUserName.Text.Trim();
             string strPassword = txtPassword.Text == null ? "" : txtPassword.Text.Trim();
 

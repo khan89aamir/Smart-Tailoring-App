@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout >
-                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
+                <Frame CornerRadius="7" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                     <StackLayout>
 
                         <Frame Style="{StaticResource GroupBox}" BackgroundColor="#525B72" Padding="10">
@@ -21,17 +21,17 @@
                         </Frame>
                         <StackLayout Padding="10">
                             <Label Text="Serial Number : " Style="{StaticResource TextStyle}"   ></Label>
-                            <Frame Margin="0" Padding="0" CornerRadius="10">
+                            <Frame Margin="0" Padding="0" CornerRadius="7">
                                 <custom:StandardEntry x:Name="txtSerialNo" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Serial Number" IsReadOnly="True" Keyboard="Numeric"></custom:StandardEntry>
                             </Frame>
                             
                             <Label Text="Activation Code : " Style="{StaticResource TextStyle}"   ></Label>
-                                <Frame Margin="0" Padding="0" CornerRadius="10">
+                                <Frame Margin="0" Padding="0" CornerRadius="7">
                                 <custom:StandardEntry x:Name="txtActivationCode" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Activation Code" IsReadOnly="True" Keyboard="Numeric"></custom:StandardEntry>
                                 </Frame>
                                 
                                 <Label Text="Server IP : " Style="{StaticResource TextStyle}"   ></Label>
-                                    <Frame Margin="0" Padding="0" CornerRadius="10">
+                                    <Frame Margin="0" Padding="0" CornerRadius="7">
                                 <custom:StandardEntry x:Name="txtServerIP" Style="{StaticResource TextBoxStyle}" Text="" Placeholder="Enter Server IP" Keyboard="Text"></custom:StandardEntry>
                                 </Frame>
                                 
@@ -46,7 +46,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame CornerRadius="10" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
+                <Frame CornerRadius="7" Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                     <StackLayout>
                         <Frame Style="{StaticResource GroupBox}"  BackgroundColor="#525B72" Padding="10">
                             <StackLayout>
