@@ -17,6 +17,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         {
             InitializeComponent();
             ShowBodyPosture();
+            lblSelectedSKU.Text = "Selected SKU : " + Utility.GarmentName;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

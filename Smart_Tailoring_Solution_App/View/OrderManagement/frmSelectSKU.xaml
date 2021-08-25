@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 BackgroundColor="#525B72"
-             Title="Seleted SKU"
+             Title="Selected SKU"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmSelectSKU">
     <ContentPage.Content>
         <StackLayout Margin="5">
             <Label Margin="4,0,0,0" Text="1. Select your SKU to start taking measurement and Styles."  Style="{StaticResource TextStyle}"  TextColor="White"></Label>
-            <Label  Margin="4,0,0,0" Text="2. Once your are done with measurement and style for all garments click on complete order button."  Style="{StaticResource TextStyle}"  TextColor="White"></Label>
+            <Label  Margin="4,0,0,0" Text="2. Once you are done with measurement and style for all garments click on complete order button."  Style="{StaticResource TextStyle}"  TextColor="White"></Label>
             <ListView x:Name="dgvGarmnetList"
           HasUnevenRows="true" 
           
@@ -18,7 +18,7 @@
 
                             <Frame Margin="4" WidthRequest="200" HeightRequest="190" Padding="0" CornerRadius="7">
                                 <StackLayout>
-                                    <Image Margin="0,5,0,0" Source="{Binding ImageURL}" VerticalOptions="Center"  Aspect="AspectFit" HeightRequest="150" WidthRequest="200"></Image>
+                                    <Image Margin="0,5,0,0" Source="{Binding Photo}" VerticalOptions="Center"  Aspect="AspectFit" HeightRequest="150" WidthRequest="200"></Image>
 
                                     <Label Text="{Binding Name}" VerticalOptions="Center"  Style="{StaticResource TextStyle}" TextColor="Black" HorizontalOptions="Center"></Label>
 

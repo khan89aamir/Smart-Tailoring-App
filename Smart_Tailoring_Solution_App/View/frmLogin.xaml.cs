@@ -18,6 +18,8 @@ namespace Smart_Tailoring_Solution_App.View
         {
             InitializeComponent();
 
+            clsSmartTailoringService.ServerIPAddress = "100.78.171.164:3720";
+
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) =>
             {
@@ -25,16 +27,15 @@ namespace Smart_Tailoring_Solution_App.View
                 //Navigation.PushAsync(new frmForgetPassword());
                 //Navigation.PushAsync(new NavigationPage(new frmForgetPassword()));
             };
-            lblForgotPassword.GestureRecognizers.Add(tapGestureRecognizer);
+            lblForgotPassword.GestureRecognizers.Add(tapGestureRecognizer);            
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-           
             string strUserName = txtUserName.Text == null ? "" : txtUserName.Text.Trim();
             string strPassword = txtPassword.Text == null ? "" : txtPassword.Text.Trim();
 
-            var conResult = await ObjService.CheckServerConnection(clsSmartTailoringService.ServerIPAddress);
+            var conResult = await ObjService.IsServerReachable();
             if (conResult)
             {
                 bool IsforceLogin = false;
@@ -91,6 +92,25 @@ namespace Smart_Tailoring_Solution_App.View
                     await DisplayAlert("Server Connection Failed", "Not able to connect to the server. Please check the server ip address.", "Ok");
                 }
             }
+        }
+
+        private void txtUserName_Completed(object sender, EventArgs e)
+        {
+            txtPassword.Focus();
+        }
+
+        private void txtPassword_Completed(object sender, EventArgs e)
+        {
+            Button_Clicked(sender, e);
+        }
+
+        private void ImgPass_Clicked(object sender, EventArgs e)
+        {
+            int len = txtPassword.CursorPosition;
+            bool isPass = txtPassword.IsPassword;
+            imgPass.Source = isPass ? "ic_eye" : "ic_eye_hide";
+            txtPassword.IsPassword = !isPass;
+            txtPassword.CursorPosition = len;
         }
     }
 }

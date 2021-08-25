@@ -2,28 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
              mc:Ignorable="d"
              BackgroundColor="#525B72"
-             Title="Seleted Garmnets"
+             Title="Selected Garments"
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderPage2">
 
-    
     <ContentPage.Content>
         <StackLayout Padding="5">
 
-          
-            <StackLayout>
-                 
-                <ListView x:Name="dgvAddedGarmnet"  HeightRequest="700" HasUnevenRows="True"   >
-                        <ListView.ItemTemplate>
+            <!--new popup for loading-->
+            <Frame  HasShadow="False" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand" 
+                   x:Name="ctrActivityIndicator" CornerRadius="15"
+                   OutlineColor="WhiteSmoke" 
+                   IsVisible="True" BackgroundColor="Transparent">
+                <StackLayout  HorizontalOptions="FillAndExpand">
+                    <Label x:Name="customlbl" Text="In Progress" TextColor="WhiteSmoke" FontSize="Large"/>
+                    <BoxView x:Name="custombox" HeightRequest="1" BackgroundColor="Gray"/>
+                    <StackLayout Orientation="Horizontal">
+                        <ActivityIndicator  x:Name="customloader"  
+                                        Color="#61ACDF" 
+                                        IsRunning="True"  
+                                        IsEnabled="True"  
+                                        VerticalOptions="Center"  
+                                        HorizontalOptions="Center"  
+                                        HeightRequest="45"  
+                                        WidthRequest="60"/>
+                        <Label x:Name="customsg" Text="Loading......" TextColor="WhiteSmoke" FontSize="Large"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <!--end popup for loading-->
+            
+            <StackLayout x:Name="stGarments" IsVisible="False">
 
-                           <DataTemplate>
-                                <ViewCell >
+                <ListView x:Name="dgvAddedGarmnet"  HeightRequest="700" HasUnevenRows="True"   >
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <ViewCell >
 
                                 <Frame Padding="5" Margin="2"  Style="{StaticResource GroupBox}" BackgroundColor="#525B72">
                                     <StackLayout>
-                                     
+
                                         <Grid Padding="4" Margin="4">
                                             <Grid.RowDefinitions>
 
@@ -42,19 +65,15 @@
                                             <!--Row : 0, -Col : 0 -->
                                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" >
 
-                                                <Label  FontAttributes="Bold" Text="Code : GC01" Style="{StaticResource TextStyle}"  ></Label>
-                                              
-
+                                              <Label  FontAttributes="Bold" Text="{Binding GarmentCode,StringFormat='Code : {0}'}" Style="{StaticResource TextStyle}"  ></Label>
                                             </StackLayout>
                                             <!--Row : 0, -Col : 1 -->
-                                            
+
                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0"  >
 
 
                                                 <Label   Text="Name :" Style="{StaticResource TextStyle}"  ></Label>
                                                 <Label Text="{Binding Name}" Style="{StaticResource TextStyle}"     Grid.Column="0" Grid.Row="0"></Label>
-                                                
-
                                             </StackLayout>
 
 
@@ -62,14 +81,12 @@
                                             <StackLayout  Orientation="Horizontal" Grid.Column="0" Grid.Row="1"  >
                                                 <Label  VerticalOptions="Center"   Text="QTY :" Style="{StaticResource TextStyle}"  ></Label>
                                                 <Label  VerticalOptions="Center"   Text="{Binding QTY}" Style="{StaticResource TextStyle}"    ></Label>
-
-
                                             </StackLayout>
 
                                             <!--Row : 1, -Col : 1 -->
                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1"  >
-                                                <Label VerticalOptions="Center"   Text="Trim amt: " Style="{StaticResource TextStyle}"  ></Label>
-                                                <Entry  Text="500" Keyboard="Numeric" Style="{StaticResource TextStyle}"    ></Entry>
+                                                <Label VerticalOptions="Center"   Text="Trim amt : " Style="{StaticResource TextStyle}"  ></Label>
+                                                <Entry  x:Name="txtTrimAmount" Text="0" Keyboard="Numeric" Style="{StaticResource TextStyle}" TextChanged="txtTrimAmount_TextChanged"></Entry>
 
                                             </StackLayout>
 
@@ -77,7 +94,17 @@
                                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2"   >
 
                                                 <Label    Text="Service :" Style="{StaticResource TextStyle}" VerticalOptions="Center"  ></Label>
-                                                <Picker x:Name="picker" SelectedItem="Normal" Title="Normal" TextColor="White" TitleColor="White" WidthRequest="100" >
+                                                <custom:StandardPicker x:Name="cmbService"
+                                                   Title="Select Service"
+                                                   ItemsSource="{Binding lstGarmentRate}" 
+                        ItemDisplayBinding="{Binding OrderType}"
+                          SelectedItem="{Binding OrderTypeID, Mode=TwoWay}" 
+                          SelectedIndex="{Binding OrderTypeID}"
+         SelectedIndexChanged="cmbService_SelectedIndexChanged"
+                                              Margin="0,0,0,0" Image="caretdown"  VerticalOptions="Center" TitleColor="White" TextColor="White" WidthRequest="100">
+                                                </custom:StandardPicker>
+                                                
+                                                <!--<Picker x:Name="picker" SelectedItem="Normal" Title="Normal" TextColor="White" TitleColor="White" WidthRequest="100" >
                                                     <Picker.ItemsSource>
                                                         <x:Array Type="{x:Type x:String}">
                                                             <x:String>Normal</x:String>
@@ -85,14 +112,14 @@
 
                                                         </x:Array>
                                                     </Picker.ItemsSource>
-                                                </Picker>
+                                                </Picker>-->
 
 
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="2"   >
-                                              
+
                                                 <Label  VerticalOptions="Center" Text="Rate :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <Label  VerticalOptions="Center" Text="500" Style="{StaticResource TextStyle}"  ></Label>
+                                                <Label  VerticalOptions="Center" Text="{Binding Rate}" Style="{StaticResource TextStyle}"  ></Label>
 
                                             </StackLayout>
 
@@ -101,46 +128,47 @@
                                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"  >
                                                 <CheckBox IsChecked="{Binding IsTrail}"  Color="White"></CheckBox>
                                                 <Label  VerticalOptions="Center" Text="Trail :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <DatePicker x:Name="dtpTrailDate"  IsEnabled="{Binding IsTrail}" TextColor="White"></DatePicker>
+                                                <DatePicker x:Name="dtpTrailDate"  IsEnabled="{Binding IsTrail}" TextColor="White" Date="{Binding TrailDate, Mode=TwoWay}"></DatePicker>
 
                                             </StackLayout>
                                             <!--Row : 3, -Col : 0 -->
                                             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="4"  >
 
                                                 <Label   VerticalOptions="Center" Text="Delivery :" Style="{StaticResource TextStyle}"  ></Label>
-                                                <DatePicker TextColor="White"></DatePicker>
+                                                <DatePicker TextColor="White" Date="{Binding DeliveryDate}"></DatePicker>
 
                                             </StackLayout>
 
                                         </Grid>
                                     </StackLayout>
-                                 
+
 
                                 </Frame>
 
 
                             </ViewCell>
 
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <StackLayout Orientation="Vertical" HeightRequest="100" BackgroundColor="AliceBlue">
 
                     <StackLayout   Padding="5" Orientation="Horizontal">
-                        <Label Text="Tailroing amt : 300" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
-                        <Label Text="Trim Amount : 80" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label x:Name="lblTailroingamt" Text="0" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
+
+                        <Label x:Name="lblTrimAmount" Text="0" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
                     </StackLayout>
                     <StackLayout   Padding="5" Orientation="Horizontal">
-                        <Label Text="Tax : 20" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
-                        <Label Text="Grand Total : 400" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label x:Name="lblTax" Text="0" HorizontalOptions="Start" Style="{StaticResource TextBoxStyle}"></Label>
+                        <Label x:Name="lblGrandTotal" Text="0" HorizontalOptions="EndAndExpand" Style="{StaticResource TextBoxStyle}"></Label>
                     </StackLayout>
 
                 </StackLayout>
                 <Button Text="Measurement" Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked"></Button>
-                </StackLayout>
+            </StackLayout>
 
-         
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

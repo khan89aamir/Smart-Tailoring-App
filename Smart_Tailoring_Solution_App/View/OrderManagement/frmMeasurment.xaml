@@ -12,7 +12,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout BackgroundColor="#0091D5">
-                <Label Text="Selected SKU : Shirt " Style="{StaticResource TextStyle}" HorizontalOptions="Center" Padding="10"></Label>
+                <Label x:Name="lblSelectedSKU" Text="" Style="{StaticResource TextStyle}" HorizontalOptions="Center" Padding="10"></Label>
 
             </StackLayout>
 

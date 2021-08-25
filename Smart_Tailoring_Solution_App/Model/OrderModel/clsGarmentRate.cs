@@ -14,6 +14,7 @@ namespace Smart_Tailoring_Solution_App.Model.OrderModel
         public string GarmentType { get; set; }
         public double Rate { get; set; }
         public string OrderType { get; set; }
+        public int OrderTypeID { get; set; }
         public int LastChange { get; set; }
     }
 }

@@ -6,8 +6,7 @@
              mc:Ignorable="d"
              Title="Garment Selection"
           BackgroundColor="#525B72"
-             xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"
-          
+             xmlns:custom="clr-namespace:Smart_Tailoring_Solution_App"          
              x:Class="Smart_Tailoring_Solution_App.View.OrderManagement.frmOrderPage1">
    
     <ContentPage.Content>
@@ -17,7 +16,7 @@
               
                 <StackLayout>
                     <Frame Padding="0" Margin="0" CornerRadius="7">
-                        <SearchBar  TextColor="Black"  TextChanged="SearchBar_TextChanged" Placeholder="Enter Garment Name" Style="{StaticResource TextStyle}" Margin="-5" ></SearchBar>
+                        <SearchBar x:Name="Search_GarmentName" TextColor="Black"  TextChanged="SearchBar_TextChanged" Placeholder="Enter Garment Name" Style="{StaticResource TextStyle}" Margin="-5" ></SearchBar>
                     </Frame>
                         
                     <ListView x:Name="dgvGarmnetList" IsVisible="false"   ItemsSource="{Binding List}"
@@ -55,7 +54,7 @@
 
                     <Frame Margin="0" Padding="0" BackgroundColor="WhiteSmoke"  CornerRadius="8" >
                         <custom:StandardEntry 
-                        x:Name="txtGarmentName" Style="{StaticResource TextBoxStyle}" BackgroundColor="WhiteSmoke" Placeholder="Enter Garment Name">
+                        x:Name="txtGarmentName" Style="{StaticResource TextBoxStyle}" BackgroundColor="WhiteSmoke" Placeholder="Garment Name">
                         </custom:StandardEntry>
                     </Frame>
 
@@ -81,9 +80,10 @@
                                       >
                                 <Picker.Items>
                                     <x:String>1</x:String>
-                                    <x:String>2 Monkey</x:String>
+                                    <x:String>2</x:String>
                                     <x:String>3</x:String>
-                                   
+                                    <x:String>4</x:String>
+                                    <x:String>5</x:String>
                                 </Picker.Items>
                             </custom:StandardPicker>
                             <Image VerticalOptions="Center"

@@ -15,26 +15,17 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
     public partial class frmOrderPage1 : ContentPage
     {
         ObservableCollection<GarmentList> lstGarmnetList;
-        ObservableCollection<SelectedGarments> lstSelectedGarment = new ObservableCollection<SelectedGarments>();
+        List<SelectedGarments> lstSelectedGarment = new List<SelectedGarments>();
 
         ViewCell lastCell;
 
+        int pGarmentID = 0;
+        string strPhoto = string.Empty;
         public frmOrderPage1()
         {
             InitializeComponent();
 
             lstGarmnetList = new ObservableCollection<GarmentList>();
-
-            //lstGarmnetList.Add(new Model.GarmentList
-            //{
-            //    GarmentID = 1,
-            //    Name = "Shirt",
-            //    ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Bandgalan1.png"
-            //}); ; ;
-            //lstGarmnetList.Add(new Model.GarmentList { GarmentID = 2, Name = "Trouser", ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Trouser%20Generic%201.png" });
-            //lstGarmnetList.Add(new Model.GarmentList { GarmentID = 3, Name = "2-PC Suit", ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
-            //lstGarmnetList.Add(new Model.GarmentList { GarmentID = 4, Name = "Jacket", ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
-            //lstGarmnetList.Add(new Model.GarmentList { GarmentID = 5, Name = "3-PC Suit", ImageURL = "http://" + clsSmartTailoringService.ServerIPAddress + "/Images/Shirt%20generic%201.png" });
 
             LoadGarments();
 
@@ -63,7 +54,6 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             {
                 dgvGarmnetList.ItemsSource = data;
             }
-
             else
             {
                 ObservableCollection<GarmentList> myCollection = new ObservableCollection<GarmentList>(data);
@@ -73,11 +63,15 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private void dgvGarmnetList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var SelecteGarment = e.Item as Model.GarmentList;
+            var SelecteGarment = e.Item as GarmentList;
             dgvGarmnetList.IsVisible = false;
             pnlGarmentDetails.IsVisible = true;
             txtGarmentName.Text = SelecteGarment.Name;
             picQTY.SelectedIndex = 0;
+            pGarmentID = SelecteGarment.GarmentID;
+            strPhoto = SelecteGarment.ImageURL;
+
+            Search_GarmentName.Text = "";
         }
 
         private void ViewCell_Tapped(object sender, EventArgs e)
@@ -94,7 +88,6 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
 
         private void dgvGarmnetList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
         }
 
         private void btnAdd_Clicked(object sender, EventArgs e)
@@ -103,12 +96,17 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             {
                 SelectedGarments garment = new SelectedGarments();
                 garment.Name = txtGarmentName.Text;
+                garment.GarmentID = pGarmentID;
                 garment.QTY = 1;
                 garment.IsTrail = chkTrailDate.IsChecked;
+                garment.TrailDate = chkTrailDate.IsChecked == true ? dtpTrailDate.Date : Convert.ToDateTime("1900-01-01");
+                garment.DeliveryDate = dtpDeliveryDate.Date;
+                garment.Photo = strPhoto;
+
                 lstSelectedGarment.Add(garment);
             }
-
             dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
+            pGarmentID = 0;
         }
 
         private async void btnDelete_Clicked(object sender, EventArgs e)
@@ -140,7 +138,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
                     for (int i = 0; i < lstGarmnet.Count; i++)
                     {
                         GarmentList gar = lstGarmnet[i];
-                        gar.ImageURL = clsSmartTailoringService.http + clsSmartTailoringService.ServerIPAddress + gar.ImageURL;
+                        gar.ImageURL = clsSmartTailoringService.Http + clsSmartTailoringService.ServerIPAddress + gar.ImageURL;
 
                         lstGarmnetList.Add(gar);
                     }
@@ -148,16 +146,29 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             }
             catch (Exception ex)
             {
+                var properties = new Dictionary<string, string>
+                    {
+                        { "UserID", clsSmartTailoringService.UserID.ToString() },
+                        { "UserName", clsSmartTailoringService.UserName }
+                    };
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex, properties);
+
                 Utility.WriteLog("frmOrderPage1 " + ex.ToString());
             }
-
         }
-        private void btnMeasurment_Clicked(object sender, EventArgs e)
+        private async void btnMeasurment_Clicked(object sender, EventArgs e)
         {
-            View.OrderManagement.frmOrderPage2 frmOrderPage2 = new frmOrderPage2();
-            frmOrderPage2.lstSelectedGarment = lstSelectedGarment;
-
-            Navigation.PushAsync(frmOrderPage2);
+            if (lstSelectedGarment != null && lstSelectedGarment.Count > 0)
+            {
+                View.OrderManagement.frmOrderPage2 frmOrderPage2 = new frmOrderPage2();
+                frmOrderPage2.lstSelectedGarment = lstSelectedGarment;
+                //frmOrderPage2.BindSelectedGarmentRate();
+                await Navigation.PushAsync(frmOrderPage2);
+            }
+            else
+            {
+                await DisplayAlert(Utility.strMessageTitle, "Please Select Garment", "OK");
+            }
         }
 
         private void chkTrailDate_CheckedChanged(object sender, CheckedChangedEventArgs e)

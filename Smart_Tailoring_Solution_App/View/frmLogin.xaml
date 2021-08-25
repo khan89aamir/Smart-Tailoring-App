@@ -13,15 +13,26 @@
             <Frame Margin="4" HasShadow="True" Style="{StaticResource GroupBox}" BackgroundColor="#525B72" >
                 <StackLayout>
                     <ActivityIndicator x:Name="ctrActivityIndicator" IsRunning="true" IsVisible="false" HorizontalOptions="Center" VerticalOptions="Center" />
+                    
                     <Label Text="User Name : " FontSize="Medium" FontFamily="serif" TextColor="White"></Label>
                     <Frame Margin="0" Padding="0" CornerRadius="7">
-                        <custom:StandardEntry   x:Name="txtUserName"  Placeholder="Enter User Name" FontFamily="serif"  >
+                        <custom:StandardEntry   x:Name="txtUserName"  Placeholder="Enter User Name" FontFamily="serif" Completed="txtUserName_Completed" >
                         </custom:StandardEntry>
                     </Frame>
+                    
                     <Label Margin="0,10,0,0" Text="Password : " FontSize="Medium" FontFamily="serif" TextColor="White"></Label>
                     <Frame Margin="0" Padding="0" CornerRadius="7">
-                        <custom:StandardEntry   x:Name="txtPassword"  Placeholder="Enter  Password" IsPassword="True" FontFamily="serif"  >
+                        <Grid>
+                        <custom:StandardEntry   x:Name="txtPassword"  Placeholder="Enter  Password" IsPassword="True" FontFamily="serif" Completed="txtPassword_Completed">
                         </custom:StandardEntry>
+                            <ImageButton VerticalOptions="Center"
+                             x:Name="imgPass"
+                             Margin="0,0,10,0"
+                             HeightRequest="20"
+                             HorizontalOptions="End"
+                             Source="ic_eye_hide" Clicked="ImgPass_Clicked">
+                            </ImageButton>
+                        </Grid>
                     </Frame>
 
 

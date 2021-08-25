@@ -41,11 +41,12 @@ namespace Smart_Tailoring_Solution_App
 
         private async void CheckConectionStatus()
         {
-            List<Model.ActivationDetails> lstActivationDetails = TAILORING_DB.Instance.GetActivationDetails();
+            List<ActivationDetails> lstActivationDetails = TAILORING_DB.Instance.GetActivationDetails();
             if (lstActivationDetails.Count > 0)
             {
-                Service.clsSmartTailoringService service = new Service.clsSmartTailoringService();
-                var result = await service.CheckServerConnection(lstActivationDetails[0].ServerIP);
+                clsSmartTailoringService service = new clsSmartTailoringService();
+                //var result = await service.CheckServerConnection(lstActivationDetails[0].ServerIP);
+                bool result = await service.IsServerReachable();
                 if (result)
                 {
                     lblConnectionStatus.Text = "Online";

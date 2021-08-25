@@ -12,6 +12,7 @@ namespace Smart_Tailoring_Solution_App.Model
     {
         public static int MasterGarmentID = 0;
         public static int GarmentID = 0;
+        public static string GarmentName = "";
         public static int StyleID = 0;
 
         private static object _Lock = new object();
