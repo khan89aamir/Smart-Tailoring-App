@@ -1,4 +1,5 @@
 ﻿using Smart_Tailoring_Solution_App.Model;
+using Smart_Tailoring_Solution_App.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,8 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             pnlMeasur.IsVisible = false;
             pnlStyle.IsVisible = false;
 
+            LoadBodyPostureImages();
+
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
@@ -64,6 +67,26 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             pnlLoading.IsVisible = false;
         }
 
+        private async void LoadBodyPostureImages()
+        {
+            List<Model.OrderModel.clsBodyPosture> lstBodyPostureData = new List<Model.OrderModel.clsBodyPosture>();
+            clsSmartTailoringService ObjService = new clsSmartTailoringService();
+            List<Model.OrderModel.clsBodyPosture> BodyPostureData = await ObjService.GetBodyPosture(Utility.GarmentID);
+
+            for (int i = 0; i < BodyPostureData.Count; i++)
+            {
+                Model.OrderModel.clsBodyPosture lstbody = BodyPostureData[i];
+
+                for (int j = 0; j < lstbody.lstImage.Count; j++)
+                {
+                    lstbody.lstImage[j].ImageURL = clsSmartTailoringService.Http + clsSmartTailoringService.ServerIPAddress + lstbody.lstImage[j].ImageURL;
+                }
+                lstBodyPostureData.Add(lstbody);
+            }
+
+            collstBody.ItemsSource = lstBodyPostureData;
+        }
+
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
             tabStyle.BackgroundColor = Color.FromHex("#0091D5");
@@ -78,6 +101,21 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         }
 
         private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void colBody_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TapBodyPosture_Recognizer_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TapBodyPostureImage_Recognizer_Tapped(object sender, EventArgs e)
         {
 
         }

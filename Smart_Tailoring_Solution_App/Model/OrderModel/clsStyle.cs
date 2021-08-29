@@ -9,5 +9,6 @@ namespace Smart_Tailoring_Solution_App.Model.OrderModel
         public int StyleID { get; set; }
         public string StyleName { get; set; }
         public bool IsMandatory { get; set; }
+        public List<clsImageList> lstImage { get; set; }
     }
 }

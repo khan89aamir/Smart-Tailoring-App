@@ -153,7 +153,7 @@ using System.Net.Http;using System.Text;using System.Threading.Tasks;using Sm
 
                     // get the Garment Rate Data from server
                     lstGarmentRate = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsGarmentRate>>(GarmentRateData);
-                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentRate : " + ex.ToString());                }            }            return lstGarmentRate;        }        public async Task<List<Model.SelectedGarments>> GetGarmentRateListBySelectedGarment(List<Model.SelectedGarments> lst)        {            List<SelectedGarments> lstSelected = new List<SelectedGarments>();            ArrayList arr = new ArrayList();            arr.Add(lst);            using (var client = new HttpClient())            {                try                {                    string URL = Http + ServerIPAddress + "/api/Order/GetGarmentRateListBySelectedGarment";                    // serialized the object. ( Convert to JSON string)
+                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentRate : " + ex.ToString());                }            }            return lstGarmentRate;        }        public async Task<List<SelectedGarments>> GetGarmentRateListBySelectedGarment(List<Model.SelectedGarments> lst)        {            List<SelectedGarments> lstSelected = new List<SelectedGarments>();            ArrayList arr = new ArrayList();            arr.Add(lst);            using (var client = new HttpClient())            {                try                {                    string URL = Http + ServerIPAddress + "/api/Order/GetGarmentRateListBySelectedGarment";                    // serialized the object. ( Convert to JSON string)
                     var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(arr);
                     // set the content
                     StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -173,19 +173,45 @@ using System.Net.Http;using System.Text;using System.Threading.Tasks;using Sm
 
                     // get the Garment List Data from server
                     lstGarmentList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<GarmentList>>(GarmentListData);
-                }                catch (Exception ex)                {                    Utility.WriteLog("GetGarmentList : " + ex.ToString());                }            }            return lstGarmentList;        }
+                }                catch (Exception ex)                {                    var properties = new Dictionary<string, string>
+                    {
+                        { "UserID", UserID.ToString() },
+                        { "UserName", UserName }
+                    };
+                    Microsoft.AppCenter.Crashes.Crashes.TrackError(ex, properties);                    Utility.WriteLog("GetGarmentList : " + ex.ToString());                }            }            return lstGarmentList;        }
 
         public async Task<List<Model.OrderModel.StitchType>> GetStitchType()        {            List<Model.OrderModel.StitchType> lstStitchTypeList = new List<Model.OrderModel.StitchType>();            using (var client = new HttpClient())            {                try                {                    string URL = Http + ServerIPAddress + "/api/Order/GetStitchType";                    var StitchTypeData = await client.GetStringAsync(URL);
 
                     // get the Garment List Data from server
                     lstStitchTypeList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.StitchType>>(StitchTypeData);
-                }                catch (Exception ex)                {                    Utility.WriteLog("GetStitchType : " + ex.ToString());                }            }            return lstStitchTypeList;        }
+                }                catch (Exception ex)                {                    var properties = new Dictionary<string, string>
+                    {
+                        { "UserID", UserID.ToString() },
+                        { "UserName", UserName }
+                    };
+                    Microsoft.AppCenter.Crashes.Crashes.TrackError(ex, properties);                    Utility.WriteLog("GetStitchType : " + ex.ToString());                }            }            return lstStitchTypeList;        }
 
         public async Task<List<Model.OrderModel.FitType>> GetFitType()        {            List<Model.OrderModel.FitType> lstFitTypeList = new List<Model.OrderModel.FitType>();            using (var client = new HttpClient())            {                try                {                    string URL = Http + ServerIPAddress + "/api/Order/GetFitType";                    var FitTypeData = await client.GetStringAsync(URL);
 
                     // get the Garment List Data from server
                     lstFitTypeList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.FitType>>(FitTypeData);
-                }                catch (Exception ex)                {                    Utility.WriteLog("GetFitType : " + ex.ToString());                }            }            return lstFitTypeList;        }
+                }                catch (Exception ex)                {                    var properties = new Dictionary<string, string>
+                    {
+                        { "UserID", UserID.ToString() },
+                        { "UserName", UserName }
+                    };
+                    Microsoft.AppCenter.Crashes.Crashes.TrackError(ex, properties);                    Utility.WriteLog("GetFitType : " + ex.ToString());                }            }            return lstFitTypeList;        }
+
+        public async Task<List<Model.OrderModel.clsBodyPosture>> GetBodyPosture(int pGarmentID)        {            List<Model.OrderModel.clsBodyPosture> lstBodyPosture = new List<Model.OrderModel.clsBodyPosture>();            using (var client = new HttpClient())            {                try                {                    string URL = Http + ServerIPAddress + "/api/Order/GetBodyPosture?GarmentID=" + pGarmentID;                    var BodyPostureTypeData = await client.GetStringAsync(URL);
+
+                    lstBodyPosture = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.OrderModel.clsBodyPosture>>(BodyPostureTypeData);
+                }                catch (Exception ex)                {                    var properties = new Dictionary<string, string>
+                    {
+                        { "UserID", UserID.ToString() },
+                        { "UserName", UserName },
+                        { "GarmentID", pGarmentID.ToString() }
+                    };
+                    Microsoft.AppCenter.Crashes.Crashes.TrackError(ex, properties);                    Utility.WriteLog("GetBodyPosture : " + ex.ToString());                }            }            return lstBodyPosture;        }
 
         //Testing
         public async Task<bool> SetMeasurementStyle(Model.OrderModel.clsMeasurment measure, Model.OrderModel.clsStyle style)        {            bool conresult = false;            using (var client = new HttpClient())            {                try                {

@@ -8,5 +8,6 @@ namespace Smart_Tailoring_Solution_App.Model.OrderModel
     {
         public int BodyPostureID { get; set; }
         public string BodyPostureType { get; set; }
+        public List<clsImageList> lstImage { get; set; }
     }
 }
