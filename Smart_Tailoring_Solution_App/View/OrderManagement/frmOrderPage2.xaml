@@ -86,7 +86,7 @@
                                             <!--Row : 1, -Col : 1 -->
                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1"  >
                                                 <Label VerticalOptions="Center"   Text="Trim amt : " Style="{StaticResource TextStyle}"  ></Label>
-                                                <Entry  x:Name="txtTrimAmount" Text="0" Keyboard="Numeric" Style="{StaticResource TextStyle}" TextChanged="txtTrimAmount_TextChanged"></Entry>
+                                                <Entry  x:Name="txtTrimAmount" Text="{Binding TrimAmount}" Keyboard="Numeric" Style="{StaticResource TextStyle}" TextChanged="txtTrimAmount_TextChanged"></Entry>
 
                                             </StackLayout>
 

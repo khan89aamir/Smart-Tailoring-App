@@ -43,6 +43,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             {
                 dgvGarmnetList.IsVisible = true;
             }
+
             //thats all you need to make a search
             IList<GarmentList> data = lstGarmnetList.Where(p =>
                        p.Name != null &&
@@ -52,7 +53,9 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             int count = data.Count;
             if (string.IsNullOrEmpty(e.NewTextValue))
             {
-                dgvGarmnetList.ItemsSource = data;
+                dgvGarmnetList.IsVisible = false;
+                pnlGarmentDetails.IsVisible = true;
+                //dgvGarmnetList.ItemsSource = data;
             }
             else
             {
@@ -99,14 +102,22 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
                 garment.GarmentID = pGarmentID;
                 garment.QTY = 1;
                 garment.IsTrail = chkTrailDate.IsChecked;
-                garment.TrailDate = chkTrailDate.IsChecked == true ? dtpTrailDate.Date : Convert.ToDateTime("1900-01-01");
+                garment.TrailDate = dtpTrailDate.Date;
                 garment.DeliveryDate = dtpDeliveryDate.Date;
                 garment.Photo = strPhoto;
 
                 lstSelectedGarment.Add(garment);
             }
             dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
+            ClearGarment();
+        }
+
+        private void ClearGarment()
+        {
             pGarmentID = 0;
+            strPhoto = string.Empty;
+            txtGarmentName.Text = string.Empty;
+            chkTrailDate.IsChecked = false;
         }
 
         private async void btnDelete_Clicked(object sender, EventArgs e)

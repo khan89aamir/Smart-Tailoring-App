@@ -88,7 +88,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             await Navigation.PushAsync(frmSKU);
         }
 
-        private void cmbService_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cmbService_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -113,7 +113,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             }
             catch (Exception ex)
             {
-                DisplayAlert(ex.Message, ex.ToString(), "Ok");
+                await DisplayAlert(ex.Message, ex.ToString(), "Ok");
             }
         }
 
