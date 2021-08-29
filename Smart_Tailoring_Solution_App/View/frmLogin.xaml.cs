@@ -18,7 +18,7 @@ namespace Smart_Tailoring_Solution_App.View
         {
             InitializeComponent();
 
-            clsSmartTailoringService.ServerIPAddress = "100.78.171.164:3720";
+            clsSmartTailoringService.ServerIPAddress = "192.168.43.51";
 
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) =>
