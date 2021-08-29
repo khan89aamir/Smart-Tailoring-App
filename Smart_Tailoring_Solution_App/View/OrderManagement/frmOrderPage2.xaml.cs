@@ -37,6 +37,27 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
         private async void BindSelectedGarmentRate()
         {
             lstSelectedGarment = await service.GetGarmentRateListBySelectedGarment(lstSelectedGarment);
+            if (lstSelectedGarment!=null)
+            {
+                for (int i = 0; i < lstSelectedGarment.Count; i++)
+                {
+                    SelectedGarments item = lstSelectedGarment[i];
+
+                    // Set the OrderType to the selected Product.
+                    //item.OrderTypeID = 0;
+
+                    if (lstSelectedGarment[i].lstGarmentRate != null && lstSelectedGarment[i].lstGarmentRate.Count > 0)
+                    {
+                        var lst = lstSelectedGarment[i].lstGarmentRate.Where(g => g.GarmentID == item.GarmentID && g.OrderTypeID == 0).First();
+
+                        item.OrderTypeID = lst.OrderTypeID;
+                        item.OrderType = lst.OrderType;
+                        item.Rate = lst.Rate;
+                        item.GarmentCode = lst.GarmentCode;
+                    }
+                }
+            }
+            dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
         }
 
         protected override void OnAppearing()
@@ -46,32 +67,17 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             ShowHideLoading(true);
 
             BindSelectedGarmentRate();
-            lstDefaultBindOrderType();
+           // lstDefaultBindOrderType();
 
             ShowHideLoading(false);
 
-            dgvAddedGarmnet.ItemsSource = lstSelectedGarment;
+         
         }
+       
 
         private void lstDefaultBindOrderType()
         {
-            for (int i = 0; i < lstSelectedGarment.Count; i++)
-            {
-                SelectedGarments item = lstSelectedGarment[i];
-
-                // Set the OrderType to the selected Product.
-                //item.OrderTypeID = 0;
-
-                if (lstSelectedGarment[i].lstGarmentRate != null && lstSelectedGarment[i].lstGarmentRate.Count > 0)
-                {
-                    var lst = lstSelectedGarment[i].lstGarmentRate.Where(g => g.GarmentID == item.GarmentID && g.OrderTypeID == 0).First();
-
-                    item.OrderTypeID = lst.OrderTypeID;
-                    item.OrderType = lst.OrderType;
-                    item.Rate = lst.Rate;
-                    item.GarmentCode = lst.GarmentCode;
-                }
-            }
+           
         }
 
         private void chkTrailDate_CheckedChanged(object sender, CheckedChangedEventArgs e)

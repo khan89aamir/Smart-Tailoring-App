@@ -15,7 +15,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
     public partial class frmOrderPage1 : ContentPage
     {
         ObservableCollection<GarmentList> lstGarmnetList;
-        List<SelectedGarments> lstSelectedGarment = new List<SelectedGarments>();
+        ObservableCollection<SelectedGarments> lstSelectedGarment = new ObservableCollection<SelectedGarments>();
 
         ViewCell lastCell;
 
@@ -172,7 +172,7 @@ namespace Smart_Tailoring_Solution_App.View.OrderManagement
             if (lstSelectedGarment != null && lstSelectedGarment.Count > 0)
             {
                 View.OrderManagement.frmOrderPage2 frmOrderPage2 = new frmOrderPage2();
-                frmOrderPage2.lstSelectedGarment = lstSelectedGarment;
+                frmOrderPage2.lstSelectedGarment = lstSelectedGarment.ToList();
                 //frmOrderPage2.BindSelectedGarmentRate();
                 await Navigation.PushAsync(frmOrderPage2);
             }
